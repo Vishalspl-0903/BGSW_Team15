@@ -1,0 +1,267 @@
+{
+  "$defs": {
+    "ActorType": {
+      "enum": [
+        "SYSTEM",
+        "HUMAN",
+        "LLM",
+        "TOOL"
+      ],
+      "title": "ActorType",
+      "type": "string"
+    },
+    "ApprovalDecision": {
+      "enum": [
+        "APPROVE",
+        "REJECT",
+        "REVOKE"
+      ],
+      "title": "ApprovalDecision",
+      "type": "string"
+    },
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "description": "Human decision bound to an exact proposal digest (\u00a76.12, \u00a722.2).",
+      "properties": {
+        "audit_result_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Audit Result Id"
+        },
+        "commit_sha": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Commit Sha"
+        },
+        "decided_at": {
+          "title": "Decided At",
+          "type": "string"
+        },
+        "decision": {
+          "$ref": "#/$defs/ApprovalDecision"
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expires At"
+        },
+        "lockfile_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Lockfile Sha256"
+        },
+        "policy_version": {
+          "minimum": 1,
+          "title": "Policy Version",
+          "type": "integer"
+        },
+        "proposal_id": {
+          "title": "Proposal Id",
+          "type": "string"
+        },
+        "proposal_sha256": {
+          "title": "Proposal Sha256",
+          "type": "string"
+        },
+        "reviewer_label": {
+          "title": "Reviewer Label",
+          "type": "string"
+        },
+        "reviewer_role": {
+          "title": "Reviewer Role",
+          "type": "string"
+        },
+        "revokes_event_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Revokes Event Id"
+        },
+        "scan_id": {
+          "title": "Scan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "decision",
+        "reviewer_label",
+        "reviewer_role",
+        "scan_id",
+        "proposal_id",
+        "proposal_sha256",
+        "audit_result_id",
+        "commit_sha",
+        "lockfile_sha256",
+        "policy_version",
+        "decided_at",
+        "expires_at"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "WorkflowState": {
+      "description": "\u00a79.6 state machine (+ INCONCLUSIVE from \u00a722.3).",
+      "enum": [
+        "CREATED",
+        "ACQUIRING",
+        "INDEXING",
+        "INVENTORY_READY",
+        "DETECTING",
+        "FINDINGS_READY",
+        "ANALYZING",
+        "ANALYZED",
+        "PROPOSING",
+        "AUDITING",
+        "REVIEW_PENDING",
+        "REJECTED",
+        "APPROVED",
+        "VALIDATING",
+        "VERIFIED",
+        "FAILED",
+        "BLOCKED",
+        "INCONCLUSIVE"
+      ],
+      "title": "WorkflowState",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/Event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_label": {
+      "title": "Actor Label",
+      "type": "string"
+    },
+    "actor_type": {
+      "$ref": "#/$defs/ActorType"
+    },
+    "approval": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ApprovalRecord"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_type": {
+      "title": "Event Type",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "message": {
+      "title": "Message",
+      "type": "string"
+    },
+    "next_state": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/WorkflowState"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "previous_state": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/WorkflowState"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "related_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Related Ids",
+      "type": "array"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "timestamp": {
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "workflow_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Workflow Id"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scan_id",
+    "event_id",
+    "timestamp",
+    "actor_type",
+    "actor_label",
+    "event_type",
+    "previous_state",
+    "next_state",
+    "related_ids",
+    "evidence_ids",
+    "message"
+  ],
+  "title": "Event",
+  "type": "object"
+}

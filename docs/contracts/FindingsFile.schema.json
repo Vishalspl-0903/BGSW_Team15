@@ -1,0 +1,330 @@
+{
+  "$defs": {
+    "Disposition": {
+      "description": "\u00a78.1 disposition (schema 1.0 addition on Finding).",
+      "enum": [
+        "OPEN",
+        "NEEDS_REVIEW",
+        "PROPOSED_FIX",
+        "ACCEPTED_RISK",
+        "RESOLVED_VERIFIED",
+        "NOT_APPLICABLE_VERIFIED"
+      ],
+      "title": "Disposition",
+      "type": "string"
+    },
+    "EvidenceBasis": {
+      "enum": [
+        "TOOL_OBSERVED",
+        "CORROBORATED",
+        "RULE_MATCH",
+        "INFERRED",
+        "UNKNOWN"
+      ],
+      "title": "EvidenceBasis",
+      "type": "string"
+    },
+    "ExecutionEvidence": {
+      "enum": [
+        "CONFIRMED",
+        "POTENTIAL",
+        "NOT_ESTABLISHED",
+        "NOT_ANALYZED"
+      ],
+      "title": "ExecutionEvidence",
+      "type": "string"
+    },
+    "ExecutionStage": {
+      "enum": [
+        "INSTALL",
+        "BUILD",
+        "CI",
+        "RUNTIME",
+        "DEV_TEST",
+        "UNKNOWN"
+      ],
+      "title": "ExecutionStage",
+      "type": "string"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "advisory_aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Advisory Aliases",
+          "type": "array"
+        },
+        "advisory_as_of": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Advisory As Of"
+        },
+        "advisory_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Advisory Ids",
+          "type": "array"
+        },
+        "advisory_urls": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Advisory Urls",
+          "type": "array"
+        },
+        "classification": {
+          "$ref": "#/$defs/FindingClass"
+        },
+        "cvss_score": {
+          "anyOf": [
+            {
+              "maximum": 10.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Cvss Score"
+        },
+        "dependency_path_node_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependency Path Node Ids",
+          "type": "array"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "disposition": {
+          "$ref": "#/$defs/Disposition",
+          "default": "OPEN"
+        },
+        "evidence_basis": {
+          "$ref": "#/$defs/EvidenceBasis"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "execution_evidence": {
+          "$ref": "#/$defs/ExecutionEvidence"
+        },
+        "execution_stage": {
+          "$ref": "#/$defs/ExecutionStage"
+        },
+        "finding_id": {
+          "title": "Finding Id",
+          "type": "string"
+        },
+        "finding_type": {
+          "$ref": "#/$defs/FindingType"
+        },
+        "first_seen_in": {
+          "$ref": "#/$defs/FirstSeenIn"
+        },
+        "module_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Module Ids",
+          "type": "array"
+        },
+        "occurrence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Occurrence Ids",
+          "type": "array"
+        },
+        "path_status": {
+          "$ref": "#/$defs/PathStatus"
+        },
+        "priority": {
+          "$ref": "#/$defs/Priority"
+        },
+        "recommendations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recommendations",
+          "type": "array"
+        },
+        "rule_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Rule Id"
+        },
+        "scan_id": {
+          "title": "Scan Id",
+          "type": "string"
+        },
+        "scanner_names": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Scanner Names",
+          "type": "array"
+        },
+        "schema_version": {
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "severity_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Severity Label"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "uncertainties": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Uncertainties",
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "scan_id",
+        "finding_id",
+        "finding_type",
+        "title",
+        "description",
+        "module_ids",
+        "occurrence_ids",
+        "advisory_ids",
+        "advisory_urls",
+        "rule_id",
+        "severity_label",
+        "cvss_score",
+        "priority",
+        "evidence_ids",
+        "dependency_path_node_ids",
+        "path_status",
+        "execution_stage",
+        "execution_evidence",
+        "evidence_basis",
+        "uncertainties",
+        "recommendations",
+        "classification",
+        "advisory_aliases",
+        "first_seen_in",
+        "advisory_as_of",
+        "scanner_names"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "FindingClass": {
+      "enum": [
+        "CONFIRMED_ADVISORY",
+        "SUSPICIOUS_INDICATOR",
+        "CONFIGURATION_WEAKNESS",
+        "COVERAGE_LIMITATION"
+      ],
+      "title": "FindingClass",
+      "type": "string"
+    },
+    "FindingType": {
+      "enum": [
+        "VULNERABILITY",
+        "SUSPICIOUS_CHANGE",
+        "CI_POLICY",
+        "CONTAINER_POLICY",
+        "COVERAGE_GAP"
+      ],
+      "title": "FindingType",
+      "type": "string"
+    },
+    "FirstSeenIn": {
+      "enum": [
+        "REAL_UPSTREAM",
+        "SEEDED_SIMULATION",
+        "LOCAL_FIXTURE"
+      ],
+      "title": "FirstSeenIn",
+      "type": "string"
+    },
+    "PathStatus": {
+      "description": "Finding.path_status values (\u00a79.2).",
+      "enum": [
+        "FOUND",
+        "NO_KNOWN_PATH",
+        "UNRESOLVED",
+        "NOT_APPLICABLE"
+      ],
+      "title": "PathStatus",
+      "type": "string"
+    },
+    "Priority": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "NEEDS_REVIEW",
+        "UNASSESSED"
+      ],
+      "title": "Priority",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/FindingsFile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scan_id",
+    "findings"
+  ],
+  "title": "FindingsFile",
+  "type": "object"
+}

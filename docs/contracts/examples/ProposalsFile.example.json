@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "fixture-m1",
+  "proposals": [
+    {
+      "schema_version": "1.0",
+      "scan_id": "fixture-m1",
+      "proposal_id": "prop:1",
+      "finding_ids": [
+        "find:mock-adv-tiny-helper"
+      ],
+      "target_module_id": "mod:root",
+      "strategy": "OVERRIDE",
+      "candidate_changes": [
+        {
+          "relative_path": "package.json",
+          "change_description": "add overrides.tiny-helper = 2.0.1",
+          "before_hash": "32a22da351734391cad0569e0936dbdd4aa8f31e4d7fcc604ffd9007de540724",
+          "after_hash": null
+        }
+      ],
+      "proposed_version": "2.0.1",
+      "rationale": "EXAMPLE ONLY - mock advisory, not a real vulnerability",
+      "evidence_ids": [
+        "ev:lock-helper"
+      ],
+      "expected_validation": [
+        "npm ci --ignore-scripts in sandbox",
+        "npm test",
+        "rescan"
+      ],
+      "status": "AUDITED",
+      "audit_result_id": "aud:1",
+      "approval_event_id": null
+    }
+  ],
+  "audit_results": [
+    {
+      "audit_result_id": "aud:1",
+      "proposal_id": "prop:1",
+      "candidate_package_key": "npm:tiny-helper@2.0.1",
+      "known_advisories": [],
+      "new_dependency_count": 0,
+      "install_script_indicators": [],
+      "integrity_indicators": [],
+      "behavior_checks": [],
+      "blocking_issues": [],
+      "evidence_ids": [
+        "ev:lock-helper"
+      ],
+      "verdict": "ALLOW_REVIEW"
+    }
+  ]
+}

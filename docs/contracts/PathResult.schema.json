@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "PathQueryStatus": {
+      "description": "Graph path query statuses (\u00a77.7).",
+      "enum": [
+        "FOUND",
+        "NO_KNOWN_PATH",
+        "UNRESOLVED",
+        "TRUNCATED",
+        "NOT_FOUND"
+      ],
+      "title": "PathQueryStatus",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/PathResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edge_evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Edge Evidence Ids",
+      "type": "array"
+    },
+    "edge_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Edge Ids",
+      "type": "array"
+    },
+    "module_id": {
+      "title": "Module Id",
+      "type": "string"
+    },
+    "node_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Node Ids",
+      "type": "array"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/PathQueryStatus"
+    },
+    "target_occurrence_id": {
+      "title": "Target Occurrence Id",
+      "type": "string"
+    },
+    "truncated": {
+      "title": "Truncated",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "scan_id",
+    "module_id",
+    "target_occurrence_id",
+    "status",
+    "node_ids",
+    "edge_ids",
+    "edge_evidence_ids",
+    "truncated"
+  ],
+  "title": "PathResult",
+  "type": "object"
+}

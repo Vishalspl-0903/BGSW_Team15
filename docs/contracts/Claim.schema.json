@@ -1,0 +1,67 @@
+{
+  "$defs": {
+    "ClaimBasis": {
+      "enum": [
+        "VERIFIED",
+        "INFERRED",
+        "UNKNOWN"
+      ],
+      "title": "ClaimBasis",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/Claim.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "basis": {
+      "$ref": "#/$defs/ClaimBasis"
+    },
+    "claim_id": {
+      "title": "Claim Id",
+      "type": "string"
+    },
+    "claim_type": {
+      "title": "Claim Type",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "text": {
+      "title": "Text",
+      "type": "string"
+    },
+    "validated": {
+      "title": "Validated",
+      "type": "boolean"
+    },
+    "validation_errors": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Validation Errors",
+      "type": "array"
+    }
+  },
+  "required": [
+    "claim_id",
+    "scan_id",
+    "text",
+    "claim_type",
+    "evidence_ids",
+    "basis",
+    "validated",
+    "validation_errors"
+  ],
+  "title": "Claim",
+  "type": "object"
+}

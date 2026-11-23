@@ -1,0 +1,110 @@
+{
+  "$defs": {
+    "StageStatus": {
+      "enum": [
+        "NOT_RUN",
+        "RUNNING",
+        "COMPLETE",
+        "PARTIAL",
+        "FAILED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/StageRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "\u00a718.3 explicit per-stage record.  ``null`` means unknown, never zero.",
+  "properties": {
+    "attempted": {
+      "title": "Attempted",
+      "type": "boolean"
+    },
+    "completed_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Completed At"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "known_matches": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Known Matches"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reason"
+    },
+    "stage": {
+      "title": "Stage",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus"
+    },
+    "tool": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Tool"
+    },
+    "tool_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Tool Version"
+    }
+  },
+  "required": [
+    "stage",
+    "status",
+    "attempted",
+    "tool",
+    "tool_version",
+    "reason",
+    "completed_at",
+    "known_matches",
+    "evidence_ids"
+  ],
+  "title": "StageRecord",
+  "type": "object"
+}

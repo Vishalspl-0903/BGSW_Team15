@@ -1,0 +1,20 @@
+{
+  "scan_id": "fixture-m1",
+  "module_id": "mod:root",
+  "target_occurrence_id": "occ:root-tiny-helper",
+  "status": "FOUND",
+  "node_ids": [
+    "mod:root",
+    "occ:root-example-web",
+    "occ:root-tiny-helper"
+  ],
+  "edge_ids": [
+    "edge:root-web",
+    "edge:web-helper"
+  ],
+  "edge_evidence_ids": [
+    "ev:manifest-root",
+    "ev:lock-helper"
+  ],
+  "truncated": false
+}

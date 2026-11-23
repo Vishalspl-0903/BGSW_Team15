@@ -1,0 +1,150 @@
+{
+  "$defs": {
+    "Coverage": {
+      "enum": [
+        "RESOLVED",
+        "PARTIAL",
+        "DECLARED_ONLY",
+        "UNSUPPORTED",
+        "FAILED",
+        "NOT_RUN"
+      ],
+      "title": "Coverage",
+      "type": "string"
+    },
+    "ProjectModule": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_sbom_status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "ci_files": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Ci Files",
+          "type": "array"
+        },
+        "coverage": {
+          "$ref": "#/$defs/Coverage"
+        },
+        "coverage_reason": {
+          "title": "Coverage Reason",
+          "type": "string"
+        },
+        "dockerfiles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dockerfiles",
+          "type": "array"
+        },
+        "ecosystem": {
+          "title": "Ecosystem",
+          "type": "string"
+        },
+        "file_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "File Counts",
+          "type": "object"
+        },
+        "lockfiles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Lockfiles",
+          "type": "array"
+        },
+        "manifests": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Manifests",
+          "type": "array"
+        },
+        "module_id": {
+          "title": "Module Id",
+          "type": "string"
+        },
+        "relative_path": {
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "scan_stage": {
+          "additionalProperties": {
+            "$ref": "#/$defs/StageStatus"
+          },
+          "title": "Scan Stage",
+          "type": "object"
+        },
+        "scanner_names": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Scanner Names",
+          "type": "array"
+        }
+      },
+      "required": [
+        "module_id",
+        "relative_path",
+        "ecosystem",
+        "manifests",
+        "lockfiles",
+        "ci_files",
+        "dockerfiles",
+        "coverage",
+        "coverage_reason",
+        "scanner_names",
+        "file_counts",
+        "scan_stage",
+        "artifact_sbom_status"
+      ],
+      "title": "ProjectModule",
+      "type": "object"
+    },
+    "StageStatus": {
+      "enum": [
+        "NOT_RUN",
+        "RUNNING",
+        "COMPLETE",
+        "PARTIAL",
+        "FAILED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/ModuleIndex.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "modules": {
+      "items": {
+        "$ref": "#/$defs/ProjectModule"
+      },
+      "title": "Modules",
+      "type": "array"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scan_id",
+    "modules"
+  ],
+  "title": "ModuleIndex",
+  "type": "object"
+}

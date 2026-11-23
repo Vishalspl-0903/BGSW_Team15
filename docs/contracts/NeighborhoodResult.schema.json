@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "GraphEdgeRef": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "relationship": {
+          "$ref": "#/$defs/Relationship"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "target_id",
+        "relationship"
+      ],
+      "title": "GraphEdgeRef",
+      "type": "object"
+    },
+    "GraphNodeRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "repository",
+            "module",
+            "occurrence",
+            "component_identity",
+            "artifact"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "label"
+      ],
+      "title": "GraphNodeRef",
+      "type": "object"
+    },
+    "Relationship": {
+      "description": "Edge types from \u00a77.1.",
+      "enum": [
+        "CONTAINS_MODULE",
+        "DECLARES",
+        "DEPENDS_ON",
+        "BUILDS_FROM",
+        "OBSERVED_IN",
+        "INVOKES_DURING_BUILD",
+        "INVOKES_DURING_INSTALL",
+        "MAY_INVOKE"
+      ],
+      "title": "Relationship",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/NeighborhoodResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coverage_notice": {
+      "title": "Coverage Notice",
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "dependents",
+        "dependencies",
+        "both"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/GraphEdgeRef"
+      },
+      "maxItems": 600,
+      "title": "Edges",
+      "type": "array"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "#/$defs/GraphNodeRef"
+      },
+      "maxItems": 300,
+      "title": "Nodes",
+      "type": "array"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "selected_occurrence_id": {
+      "title": "Selected Occurrence Id",
+      "type": "string"
+    },
+    "truncated": {
+      "title": "Truncated",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "scan_id",
+    "selected_occurrence_id",
+    "direction",
+    "nodes",
+    "edges",
+    "truncated",
+    "coverage_notice"
+  ],
+  "title": "NeighborhoodResult",
+  "type": "object"
+}

@@ -302,10 +302,8 @@ def _restore_evidence(path: Path, earlier: list[str]) -> None:
     ids = {json.loads(line).get("evidence_id") for line in current if line.strip()}
     missing = [line for line in earlier if line.strip() and json.loads(line).get("evidence_id") not in ids]
     if missing:
-        with path.open("a", encoding="utf-8", newline="
-") as fh:
-            fh.write("".join(line + "
-" for line in missing))
+        with path.open("a", encoding="utf-8", newline="\n") as fh:
+            fh.write("".join(line + "\n" for line in missing))
 
 
 def _prepare_out(out: Path) -> str | None:

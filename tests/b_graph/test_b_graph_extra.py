@@ -88,7 +88,8 @@ def test_peer_optional_devoptional_bundled_install_script_preserved(tmp_path):
     graph, store = build_graph_with_evidence("s1", str(tmp_path), [mod()], use_syft=False)
     pairs = edge_pairs(graph)
     assert {("host@1.0.0", "plug@1.2.0"), ("<root>", "fsevents@2.0.0"), ("bund@1.0.0", "inner@1.0.0")} <= pairs
-    edge_scope = {(e["source_id"], e["target_id"]): e["dependency_scope"] for e in graph["edges"]}
+    raw_graph = graph.model_dump(mode="json") if hasattr(graph, "model_dump") else graph
+    edge_scope = {(e["source_id"], e["target_id"]): e["dependency_scope"] for e in raw_graph["edges"]}
     host = comp_by_name(graph, "host")[0]
     plug = comp_by_name(graph, "plug")[0]
     assert edge_scope[(host["occurrence_id"], plug["occurrence_id"])] == "peer"
@@ -96,7 +97,7 @@ def test_peer_optional_devoptional_bundled_install_script_preserved(tmp_path):
     assert comp_by_name(graph, "dopt")[0]["dependency_scopes"] == ["development"]
     assert host["install_stage_indicator"] == "HAS_INSTALL_SCRIPT"
     assert comp_by_name(graph, "inner")[0]["directness"] == "TRANSITIVE"
-    assert not any("opt-peer" in w for w in graph["warnings"])          # absent optional peer is not a gap
+    assert not any("opt-peer" in w for w in raw_graph["warnings"])          # absent optional peer is not a gap
     # platform facts are preserved in evidence, not silently dropped
     fs_ev = store.records[comp_by_name(graph, "fsevents")[0]["evidence_ids"][0]]["observed_value"]
     assert fs_ev["os"] == ["darwin"] and fs_ev["cpu"] == ["arm64"] and fs_ev["optional"] is True
@@ -218,9 +219,10 @@ def test_failed_module_keeps_raw_evidence_and_others(tmp_path):
     (repo / "junk" / "package.json").write_text("{}")
     (repo / "junk" / "package-lock.json").write_bytes(b"{ truncated")
     graph, store = build_graph_with_evidence("s1", str(repo), [mod("ok"), mod("bad"), mod("junk")], str(run), use_syft=False)
-    cov = {m["relative_path"]: m["coverage"] for m in graph["modules"]}
+    raw_graph = graph.model_dump(mode="json") if hasattr(graph, "model_dump") else graph
+    cov = {m["relative_path"]: m["coverage"] for m in raw_graph["modules"]}
     assert cov == {"ok": "RESOLVED", "bad": "FAILED", "junk": "FAILED"}
-    assert comp_by_name(graph, "x") and graph["coverage_summary"]["failed_modules"] == 2
+    assert comp_by_name(graph, "x") and raw_graph["coverage_summary"]["failed_modules"] == 2
     raws = sorted(p.name for p in (run / "raw").glob("lockfile-failed-*.json"))
     assert len(raws) == 2
     failed = [r for r in store.records.values() if r["observation"].startswith("lockfile could not be parsed")]
@@ -265,8 +267,9 @@ def _reference_path(db_path, scan_id, module_id, occurrence_id):
 
 
 def _assert_same(d, graph):
-    for m in graph["modules"]:
-        for c in graph["components"]:
+    raw_graph = graph.model_dump(mode="json") if hasattr(graph, "model_dump") else graph
+    for m in raw_graph["modules"]:
+        for c in raw_graph["components"]:
             new = get_dependency_path(d, "s1", m["module_id"], c["occurrence_id"])
             old = _reference_path(d, "s1", m["module_id"], c["occurrence_id"])
             assert (new["status"], new["node_ids"], new["edge_ids"]) == old

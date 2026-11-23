@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "scan-ffff0b47d5cb447cb4f45bf7b1dedd60",
+  "repo_url": "local://fixture/sandbox/sample-app",
+  "commit_sha": null,
+  "source_kind": "LOCAL_FIXTURE",
+  "started_at": "2026-11-23T11:36:59.817336Z",
+  "finished_at": "2026-11-23T11:37:00.031676Z",
+  "status": "PARTIAL",
+  "tool_versions": {
+    "python": "3.11.9"
+  },
+  "errors": [],
+  "stage_statuses": {
+    "intake": "COMPLETE",
+    "inventory": "COMPLETE",
+    "graph": "COMPLETE",
+    "advisory": "BLOCKED",
+    "detectors": "COMPLETE",
+    "analysis": "COMPLETE",
+    "vulnerability_intelligence": "BLOCKED",
+    "ci_workflow_policy": "COMPLETE",
+    "lockfile_change_detection": "NOT_RUN"
+  },
+  "database_snapshots": {},
+  "source_snapshot_sha256": "f5d4a764e1fa0187c9f818faa4aa2289b5a1f9d7d092fba434b37d992e1df96e",
+  "scope_capabilities": {
+    "artifact": "NOT_RUN: no container image analyzed",
+    "source": "2 occurrences, 2 edges from B's graph builder; coverage {'total_modules': 1, 'resolved_modules': 1, 'partial_modules': 0, 'declared_only_modules': 0, 'unsupported_modules': 0, 'failed_modules': 0}",
+    "ci": "1 workflow file(s) discovered; analysis depends on E's detectors"
+  },
+  "stage_records": {
+    "intake": {
+      "stage": "intake",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.cli local snapshot",
+      "tool_version": null,
+      "reason": null,
+      "completed_at": "2026-11-23T11:36:59.836694Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "inventory": {
+      "stage": "inventory",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.module_index",
+      "tool_version": null,
+      "reason": null,
+      "completed_at": "2026-11-23T11:36:59.844038Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "graph": {
+      "stage": "graph",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.analysis.graph_build",
+      "tool_version": null,
+      "reason": null,
+      "completed_at": "2026-11-23T11:36:59.903473Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "advisory": {
+      "stage": "advisory",
+      "status": "BLOCKED",
+      "attempted": false,
+      "tool": "grype",
+      "tool_version": null,
+      "reason": "no sbom/ directory in the run folder (B's source SBOM is required)",
+      "completed_at": null,
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "detectors": {
+      "stage": "detectors",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian-d5-ci",
+      "tool_version": "1.0.0",
+      "reason": null,
+      "completed_at": "2026-11-23T11:36:59Z",
+      "known_matches": 0,
+      "evidence_ids": []
+    },
+    "analysis": {
+      "stage": "analysis",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.analysis.scoring + analyst (LLM_MODE=disabled templates)",
+      "tool_version": null,
+      "reason": null,
+      "completed_at": "2026-11-23T11:37:00.029688Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "vulnerability_intelligence": {
+      "stage": "vulnerability_intelligence",
+      "status": "BLOCKED",
+      "attempted": false,
+      "tool": "grype",
+      "tool_version": null,
+      "reason": "no sbom/ directory in the run folder (B's source SBOM is required)",
+      "completed_at": null,
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "ci_workflow_policy": {
+      "stage": "ci_workflow_policy",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian-d5-ci",
+      "tool_version": "1.0.0",
+      "reason": null,
+      "completed_at": "2026-11-23T11:36:59Z",
+      "known_matches": 0,
+      "evidence_ids": []
+    },
+    "lockfile_change_detection": {
+      "stage": "lockfile_change_detection",
+      "status": "NOT_RUN",
+      "attempted": false,
+      "tool": "guardian-d1-lockfile",
+      "tool_version": null,
+      "reason": "no baseline ref supplied; change detection needs a baseline",
+      "completed_at": null,
+      "known_matches": null,
+      "evidence_ids": []
+    }
+  }
+}

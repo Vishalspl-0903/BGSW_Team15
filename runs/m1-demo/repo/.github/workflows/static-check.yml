@@ -1,0 +1,8 @@
+name: Controlled static fixture
+on: [push]
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@0000000000000000000000000000000000000000
+      - run: echo "inert fixture"

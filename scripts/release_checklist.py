@@ -55,8 +55,10 @@ def main() -> int:
 
     # 3. Target Run Directory Artifacts (§16.5)
     print("\n--- 3. Target Run Artifact Completeness ---")
-    run_files = ["graph.json", "sbom.cdx.json", "vulnerabilities.json", "metadata.json", "findings.json"]
+    run_files = ["graph.json", "metadata.json", "findings.json"]
     run_files_ok = all((run_dir / f).is_file() for f in run_files)
+    sbom_candidates = [run_dir / "sbom" / "source.syft.json", run_dir / "sbom" / "syft.cdx.json", run_dir / "sbom.cdx.json"]
+    run_files_ok = run_files_ok and any(p.is_file() and p.stat().st_size > 0 for p in sbom_candidates)
     all_passed &= check(f"Required run artifacts present in {run_dir.name}", run_files_ok)
 
     # 4. Dependency Graph Integrity
@@ -66,7 +68,7 @@ def main() -> int:
         with open(graph_path, "r", encoding="utf-8") as f:
             g = json.load(f)
         has_edges = bool(g.get("edges"))
-        has_nodes = bool(g.get("nodes") or g.get("components"))
+        has_nodes = bool(g.get("components"))
         all_passed &= check("Graph contains direct and transitive edges (not flat list)", has_edges and has_nodes)
     else:
         all_passed &= check("Graph file loadable", False, "Missing graph.json")
@@ -78,12 +80,27 @@ def main() -> int:
         with open(find_path, "r", encoding="utf-8") as f:
             find_data = json.load(f)
         findings = find_data.get("findings", [])
-        has_cve = any(f.get("classification") == "CONFIRMED_ADVISORY" or f.get("finding_type") == "VULNERABILITY" for f in findings)
-        has_non_cve = any(f.get("classification") in ("SUSPICIOUS_INDICATOR", "CONFIGURATION_WEAKNESS") for f in findings)
+        has_cve = any(f.get("finding_class") == "CONFIRMED_ADVISORY" or f.get("classification") == "CONFIRMED_ADVISORY" or f.get("finding_type") == "VULNERABILITY" for f in findings)
+        has_non_cve = any(f.get("finding_class") in ("SUSPICIOUS_INDICATOR", "CONFIGURATION_WEAKNESS") or f.get("classification") in ("SUSPICIOUS_INDICATOR", "CONFIGURATION_WEAKNESS") for f in findings)
         all_passed &= check("Includes confirmed CVE/advisory with evidence", has_cve)
         all_passed &= check("Includes at least one non-CVE suspicious change / config indicator", has_non_cve)
     else:
         all_passed &= check("Findings data present", False, "Missing findings.json")
+
+    # A complete status is only credible when the graph is populated and the
+    # machine-readable SBOM expected by the current adapters is present.
+    metadata_path = run_dir / "metadata.json"
+    if metadata_path.is_file():
+        try:
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+            if metadata.get("status") == "COMPLETE":
+                sbom_candidates = [run_dir / "sbom" / "source.syft.json", run_dir / "sbom" / "syft.cdx.json"]
+                sbom_ok = any(p.is_file() and p.stat().st_size > 0 for p in sbom_candidates)
+                all_passed &= check("Complete run has non-empty source SBOM at current adapter path", sbom_ok)
+                graph_data = json.loads(graph_path.read_text(encoding="utf-8")) if graph_path.is_file() else {}
+                all_passed &= check("Complete run graph has components and edges", bool(graph_data.get("components")) and bool(graph_data.get("edges")))
+        except (OSError, json.JSONDecodeError) as exc:
+            all_passed &= check("Run metadata is valid JSON", False, str(exc))
 
     # 6. Report Generation Verification
     print("\n--- 6. Verifiable Report Generation (§14 D.2) ---")

@@ -28,13 +28,15 @@ def write_project(root: Path, pkg: dict, packages: dict | None, version: int = 3
 
 
 def comp_by_name(graph: dict, name: str, version: str | None = None) -> list[dict]:
-    return [c for c in graph["components"] if c["name"] == name and (version is None or c["resolved_version"] == version)]
+    data = graph.model_dump(mode="json") if hasattr(graph, "model_dump") else graph
+    return [c for c in data["components"] if c["name"] == name and (version is None or c["resolved_version"] == version)]
 
 
 def edge_pairs(graph: dict) -> set[tuple[str, str]]:
-    names = {c["occurrence_id"]: f"{c['name']}@{c['resolved_version']}" for c in graph["components"]}
-    names.update({m["module_id"]: "<root>" for m in graph["modules"]})
-    return {(names[e["source_id"]], names[e["target_id"]]) for e in graph["edges"] if e["relationship"] == "DEPENDS_ON"}
+    data = graph.model_dump(mode="json") if hasattr(graph, "model_dump") else graph
+    names = {c["occurrence_id"]: f"{c['name']}@{c['resolved_version']}" for c in data["components"]}
+    names.update({m["module_id"]: "<root>" for m in data["modules"]})
+    return {(names[e["source_id"]], names[e["target_id"]]) for e in data["edges"] if e["relationship"] == "DEPENDS_ON"}
 
 
 # Hand-checked fixture: nested duplicate versions, scoped name, dev dep, 3-level chain.

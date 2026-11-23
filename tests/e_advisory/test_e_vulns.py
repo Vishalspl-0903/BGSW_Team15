@@ -226,10 +226,11 @@ class LiveStageStatus(unittest.TestCase):
                                                     grype_executable=sys.executable, **kwargs)
 
     def _assert_no_fake_zero(self, result, status):
-        self.assertEqual(result["stage"]["status"], status)
-        self.assertIsNone(result["stage"]["known_matches"])
+        stage = result["stage"].model_dump(mode="json")
+        self.assertEqual(stage["status"], status)
+        self.assertIsNone(stage["known_matches"])
         self.assertEqual(result["findings"], [])
-        self.assertEqual(cc.check_stage_record(result["stage"]), [])
+        self.assertEqual(cc.check_stage_record(stage), [])
 
     def test_missing_sbom_is_blocked(self) -> None:
         shutil.rmtree(self.run_dir / "sbom")
@@ -251,25 +252,25 @@ class LiveStageStatus(unittest.TestCase):
     def test_completed_scan_writes_redacted_raw_and_findings(self) -> None:
         stdout = (REC / "real-npm/grype.json").read_bytes()
         result = self._scan(_FakeGrype(scan_stdout=stdout))
-        stage = result["stage"]
+        stage = result["stage"].model_dump(mode="json")
         self.assertEqual(stage["status"], "COMPLETE")
         self.assertEqual(stage["known_matches"], 5)
         self.assertEqual(result["stage_details"]["advisory_as_of"], "2026-11-23T06:28:32Z")
         self.assertEqual(cc.check_stage_record(stage), [])
         raw = json.loads((self.run_dir / "raw/grype/grype.json").read_text(encoding="utf-8"))
         self.assertEqual(cc.host_path_leaks(raw), [])
-        self.assertTrue(all(e["raw_artifact"] == "raw/grype/grype.json" for e in result["evidence"]))
-        self.assertEqual(result["findings"][0]["first_seen_in"], "LOCAL_FIXTURE")
+        self.assertTrue(all(e.model_dump(mode="json")["raw_artifact"] == "raw/grype/grype.json" for e in result["evidence"]))
+        self.assertEqual(result["findings"][0].first_seen_in.value, "LOCAL_FIXTURE")
 
     def test_completed_clean_scan_is_complete_with_zero(self) -> None:
         stdout = (REC / "clean-npm/grype.json").read_bytes()
-        stage = self._scan(_FakeGrype(scan_stdout=stdout))["stage"]
+        stage = self._scan(_FakeGrype(scan_stdout=stdout))["stage"].model_dump(mode="json")
         self.assertEqual((stage["status"], stage["known_matches"]), ("COMPLETE", 0))
 
     def test_provenance_comes_from_metadata(self) -> None:
         (self.run_dir / "metadata.json").write_text(json.dumps({"source_kind": "GIT_PUBLIC"}), encoding="utf-8")
         stdout = (REC / "real-npm/grype.json").read_bytes()
-        self.assertEqual(self._scan(_FakeGrype(scan_stdout=stdout))["findings"][0]["first_seen_in"], "REAL_UPSTREAM")
+        self.assertEqual(self._scan(_FakeGrype(scan_stdout=stdout))["findings"][0].first_seen_in.value, "REAL_UPSTREAM")
 
     def test_scanner_invocation_is_sbom_only(self) -> None:
         fake = _FakeGrype(scan_stdout=(REC / "clean-npm/grype.json").read_bytes())

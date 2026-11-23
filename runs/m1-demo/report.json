@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "scan-ffff0b47d5cb447cb4f45bf7b1dedd60",
+  "metadata": {
+    "repo_url": "local://fixture/sandbox/sample-app",
+    "commit_sha": null,
+    "source_kind": "LOCAL_FIXTURE",
+    "status": "PARTIAL",
+    "generated_at": "2026-11-23T11:37:07.826023+00:00",
+    "tool_versions": {
+      "python": "3.11.9"
+    },
+    "database_snapshots": {}
+  },
+  "coverage_summary": {
+    "total_modules": 1,
+    "resolved_modules": 1,
+    "partial_modules": 0,
+    "declared_only_modules": 0,
+    "unsupported_modules": 0,
+    "failed_modules": 0
+  },
+  "component_count": 2,
+  "occurrence_count": 2,
+  "edge_count": 2,
+  "findings_summary": {
+    "total": 0,
+    "by_priority": {},
+    "by_classification": {},
+    "by_stage": {}
+  },
+  "finding_ids": [],
+  "claim_ids": [],
+  "proposal_ids": [],
+  "validation_status": "NOT_RUN",
+  "residual_risks": [],
+  "limitations": [
+    "Discovery depends on manifest/lockfile completeness; undeclared vendored binaries are not inspected.",
+    "Reachability and execution evidence are marked as observed or potential based on entrypoints and scripts.",
+    "Fix proposals require human authorization and isolated build/rescan validation before acceptance."
+  ],
+  "artifact_paths": {
+    "metadata.json": "C:\\Users\\dthun\\Documents\\BoschHackathon\\runs\\m1-demo\\metadata.json",
+    "module_index.json": "C:\\Users\\dthun\\Documents\\BoschHackathon\\runs\\m1-demo\\module_index.json",
+    "graph.json": "C:\\Users\\dthun\\Documents\\BoschHackathon\\runs\\m1-demo\\graph.json",
+    "evidence.jsonl": "C:\\Users\\dthun\\Documents\\BoschHackathon\\runs\\m1-demo\\evidence.jsonl",
+    "findings.json": "C:\\Users\\dthun\\Documents\\BoschHackathon\\runs\\m1-demo\\findings.json",
+    "sbom.cdx.json": "NOT_AVAILABLE",
+    "proposals.json": "NOT_AVAILABLE",
+    "validation.json": "NOT_AVAILABLE"
+  }
+}

@@ -20,10 +20,10 @@ class ReporterTests(unittest.TestCase):
         data = reporter.load_run_data(self.fixture_dir)
         self.assertTrue(data["is_fixture"])
         self.assertIsNotNone(data["metadata"])
-        self.assertEqual(data["metadata"]["scan_id"], "scan-m1-fixture")
+        self.assertEqual(data["metadata"]["scan_id"], "fixture-m1")
         self.assertIsNotNone(data["graph"])
         self.assertEqual(len(data["graph"]["components"]), 2)
-        self.assertEqual(len(data["findings"]), 4)
+        self.assertEqual(len(data["findings"]), 0)
 
     def test_create_report_generates_valid_json_and_md(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -44,7 +44,7 @@ class ReporterTests(unittest.TestCase):
             self.assertEqual(report["schema_version"], "1.0")
             self.assertEqual(report["component_count"], 2)
             self.assertEqual(report["edge_count"], 2)
-            self.assertEqual(report["findings_summary"]["total"], 4)
+            self.assertEqual(report["findings_summary"]["total"], 0)
             # Assert missing artifacts are labeled NOT_AVAILABLE, not blank success
             self.assertEqual(report["artifact_paths"]["sbom.cdx.json"], "NOT_AVAILABLE")
 
@@ -55,12 +55,12 @@ class ReporterTests(unittest.TestCase):
 
     def test_find_shortest_path_transitive(self) -> None:
         data = reporter.load_run_data(self.fixture_dir)
-        path = reporter.find_shortest_path(data["graph"], "mod-root", "occ-qs-6.7.0")
-        self.assertEqual(path, ["mod-root", "occ-express-4.17.1", "occ-qs-6.7.0"])
+        path = reporter.find_shortest_path(data["graph"], "mod:root", "occ:root-tiny-helper")
+        self.assertEqual(path, ["mod:root", "occ:root-example-web", "occ:root-tiny-helper"])
 
     def test_find_shortest_path_unconnected(self) -> None:
         data = reporter.load_run_data(self.fixture_dir)
-        path = reporter.find_shortest_path(data["graph"], "mod-root", "occ-unconnected-does-not-exist")
+        path = reporter.find_shortest_path(data["graph"], "mod:root", "occ-unconnected-does-not-exist")
         self.assertEqual(path, [])
 
     def test_bounded_neighborhood_caps_max_nodes(self) -> None:

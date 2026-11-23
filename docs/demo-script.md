@@ -24,25 +24,22 @@ The application opens at `http://localhost:8501`.
 **Theme:** *Evidence-first dependency graph discovery & honest coverage limits.*
 
 1. **Select Run / Fixture:**
-   - In the sidebar, select `runs/day1-nodegoat` (or `tests/fixtures/contract_m1`).
-   - Notice the scan metadata: commit SHA `c5cb68a7084e`, source kind `GIT_PUBLIC`, and intake status `COMPLETE`.
-   - Point out that if a fixture is loaded, the yellow **[FIXTURE WATERMARK]** appears prominently; for real runs, it is hidden.
+   - Select `runs/m1-demo` using the UI's Custom Run Directory option. It is a fresh CLI scan with status `PARTIAL` and passes `validate-run` in this checkout.
+   - Keep the limitation visible: source graph and CI analysis completed, while advisory scanning is `BLOCKED` because Syft/SBOM is unavailable. No findings does not mean zero risk.
+   - If the run is unavailable, select `tests/fixtures/contract_m1`, keep the yellow **[FIXTURE WATERMARK]** visible, and label its evidence synthetic.
+   - Do not use `runs/day1-nodegoat` from this checkout: its graph and summary disagree, and its SBOM artifacts do not match the current adapters.
 
 2. **Module Overview & Coverage Tab:**
-   - Show the detected module root (`.`), ecosystem (`npm`), and coverage status (`RESOLVED`).
-   - Explain: *"Guardian explicitly records what is resolved versus partial. Unknowns and scanner failures are never masked as safe."*
+   - Show the module root (`.`), ecosystem (`npm`), and `RESOLVED` graph coverage; explain overall scan is `PARTIAL` because advisory scanning was blocked without Syft/SBOM.
+   - For the contract fixture fallback, state that it demonstrates schema and UI behavior, not a live repository scan.
 
 3. **Component Inventory Tab:**
-   - Note the package count: **1,091 components**, **1,977 dependency edges**.
-   - Type `express` in the search filter to display direct and transitive components.
-   - Select a transitive component (e.g. `qs@6.7.0`):
-     - Show the **Traceable Dependency Path**: `mod-root ➔ occ-express-4.17.1 ➔ occ-qs-6.7.0`.
-     - Point out the provenance: exact source lockfile line, package URL (`purl`), and artifact SHA-256 integrity hash.
+   - For the controlled sample, show its two package occurrences and one transitive dependency path, pointing to the original package-lock evidence.
+   - For the contract fixture fallback, show the example path from `example-web` to `tiny-helper` and label every item synthetic.
 
 4. **Dependency Graph Explorer Tab:**
-   - Explain scalability: *"We never dump 1,000+ nodes into a browser force-directed layout."*
-   - Select the center node, adjust the neighborhood depth to `1` or `2`, and show the bounded neighborhood.
-   - Show the adjacency connection table with verified `DEPENDS_ON` relationships.
+   - Show the bounded graph and its `DEPENDS_ON` relationship.
+   - Do not claim NodeGoat advisories or full M1 release acceptance; the controlled sample has advisory status `BLOCKED`.
 
 ---
 

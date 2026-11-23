@@ -21,7 +21,13 @@ CASES = {entry["id"]: entry for entry in TRUTH["detector_fixtures"]}
 
 
 def _scan(case_id: str, run_dir: str | None = None) -> dict:
-    return d5_ci.scan_workflows("e-d5", str(REPO / CASES[case_id]["path"]), run_dir)
+    result = d5_ci.scan_workflows("e-d5", str(REPO / CASES[case_id]["path"]), run_dir)
+    return {
+        **result,
+        "stage": result["stage"].model_dump(mode="json"),
+        "findings": [value.model_dump(mode="json") for value in result["findings"]],
+        "evidence": [value.model_dump(mode="json") for value in result["evidence"]],
+    }
 
 
 def _evidence_by_id(result) -> dict:
@@ -78,7 +84,8 @@ class GroundTruthCases(unittest.TestCase):
 
     def test_role_a_sample_app_is_a_benign_control(self) -> None:
         entry = oracle.find_fixture(TRUTH, "a-sample-app")
-        result = d5_ci.scan_workflows("e-d5", str(REPO / entry["path"]))
+        raw = d5_ci.scan_workflows("e-d5", str(REPO / entry["path"]))
+        result = {**raw, "stage": raw["stage"].model_dump(mode="json")}
         self.assertEqual(result["stage"]["status"], "COMPLETE")
         self.assertEqual(result["findings"], [])
         self.assertTrue(any("declare no top-level permissions" in n for n in result["stage_details"]["notes"]))
@@ -151,7 +158,7 @@ class PublicContract(unittest.TestCase):
     def test_d1_without_baseline_is_not_run(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result = detectors.run_detectors("e-d5", str(REPO / "tests/fixtures/e_ci/benign"), None, tmp)
-        d1 = next(s for s in result["stages"] if s["stage"] == "lockfile_change_detection")
+        d1 = next(s.model_dump(mode="json") for s in result["stages"] if s.stage == "lockfile_change_detection")
         self.assertEqual(d1["status"], "NOT_RUN")
         self.assertIn("baseline", d1["reason"])
 

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "scan-ffff0b47d5cb447cb4f45bf7b1dedd60",
+  "modules": [
+    {
+      "module_id": "mod:c3633b75a7648db82995c0ce",
+      "relative_path": ".",
+      "ecosystem": "npm",
+      "manifests": [
+        "package.json"
+      ],
+      "lockfiles": [
+        "package-lock.json"
+      ],
+      "ci_files": [
+        ".github/workflows/static-check.yml"
+      ],
+      "dockerfiles": [],
+      "coverage": "RESOLVED",
+      "coverage_reason": "",
+      "scanner_names": [
+        "guardian-npm-lock-parser",
+        "guardian-static-module-index"
+      ],
+      "file_counts": {
+        "manifests_found": 1,
+        "manifests_scanned": 1,
+        "lockfiles_found": 1,
+        "lockfiles_scanned": 1,
+        "failed": 0,
+        "unsupported": 0,
+        "lock_packages": 2
+      },
+      "scan_stage": {
+        "inventory": "COMPLETE",
+        "graph": "COMPLETE",
+        "advisory": "NOT_RUN",
+        "ci": "NOT_RUN",
+        "container": "NOT_RUN"
+      },
+      "artifact_sbom_status": "NOT_RUN"
+    }
+  ]
+}

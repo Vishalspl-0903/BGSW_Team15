@@ -68,7 +68,7 @@ st.sidebar.markdown("**Supply Chain Security Reviewer UI**")
 
 default_options = [
     "tests/fixtures/contract_m1 (Contract Fixture - T+30)",
-    "runs/day1-nodegoat (OWASP NodeGoat Actual Scan - T+90)",
+    "runs/day1-nodegoat (Historical run - INVALID; do not present)",
     "tests/fixtures/synthetic_10000 (10k Node Scalability Fixture)",
     "Custom Run Directory..."
 ]
@@ -94,6 +94,9 @@ edges = graph.get("edges") or []
 findings = run_data.get("findings") or []
 modules = (run_data.get("module_index") or {}).get("modules") or graph.get("modules") or []
 is_fixture = run_data.get("is_fixture", False)
+
+if selected_preset.startswith("runs/day1-nodegoat"):
+    st.error("This historical run is not valid for a demo: its graph and summary disagree, and the SBOM expected by the current scanner is missing. Regenerate and validate a run before presenting live findings.")
 
 # Fixture Watermark (§14 D.1)
 if is_fixture:

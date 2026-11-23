@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import unittest
+import json
+import sys
+import types
 from pathlib import Path
 from subprocess import CompletedProcess
 from tempfile import TemporaryDirectory
@@ -11,6 +14,7 @@ from guardian.intake import (
     _inspect_snapshot,
     _run_git,
     _safe_ref,
+    acquire_repo,
     normalize_repo_url,
 )
 
@@ -66,6 +70,33 @@ class NormalizeRepoUrlTests(unittest.TestCase):
             after = source.read_bytes()
         self.assertEqual(first, second)
         self.assertEqual(before, after)
+
+    def test_clone_failure_emits_explicit_redacted_failed_metadata(self) -> None:
+        fake_schemas = types.ModuleType("guardian.schemas")
+        fake_schemas.RunStatus = types.SimpleNamespace(
+            RUNNING="RUNNING", COMPLETE="COMPLETE", FAILED="FAILED"
+        )
+        fake_schemas.ScanMetadata = type(
+            "ScanMetadata", (), {"model_validate": classmethod(lambda cls, payload: payload)}
+        )
+
+        def fake_git(argv, cwd=None):
+            del cwd
+            if argv == ["--version"]:
+                return CompletedProcess(argv, 0, "git version test\n", "")
+            return CompletedProcess(argv, 128, "", "remote included sensitive diagnostic")
+
+        with TemporaryDirectory() as tmp, patch.dict(
+            sys.modules, {"guardian.schemas": fake_schemas}
+        ), patch("guardian.intake._run_git", side_effect=fake_git):
+            result = acquire_repo("https://github.com/example/project", "main", tmp)
+
+        self.assertEqual(result["status"], "FAILED")
+        self.assertEqual(result["stage_statuses"]["intake"], "FAILED")
+        self.assertIsNone(result["commit_sha"])
+        self.assertIsNone(result["source_snapshot_sha256"])
+        self.assertEqual(result["errors"], ["Git clone failed without executing repository content"])
+        self.assertNotIn("sensitive", json.dumps(result))
 
 
 if __name__ == "__main__":

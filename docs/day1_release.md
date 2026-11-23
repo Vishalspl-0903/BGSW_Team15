@@ -1,12 +1,14 @@
 # Day 1 integrated release evidence
 
 ```yaml
-release: day1-finalization-in-review
+release: day1-finalized
 base_release_commit: c779db5660faebc5348aa3051d0f13fb417b97bf
 base_release_tag: day1-integrated
-finalization_branch: fix/day1-finalization
-ci_status: PENDING_FINALIZATION_PR
-green_ci_run_url: NOT_YET_AVAILABLE
+final_merge_commit: 27a640fcc59bf10328a4cbe6c3fc7ea3bb99e85e
+finalization_pr: https://github.com/Vishalspl-0903/BGSW_Team15/pull/1
+finalization_branch: fix/day1-finalization (merged and deleted)
+ci_status: PASS
+green_ci_run_url: https://github.com/Vishalspl-0903/BGSW_Team15/actions/runs/45183647144
 local_dependency_install: PASS (PyYAML 6.0.3 resolved from ui/requirements.txt)
 local_tests: 313 passed, 8 skipped, 40 subtests passed
 local_release_checklist: PASS
@@ -36,7 +38,8 @@ syft_version: 1.57.2
 grype_version: 0.122.1
 grype_database_built: '2026-11-23T06:28:32Z'
 external_tools_unavailable: [trivy, osv-scanner]
-reviewers: []
+human_merge_authorization: repository operator explicitly authorized merge on 2026-11-23
+github_approving_reviews: []
 ```
 
 Both repository scans were static. Guardian did not install dependencies, run
@@ -73,5 +76,6 @@ py -3.11 -m streamlit run ui/app.py
 - No container image was built or inspected; CI is the required non-source surface.
 - Findings are advisory and configuration evidence, not proof of exploitation.
 - The old `day1-integrated` tag intentionally remains on the audited base commit.
-- Finalization is not signed off until the repair PR is green and a human reviewer
-  records the resulting merge commit and CI run URL.
+- Finalization PR #1 passed the release gate and was merged after explicit human
+  authorization. No GitHub approval review was submitted; this is recorded above
+  rather than represented as a review that did not occur.

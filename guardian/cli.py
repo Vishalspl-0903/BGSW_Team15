@@ -306,6 +306,32 @@ def _restore_evidence(path: Path, earlier: list[str]) -> None:
             fh.write("".join(line + "\n" for line in missing))
 
 
+def _publish_source_sbom(run: "ScanRun") -> None:
+    """Run-folder contract (§4): B's raw Syft output -> ``sbom/`` where E's Grype adapter reads it.
+
+    Byte-identical copy plus SBOM evidence with its SHA-256; nothing is generated here.
+    """
+    from guardian.schemas import SCHEMA_VERSION, Evidence, stable_id, utc_now
+    from guardian.state import append_jsonl
+
+    raw = run.run_dir / "raw" / "syft.json"
+    sbom_dir = run.run_dir / "sbom"
+    if not raw.is_file() or raw.stat().st_size == 0 or (sbom_dir.exists() and any(sbom_dir.iterdir())):
+        return
+    data = raw.read_bytes()
+    sbom_dir.mkdir(parents=True, exist_ok=True)
+    (sbom_dir / "source.syft.json").write_bytes(data)
+    stamp = utc_now()
+    ev = Evidence(schema_version=SCHEMA_VERSION, scan_id=run.scan_id,
+                  evidence_id=stable_id("ev", run.scan_id, "source-sbom", hashlib.sha256(data).hexdigest()),
+                  kind="SBOM", tool_name="syft", tool_version=None, source_path=None, json_pointer=None,
+                  line_start=None, line_end=None, observed_value=None, raw_artifact="sbom/source.syft.json",
+                  raw_sha256=hashlib.sha256(data).hexdigest(),
+                  observation="source SBOM produced by B's Syft adapter (raw/syft.json), copied byte-identical",
+                  recorded_at=stamp)
+    append_jsonl(run.run_dir / "evidence.jsonl", ev.to_json_dict())
+
+
 def _prepare_out(out: Path) -> str | None:
     if out.exists() and any(out.iterdir()):
         return f"output folder {out.as_posix()} is not empty; refusing to overwrite a previous run"
@@ -391,6 +417,7 @@ def run_scan_pipeline(run: ScanRun, repo_dir: Path, *, baseline_ref: str | None 
             run.stage("graph", "FAILED", tool="guardian.analysis.graph_build", reason=msg,
                       evidence_ids=run.fail_log("graph", msg))
             run.errors.append(f"graph: {msg}")
+    _publish_source_sbom(run)
     run.go("INVENTORY_READY", f"inventory ready; graph stage {run.records['graph']['status']}")
 
     # ---- DETECTING (E) ----

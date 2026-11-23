@@ -2,7 +2,7 @@
 
 ```yaml
 release: day1-integrated
-main_commit: 741971f3a10d22da196d8d916756c1979de0e1c8
+main_commit: a1aec8c9d5911a48257e44415a182d192810d301
 contract_schema_version: '1.0'
 members_merged: [A, B, C, D, E]
 real_sample_repo: https://github.com/OWASP/NodeGoat#c5cb68a7084e4ae7dcc60e6a98768720a81841e8

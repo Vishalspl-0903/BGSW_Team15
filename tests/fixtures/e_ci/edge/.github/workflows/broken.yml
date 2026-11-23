@@ -1,0 +1,9 @@
+# Role E D5 edge fixture (inert): invalid YAML must be reported as a coverage gap, never as clean.
+name: broken
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: example-org/never-seen@v1
+        with: [unclosed

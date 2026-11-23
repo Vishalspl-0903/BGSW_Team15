@@ -1,0 +1,29 @@
+{
+ "kind": "recorded-scanner-fixture",
+ "fixture_input": "tests/fixtures/e_advisory/clean-npm",
+ "recorded_at": "2026-11-23T10:29:31Z",
+ "tools": {
+  "syft": "1.57.2",
+  "grype": "0.122.1"
+ },
+ "advisory_database": {
+  "schema": "v6.1.10",
+  "built": "2026-11-23T06:28:32Z"
+ },
+ "commands": [
+  "syft scan dir:<fixture-dir> -o cyclonedx-json=<record-dir>/sbom.cdx.json -q",
+  "grype sbom:<record-dir>/sbom.cdx.json -o json --file <record-dir>/grype.json -q",
+  "grype db status -o json"
+ ],
+ "environment": {
+  "GRYPE_DB_AUTO_UPDATE": "false",
+  "GRYPE_CHECK_FOR_APP_UPDATE": "false",
+  "SYFT_CHECK_FOR_APP_UPDATE": "false"
+ },
+ "sanitisation": "absolute host paths replaced by <fixture-dir>, <record-dir>, <grype-db-dir>, <home> or <host-path>/<name> before hashing; sha256 values below are of the stored files",
+ "files": {
+  "sbom.cdx.json": "d1e343e318932f1273a002014ae56ee61987690422ec0256e4ac61587aa38171",
+  "grype.json": "1c692aff25bcee870fc35069193d61a191b3e605773a9796357a2568e6eb229d",
+  "grype-db-status.json": "bad4b6a71616852f64cdf16a20a082c10d78922e03b04d7af755a58aceab4f81"
+ }
+}

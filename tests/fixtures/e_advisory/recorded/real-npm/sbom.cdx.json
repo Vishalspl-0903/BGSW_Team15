@@ -1,0 +1,260 @@
+{
+ "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.7",
+ "serialNumber": "urn:uuid:ecb248e5-7cdf-46f0-82b9-d3296cb17e66",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-23T15:59:24+05:30",
+  "tools": {
+   "components": [
+    {
+     "type": "application",
+     "author": "anchore",
+     "name": "syft",
+     "version": "1.57.2"
+    }
+   ]
+  },
+  "component": {
+   "bom-ref": "71099e79301b30df",
+   "type": "file",
+   "name": "<fixture-dir>"
+  }
+ },
+ "components": [
+  {
+   "bom-ref": "pkg:npm/e-fixture-real-advisories@1.0.0?package-id=2afef59d295158e7",
+   "type": "library",
+   "name": "e-fixture-real-advisories",
+   "version": "1.0.0",
+   "cpe": "cpe:2.3:a:e-fixture-real-advisories:e-fixture-real-advisories:1.0.0:*:*:*:*:*:*:*",
+   "purl": "pkg:npm/e-fixture-real-advisories@1.0.0",
+   "properties": [
+    {
+     "name": "syft:package:foundBy",
+     "value": "javascript-lock-cataloger"
+    },
+    {
+     "name": "syft:package:language",
+     "value": "javascript"
+    },
+    {
+     "name": "syft:package:type",
+     "value": "npm"
+    },
+    {
+     "name": "syft:package:metadataType",
+     "value": "javascript-npm-package-lock-entry"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture-real-advisories:e_fixture_real_advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture_real_advisories:e-fixture-real-advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture_real_advisories:e_fixture_real_advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture-real:e-fixture-real-advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture-real:e_fixture_real_advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture_real:e-fixture-real-advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture_real:e_fixture_real_advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture:e-fixture-real-advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture:e_fixture_real_advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture:e-fixture-real-advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture:e_fixture_real_advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e:e-fixture-real-advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e:e_fixture_real_advisories:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:location:0:path",
+     "value": "/package-lock.json"
+    }
+   ]
+  },
+  {
+   "bom-ref": "pkg:npm/lodash@4.17.20?package-id=434e2e390d209fe4",
+   "type": "library",
+   "name": "lodash",
+   "version": "4.17.20",
+   "cpe": "cpe:2.3:a:lodash:lodash:4.17.20:*:*:*:*:node.js:*:*",
+   "purl": "pkg:npm/lodash@4.17.20",
+   "properties": [
+    {
+     "name": "syft:package:foundBy",
+     "value": "javascript-lock-cataloger"
+    },
+    {
+     "name": "syft:package:language",
+     "value": "javascript"
+    },
+    {
+     "name": "syft:package:type",
+     "value": "npm"
+    },
+    {
+     "name": "syft:package:metadataType",
+     "value": "javascript-npm-package-lock-entry"
+    },
+    {
+     "name": "syft:location:0:path",
+     "value": "/package-lock.json"
+    }
+   ]
+  },
+  {
+   "bom-ref": "pkg:npm/minimist@1.2.5?package-id=04ab3b2fd7a0b19a",
+   "type": "library",
+   "name": "minimist",
+   "version": "1.2.5",
+   "cpe": "cpe:2.3:a:minimist:minimist:1.2.5:*:*:*:*:*:*:*",
+   "purl": "pkg:npm/minimist@1.2.5",
+   "properties": [
+    {
+     "name": "syft:package:foundBy",
+     "value": "javascript-lock-cataloger"
+    },
+    {
+     "name": "syft:package:language",
+     "value": "javascript"
+    },
+    {
+     "name": "syft:package:type",
+     "value": "npm"
+    },
+    {
+     "name": "syft:package:metadataType",
+     "value": "javascript-npm-package-lock-entry"
+    },
+    {
+     "name": "syft:location:0:path",
+     "value": "/package-lock.json"
+    }
+   ]
+  },
+  {
+   "bom-ref": "pkg:npm/mkdirp@0.5.5?package-id=12142db5edd4affb",
+   "type": "library",
+   "name": "mkdirp",
+   "version": "0.5.5",
+   "cpe": "cpe:2.3:a:mkdirp:mkdirp:0.5.5:*:*:*:*:*:*:*",
+   "purl": "pkg:npm/mkdirp@0.5.5",
+   "properties": [
+    {
+     "name": "syft:package:foundBy",
+     "value": "javascript-lock-cataloger"
+    },
+    {
+     "name": "syft:package:language",
+     "value": "javascript"
+    },
+    {
+     "name": "syft:package:type",
+     "value": "npm"
+    },
+    {
+     "name": "syft:package:metadataType",
+     "value": "javascript-npm-package-lock-entry"
+    },
+    {
+     "name": "syft:location:0:path",
+     "value": "/package-lock.json"
+    }
+   ]
+  },
+  {
+   "bom-ref": "pkg:npm/ms@2.1.3?package-id=2adce5c86de4bbb7",
+   "type": "library",
+   "name": "ms",
+   "version": "2.1.3",
+   "cpe": "cpe:2.3:a:vercel:ms:2.1.3:*:*:*:*:node.js:*:*",
+   "purl": "pkg:npm/ms@2.1.3",
+   "properties": [
+    {
+     "name": "syft:package:foundBy",
+     "value": "javascript-lock-cataloger"
+    },
+    {
+     "name": "syft:package:language",
+     "value": "javascript"
+    },
+    {
+     "name": "syft:package:type",
+     "value": "npm"
+    },
+    {
+     "name": "syft:package:metadataType",
+     "value": "javascript-npm-package-lock-entry"
+    },
+    {
+     "name": "syft:location:0:path",
+     "value": "/package-lock.json"
+    }
+   ]
+  },
+  {
+   "bom-ref": "fd71c2238fc07657",
+   "type": "file",
+   "name": "/package-lock.json",
+   "hashes": [
+    {
+     "alg": "SHA-1",
+     "content": "ed12401c6277ea55389bfd9a2c6477c14ac17d25"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "9a8fe121d950f2d695c8e980c5adcf4d516a2c8f8a65d1f9f62985302b69fcb3"
+    }
+   ]
+  }
+ ],
+ "dependencies": [
+  {
+   "ref": "pkg:npm/e-fixture-real-advisories@1.0.0?package-id=2afef59d295158e7",
+   "dependsOn": [
+    "pkg:npm/lodash@4.17.20?package-id=434e2e390d209fe4",
+    "pkg:npm/mkdirp@0.5.5?package-id=12142db5edd4affb",
+    "pkg:npm/ms@2.1.3?package-id=2adce5c86de4bbb7"
+   ]
+  },
+  {
+   "ref": "pkg:npm/mkdirp@0.5.5?package-id=12142db5edd4affb",
+   "dependsOn": [
+    "pkg:npm/minimist@1.2.5?package-id=04ab3b2fd7a0b19a"
+   ]
+  }
+ ]
+}

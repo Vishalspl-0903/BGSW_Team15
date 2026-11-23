@@ -1,0 +1,234 @@
+# ground_truth.yaml - Role E independent expectations (PROJECT.md sections 15, 17, 21).
+#
+# Every expectation below is written by hand from the fixture files themselves.
+# It is NEVER generated from production output (B's graph, E's detectors, ...).
+# If production output disagrees, file a failing reproduction; do not edit this
+# file to match the tool unless the fixture source proves the expectation wrong.
+#
+# Conventions
+#   ROOT            the module root node (the module_id of that module in B's graph)
+#   location        npm lockfile v2/v3 "packages" key of an installed occurrence
+#   files           sha256 of the file bytes after CRLF -> LF normalisation
+#   simulated       true = fictional fixture data, never a real upstream package or advisory
+#   relationship    list = any listed relationship type is acceptable for that edge
+schema: e-ground-truth/1
+
+graph_fixtures:
+  - id: m1-oracle
+    path: tests/fixtures/e_graph/m1-oracle
+    provenance: LOCAL_FIXTURE
+    simulated: true
+    purpose: >
+      Milestone 1 graph oracle. Direct -> transitive chain whose deepest packages are never
+      imported by application code (index.js imports only fx-alpha and fx-delta); two versions
+      of fx-beta; one identity shared by two modules; a cycle; dev, optional and peer scopes;
+      a declaration with no installed target (fx-ghost); a component with no parent (fx-stray);
+      a declared-only module; an unsupported ecosystem module.
+    files:
+      index.js: 11a29883ff1e95d48efea9564c1d1f21911875d06a46da5001b59826ff0aed07
+      package.json: 5bf1d79d92e3696510ed33e2428e93006ba73bc3e6f8dbd3d0ffa2a918b0433f
+      package-lock.json: b4db9cc8c0801b15b2ce9ab687ed241dd23dabbd88ee87c3d56abd9fce9d5b45
+      services/api/package.json: 646ba15954d15da413857ccc89db4b3683a0dbcf6f6818ff9565905501091db4
+      services/worker/package.json: c247a2d920f9cf854ba0c1b20bde2e86eb5fa4574b0d03f396f1a4a81604e5bb
+      services/worker/package-lock.json: 53b19fd0e91b3617790b6a77f8810c8bcdbd1a43a258b840bf66a76ab4799f3a
+      tools/scripts/pyproject.toml: b5f0397441e4ca37a8cece8ac3489ee8557eda6a0d1454a30096bf69b57403b0
+      tools/scripts/poetry.lock: ca8c7b098df5a53c120ae10bd96a295209154e968245112fade4a4b96844ff67
+    modules:
+      - {path: ".", ecosystem: npm, coverage: [RESOLVED]}
+      - {path: services/api, ecosystem: npm, coverage: [DECLARED_ONLY]}
+      - {path: services/worker, ecosystem: npm, coverage: [RESOLVED]}
+      - {path: tools/scripts, ecosystem: pypi, coverage: [UNSUPPORTED]}
+    components:
+      # module ".": 10 resolved occurrences
+      - {module: ".", location: node_modules/fx-alpha, name: fx-alpha, version: "1.0.0", directness: DIRECT, scopes_include: [production], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-delta, name: fx-delta, version: "1.0.0", directness: DIRECT, scopes_include: [production], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-devtool, name: fx-devtool, version: "5.0.0", directness: DIRECT, scopes_include: [development], scopes_exclude: [production]}
+      - {module: ".", location: node_modules/fx-optional, name: fx-optional, version: "1.0.0", directness: DIRECT, scopes_include: [optional], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-beta, name: fx-beta, version: "2.1.0", directness: TRANSITIVE, scopes_include: [production], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-delta/node_modules/fx-beta, name: fx-beta, version: "1.4.0", directness: TRANSITIVE, scopes_include: [production], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-gamma, name: fx-gamma, version: "3.0.0", directness: TRANSITIVE, scopes_include: [production], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-epsilon, name: fx-epsilon, version: "1.0.0", directness: TRANSITIVE, scopes_include: [production], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-peerhost, name: fx-peerhost, version: "2.0.0", directness: TRANSITIVE, scopes_include: [peer], scopes_exclude: [development]}
+      - {module: ".", location: node_modules/fx-stray, name: fx-stray, version: "0.1.0", directness: UNRESOLVED}
+      # module services/worker: same identities as the root module, different occurrences
+      - {module: services/worker, location: node_modules/fx-beta, name: fx-beta, version: "2.1.0", directness: DIRECT, scopes_include: [production]}
+      - {module: services/worker, location: node_modules/fx-gamma, name: fx-gamma, version: "3.0.0", directness: TRANSITIVE, scopes_include: [production]}
+      - {module: services/worker, location: node_modules/fx-epsilon, name: fx-epsilon, version: "1.0.0", directness: TRANSITIVE, scopes_include: [production]}
+      # module services/api: declared only, never an exact version
+      - {module: services/api, location: null, name: fx-alpha, version: null, constraint: "^1.0.0", directness: DIRECT, resolution: [DECLARED_ONLY]}
+      - {module: services/api, location: null, name: fx-floating, version: null, constraint: latest, directness: DIRECT, resolution: [DECLARED_ONLY]}
+    edges:
+      # exact set of OBSERVED dependency edges for fully supported (RESOLVED) npm modules
+      - {module: ".", from: ROOT, to: node_modules/fx-alpha, relationship: [DECLARES, DEPENDS_ON], constraint: "1.0.0"}
+      - {module: ".", from: ROOT, to: node_modules/fx-delta, relationship: [DECLARES, DEPENDS_ON], constraint: "1.0.0"}
+      - {module: ".", from: ROOT, to: node_modules/fx-devtool, relationship: [DECLARES, DEPENDS_ON], constraint: "5.0.0"}
+      - {module: ".", from: ROOT, to: node_modules/fx-optional, relationship: [DECLARES, DEPENDS_ON], constraint: "1.0.0"}
+      - {module: ".", from: node_modules/fx-alpha, to: node_modules/fx-beta, relationship: [DEPENDS_ON], constraint: "^2.0.0"}
+      - {module: ".", from: node_modules/fx-alpha, to: node_modules/fx-peerhost, relationship: [DEPENDS_ON], constraint: "^2.0.0"}
+      - {module: ".", from: node_modules/fx-delta, to: node_modules/fx-delta/node_modules/fx-beta, relationship: [DEPENDS_ON], constraint: "^1.0.0"}
+      - {module: ".", from: node_modules/fx-beta, to: node_modules/fx-gamma, relationship: [DEPENDS_ON], constraint: "3.0.0"}
+      - {module: ".", from: node_modules/fx-gamma, to: node_modules/fx-epsilon, relationship: [DEPENDS_ON], constraint: "1.0.0"}
+      - {module: ".", from: node_modules/fx-epsilon, to: node_modules/fx-gamma, relationship: [DEPENDS_ON], constraint: "^3.0.0"}
+      - {module: services/worker, from: ROOT, to: node_modules/fx-beta, relationship: [DECLARES, DEPENDS_ON], constraint: "2.1.0"}
+      - {module: services/worker, from: node_modules/fx-beta, to: node_modules/fx-gamma, relationship: [DEPENDS_ON], constraint: "3.0.0"}
+      - {module: services/worker, from: node_modules/fx-gamma, to: node_modules/fx-epsilon, relationship: [DEPENDS_ON], constraint: "1.0.0"}
+      - {module: services/worker, from: node_modules/fx-epsilon, to: node_modules/fx-gamma, relationship: [DEPENDS_ON], constraint: "^3.0.0"}
+    unresolved_declarations:
+      # declared by a package, but no installed target exists: must be reported, never invented
+      - {module: ".", from: node_modules/fx-alpha, name: fx-ghost, constraint: "^1.0.0"}
+    paths:
+      - {module: ".", target: node_modules/fx-gamma, status: [FOUND], via: [ROOT, node_modules/fx-alpha, node_modules/fx-beta, node_modules/fx-gamma]}
+      - {module: ".", target: node_modules/fx-epsilon, status: [FOUND], via: [ROOT, node_modules/fx-alpha, node_modules/fx-beta, node_modules/fx-gamma, node_modules/fx-epsilon]}
+      - {module: ".", target: node_modules/fx-delta/node_modules/fx-beta, status: [FOUND], via: [ROOT, node_modules/fx-delta, node_modules/fx-delta/node_modules/fx-beta]}
+      - {module: ".", target: node_modules/fx-peerhost, status: [FOUND], via: [ROOT, node_modules/fx-alpha, node_modules/fx-peerhost]}
+      - {module: ".", target: node_modules/fx-stray, status: [NO_KNOWN_PATH, UNRESOLVED]}
+      - {module: services/worker, target: node_modules/fx-epsilon, status: [FOUND], via: [ROOT, node_modules/fx-beta, node_modules/fx-gamma, node_modules/fx-epsilon]}
+    identities:
+      resolved_identity_count: 10
+      resolved_occurrence_count: 13
+      shared_across_modules:
+        - {name: fx-beta, version: "2.1.0", occurrences: 2}
+        - {name: fx-gamma, version: "3.0.0", occurrences: 2}
+        - {name: fx-epsilon, version: "1.0.0", occurrences: 2}
+    must_not:
+      - {rule: no_resolved_component_named, name: fx-ghost}
+      - {rule: no_incoming_edge, module: ".", target: node_modules/fx-stray}
+      - {rule: no_resolved_version_in_module, module: services/api}
+      - {rule: no_resolved_version_in_module, module: tools/scripts}
+
+  - id: partial-failure
+    path: tests/fixtures/e_graph/partial-failure
+    provenance: LOCAL_FIXTURE
+    simulated: true
+    purpose: >
+      One valid npm module and one module whose lockfile is truncated JSON. The valid module must
+      survive with its full graph; the broken module must be reported as failed, never as empty-and-fine.
+    files:
+      package.json: d79a8436ef104548bed4f9e4af58bcfef1c2657802416e6bbdb25ba69a21c27e
+      package-lock.json: af62009b8fe639a916f7b5065eaa2e160f5883d67dc61b3b4967750735655b0a
+      services/broken/package.json: 1e40c183c2366fd16e892083e3cf0cd7a6fcb43b86b60c08258c53ffd18616f2
+      services/broken/package-lock.json: 061f6319dd54c74194609aa28a41574c1aca203926cda2f76f21c05eb6e25d0e
+    modules:
+      - {path: ".", ecosystem: npm, coverage: [RESOLVED]}
+      - {path: services/broken, ecosystem: npm, coverage: [FAILED, PARTIAL]}
+    components:
+      - {module: ".", location: node_modules/fx-alpha, name: fx-alpha, version: "1.0.0", directness: DIRECT, scopes_include: [production]}
+      - {module: ".", location: node_modules/fx-beta, name: fx-beta, version: "2.1.0", directness: TRANSITIVE, scopes_include: [production]}
+    edges:
+      - {module: ".", from: ROOT, to: node_modules/fx-alpha, relationship: [DECLARES, DEPENDS_ON], constraint: "1.0.0"}
+      - {module: ".", from: node_modules/fx-alpha, to: node_modules/fx-beta, relationship: [DEPENDS_ON], constraint: "^2.0.0"}
+    unresolved_declarations: []
+    paths:
+      - {module: ".", target: node_modules/fx-beta, status: [FOUND], via: [ROOT, node_modules/fx-alpha, node_modules/fx-beta]}
+    identities:
+      resolved_identity_count: 2
+      resolved_occurrence_count: 2
+      shared_across_modules: []
+    must_not:
+      - {rule: no_resolved_version_in_module, module: services/broken}
+    run_expectation: {scan_status: [PARTIAL], note: "C's metadata.status; one failed module cannot be hidden"}
+
+advisory_fixtures:
+  - id: real-npm-grype
+    input: tests/fixtures/e_advisory/real-npm
+    recorded: tests/fixtures/e_advisory/recorded/real-npm
+    graph: tests/fixtures/e_advisory/real-npm.graph.json
+    provenance: LOCAL_FIXTURE
+    simulated: false
+    purpose: >
+      Real published npm versions with real public advisories, scanned once by Syft 1.57.2 + Grype 0.122.1
+      (database built 2026-11-23T06:28:32Z) and replayed offline. lodash is direct, minimist is transitive
+      (through mkdirp), ms and mkdirp are controls without advisories in that database snapshot.
+    basis: >
+      Values transcribed from the recorded Grype report. The two long-standing lodash advisories and the
+      minimist advisory match the public GitHub advisory records (fixed in 4.17.21 and 1.2.6).
+    expected_findings:
+      - {package: lodash, version: "4.17.20", advisory_ids: [GHSA-35jh-r3h4-6jhm], aliases: [CVE-2021-23337], severity: High, fixed_in: ["4.17.21"]}
+      - {package: lodash, version: "4.17.20", advisory_ids: [GHSA-29mw-wpgm-hmr9], aliases: [CVE-2020-28500], severity: Medium, fixed_in: ["4.17.21"]}
+      - {package: lodash, version: "4.17.20", advisory_ids: [GHSA-r5fr-rjxr-66jc], aliases: [CVE-2026-4800], severity: High, fixed_in: ["4.18.0"]}
+      - {package: lodash, version: "4.17.20", advisory_ids: [GHSA-xxjr-mmjv-4gpg], aliases: [CVE-2025-13465], severity: Medium, fixed_in: ["4.17.23"]}
+      - {package: minimist, version: "1.2.5", advisory_ids: [GHSA-xvch-5gv4-984h], aliases: [CVE-2021-44906], severity: Critical, fixed_in: ["1.2.6"]}
+    expected_without_findings: [mkdirp@0.5.5, ms@2.1.3]
+    advisory_database_built: "2026-11-23T06:28:32Z"
+
+  - id: clean-npm-grype
+    input: tests/fixtures/e_advisory/clean-npm
+    recorded: tests/fixtures/e_advisory/recorded/clean-npm
+    provenance: LOCAL_FIXTURE
+    simulated: false
+    purpose: Completed scan with zero matches; must be COMPLETE with known_matches 0, never confused with a failed scan.
+    expected_findings: []
+    expected_without_findings: [ms@2.1.3]
+    advisory_database_built: "2026-11-23T06:28:32Z"
+
+detector_fixtures:
+  - id: d5-positive
+    detector: D5
+    path: tests/fixtures/e_ci/positive
+    simulated: true
+    files:
+      .github/workflows/release.yml: ffb0d5d92fd05675bc5707ca49f0573861b3e21349e8c54664f1418d51023626
+    expected_stage: COMPLETE
+    expected:
+      - {rule: D5-WRITE-PERMISSIONS, value: "workflow: write-all", line: 7}
+      - {rule: D5-UNPINNED-ACTION, value: actions/checkout@v4, ref_kind: version-tag, line: 14}
+      - {rule: D5-UNPINNED-ACTION, value: example-org/setup-tool@v1.2.3, ref_kind: version-tag, line: 15}
+      - {rule: D5-UNPINNED-ACTION, value: example-org/deploy-action@main, ref_kind: branch-or-other, line: 16}
+      - {rule: D5-UNPINNED-ACTION, value: example-org/lint-action@a1b2c3d, ref_kind: short-sha, line: 17}
+      - {rule: D5-UNPINNED-DOCKER-IMAGE, value: "docker://alpine:3.19", line: 18}
+      - {rule: D5-UNPINNED-ACTION, value: example-org/shared-workflows/.github/workflows/build.yml@main, ref_kind: branch-or-other, line: 22}
+    must_not:
+      - "job-level 'contents: write' (least-privilege pattern) is not a finding"
+      - "the step with only 'run:' is not a finding"
+
+  - id: d5-benign
+    detector: D5
+    path: tests/fixtures/e_ci/benign
+    simulated: true
+    files:
+      .github/workflows/ci.yaml: 3a56cff1f4bf56d2bc14f512de611358835a8e8cb1f57ec1db0907d4ea8841c5
+    expected_stage: COMPLETE
+    expected: []
+    note: full 40-hex SHA pin, local ./ action, docker digest, read-only workflow permissions, job-level checks:write
+
+  - id: d5-edge
+    detector: D5
+    path: tests/fixtures/e_ci/edge
+    simulated: true
+    files:
+      .github/workflows/anchors.yml: ec18e5d0e6d1e5fbf4a864ad36b5c31a225ead19dc1df4f374956ca7a687ed1f
+      .github/workflows/broken.yml: e4ba16d8e2944c32f089dd0fc75427ce57931e35519bc2e395cb1be281d26293
+      .github/workflows/README.txt: 8038b1bb32c8c18604162cfb9967e15447d73a47026b68aeaca0a92c034fd791
+    expected_stage: PARTIAL
+    expected:
+      - {rule: D5-UNPINNED-ACTION, value: example-org/cache-action@v2, ref_kind: version-tag, line: 9, locations: 2}
+      - {rule: D5-UNPARSED-WORKFLOW, value: .github/workflows/broken.yml}
+    must_not:
+      - "example-org/never-seen@v1 inside the unparsable file is not reported as analysed"
+      - "README.txt in the workflows directory is ignored"
+
+  - id: d5-none
+    detector: D5
+    path: tests/fixtures/e_ci/none
+    simulated: true
+    files:
+      README.txt: 330cbca6d17d7f3feacc8a6190d8bd7d165ca164e9efffe55136e982801ec5a2
+    expected_stage: NOT_RUN
+    expected: []
+
+cross_role_fixtures:
+  - id: a-sample-app
+    owner: A
+    path: sandbox/sample-app
+    provenance: LOCAL_FIXTURE
+    simulated: true
+    purpose: Role A's controlled npm sample; used by E as an integration check, not edited by E.
+    files:
+      package.json: 4519522b6fe06a0d70d3e4e10bbe14f29a8191cb203aa84a77e0a1b8270a3407
+      package-lock.json: 3427e5270763c1883a0fc5170f809ddabfe8a65f4edd79b88ddc27f1b312a0fd
+      .github/workflows/static-check.yml: ada6e7d6f17de93f01f4f90359a96f33ed1445b5a123bbec7ed85cd3e7537872
+    edges:
+      - {module: ".", from: ROOT, to: node_modules/fixture-direct, relationship: [DECLARES, DEPENDS_ON], constraint: "1.0.0"}
+      - {module: ".", from: node_modules/fixture-direct, to: node_modules/fixture-transitive, relationship: [DEPENDS_ON], constraint: "2.0.0"}
+    detector_expectations:
+      - {detector: D5, file: .github/workflows/static-check.yml, expected_rule_ids: [], note: "full 40-hex SHA pin is a benign control"}

@@ -1,0 +1,16 @@
+{
+  "name": "e-fixture-m1-oracle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Role E hand-written ground-truth fixture. Fictional packages; never installed or published.",
+  "dependencies": {
+    "fx-alpha": "1.0.0",
+    "fx-delta": "1.0.0"
+  },
+  "devDependencies": {
+    "fx-devtool": "5.0.0"
+  },
+  "optionalDependencies": {
+    "fx-optional": "1.0.0"
+  }
+}

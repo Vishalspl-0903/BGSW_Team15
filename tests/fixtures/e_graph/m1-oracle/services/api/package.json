@@ -1,0 +1,10 @@
+{
+  "name": "e-fixture-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Declared-only module: a manifest without any lockfile.",
+  "dependencies": {
+    "fx-alpha": "^1.0.0",
+    "fx-floating": "latest"
+  }
+}

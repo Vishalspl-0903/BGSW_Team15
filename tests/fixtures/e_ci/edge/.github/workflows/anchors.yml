@@ -1,0 +1,13 @@
+# Role E D5 edge fixture (inert): the same unpinned step reused through a YAML anchor in two jobs.
+name: anchors
+on: push
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - &shared_step
+        uses: example-org/cache-action@v2
+  second:
+    runs-on: ubuntu-latest
+    steps:
+      - *shared_step

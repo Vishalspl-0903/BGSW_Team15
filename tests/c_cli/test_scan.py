@@ -52,6 +52,11 @@ def test_full_scan_with_role_doubles(tmp_path, monkeypatch, capsys):
     sids = {json.loads((out / n).read_text())["scan_id"] for n in
             ("metadata.json", "module_index.json", "graph.json", "findings.json", "risk.json")}
     assert sids == {meta["scan_id"]}
+    modules = json.loads((out / "module_index.json").read_text())["modules"]
+    assert modules[0]["scan_stage"]["advisory"] == "COMPLETE"
+    assert modules[0]["scan_stage"]["ci"] == "COMPLETE"
+    graph_modules = json.loads((out / "graph.json").read_text())["modules"]
+    assert graph_modules == modules
     risk = json.loads((out / "risk.json").read_text())
     prios = sorted(a["priority"] for a in risk["assessments"])
     assert prios == ["NEEDS_REVIEW", "P1"]

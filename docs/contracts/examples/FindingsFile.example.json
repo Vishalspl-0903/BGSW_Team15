@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "fixture-m1",
+  "findings": [
+    {
+      "schema_version": "1.0",
+      "scan_id": "fixture-m1",
+      "finding_id": "find:mock-adv-tiny-helper",
+      "finding_type": "VULNERABILITY",
+      "title": "tiny-helper 2.0.0 matched MOCK-ADV-0001 (EXAMPLE)",
+      "description": "EXAMPLE ONLY - mock advisory, not a real vulnerability",
+      "module_ids": [
+        "mod:root"
+      ],
+      "occurrence_ids": [
+        "occ:root-tiny-helper"
+      ],
+      "advisory_ids": [
+        "MOCK-ADV-0001"
+      ],
+      "advisory_urls": [],
+      "rule_id": null,
+      "severity_label": "HIGH",
+      "cvss_score": null,
+      "priority": "P1",
+      "evidence_ids": [
+        "ev:lock-helper"
+      ],
+      "dependency_path_node_ids": [
+        "mod:root",
+        "occ:root-example-web",
+        "occ:root-tiny-helper"
+      ],
+      "path_status": "FOUND",
+      "execution_stage": "RUNTIME",
+      "execution_evidence": "NOT_ESTABLISHED",
+      "evidence_basis": "TOOL_OBSERVED",
+      "uncertainties": [
+        "reachability not demonstrated",
+        "mock advisory"
+      ],
+      "recommendations": [
+        "Upgrade tiny-helper once a fixed version is verified"
+      ],
+      "classification": "CONFIRMED_ADVISORY",
+      "advisory_aliases": [],
+      "first_seen_in": "LOCAL_FIXTURE",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "example"
+      ],
+      "disposition": "OPEN"
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "fixture-m1",
+      "finding_id": "find:ci-unpinned-action",
+      "finding_type": "CI_POLICY",
+      "title": "Third-party action referenced by mutable tag (EXAMPLE)",
+      "description": "EXAMPLE ONLY - mock advisory, not a real vulnerability",
+      "module_ids": [
+        "mod:root"
+      ],
+      "occurrence_ids": [],
+      "advisory_ids": [],
+      "advisory_urls": [],
+      "rule_id": "D5-unpinned-action",
+      "severity_label": null,
+      "cvss_score": null,
+      "priority": "NEEDS_REVIEW",
+      "evidence_ids": [
+        "ev:lock-helper"
+      ],
+      "dependency_path_node_ids": [],
+      "path_status": "NOT_APPLICABLE",
+      "execution_stage": "CI",
+      "execution_evidence": "POTENTIAL",
+      "evidence_basis": "RULE_MATCH",
+      "uncertainties": [
+        "workflow permissions not analyzed"
+      ],
+      "recommendations": [
+        "Pin the action to a full commit SHA"
+      ],
+      "classification": "CONFIGURATION_WEAKNESS",
+      "advisory_aliases": [],
+      "first_seen_in": "LOCAL_FIXTURE",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "example"
+      ],
+      "disposition": "OPEN"
+    }
+  ]
+}

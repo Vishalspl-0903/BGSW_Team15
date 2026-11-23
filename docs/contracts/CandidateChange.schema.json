@@ -1,0 +1,38 @@
+{
+  "$id": "guardian/1.0/CandidateChange.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "after_hash": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "After Hash"
+    },
+    "before_hash": {
+      "title": "Before Hash",
+      "type": "string"
+    },
+    "change_description": {
+      "title": "Change Description",
+      "type": "string"
+    },
+    "relative_path": {
+      "title": "Relative Path",
+      "type": "string"
+    }
+  },
+  "required": [
+    "relative_path",
+    "change_description",
+    "before_hash"
+  ],
+  "title": "CandidateChange",
+  "type": "object"
+}

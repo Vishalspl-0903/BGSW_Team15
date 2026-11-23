@@ -1,0 +1,576 @@
+{
+  "$defs": {
+    "Component": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_hashes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Artifact Hashes",
+          "type": "array"
+        },
+        "declared_constraint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Declared Constraint"
+        },
+        "dependency_scopes": {
+          "items": {
+            "$ref": "#/$defs/DependencyScope"
+          },
+          "title": "Dependency Scopes",
+          "type": "array"
+        },
+        "directness": {
+          "$ref": "#/$defs/Directness"
+        },
+        "ecosystem": {
+          "title": "Ecosystem",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "image_presence": {
+          "$ref": "#/$defs/ImagePresence"
+        },
+        "install_stage_indicator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Install Stage Indicator"
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "License"
+        },
+        "manifest_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Manifest Refs",
+          "type": "array"
+        },
+        "module_id": {
+          "title": "Module Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "occurrence_id": {
+          "title": "Occurrence Id",
+          "type": "string"
+        },
+        "package_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Package Key"
+        },
+        "package_source_type": {
+          "$ref": "#/$defs/PackageSourceType"
+        },
+        "purl": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Purl"
+        },
+        "registry_host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Registry Host"
+        },
+        "resolution": {
+          "$ref": "#/$defs/Resolution"
+        },
+        "resolved_source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Resolved Source Url"
+        },
+        "resolved_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Resolved Version"
+        },
+        "source_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Refs",
+          "type": "array"
+        },
+        "source_scope": {
+          "$ref": "#/$defs/ComponentSourceScope"
+        }
+      },
+      "required": [
+        "package_key",
+        "ecosystem",
+        "name",
+        "resolved_version",
+        "declared_constraint",
+        "purl",
+        "occurrence_id",
+        "module_id",
+        "source_refs",
+        "resolution",
+        "evidence_ids",
+        "install_stage_indicator",
+        "dependency_scopes",
+        "directness",
+        "license",
+        "artifact_hashes",
+        "package_source_type",
+        "resolved_source_url",
+        "registry_host",
+        "source_scope",
+        "image_presence",
+        "manifest_refs"
+      ],
+      "title": "Component",
+      "type": "object"
+    },
+    "ComponentSourceScope": {
+      "enum": [
+        "SOURCE",
+        "ARTIFACT",
+        "BOTH",
+        "UNKNOWN"
+      ],
+      "title": "ComponentSourceScope",
+      "type": "string"
+    },
+    "Coverage": {
+      "enum": [
+        "RESOLVED",
+        "PARTIAL",
+        "DECLARED_ONLY",
+        "UNSUPPORTED",
+        "FAILED",
+        "NOT_RUN"
+      ],
+      "title": "Coverage",
+      "type": "string"
+    },
+    "CoverageSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "declared_only_modules": {
+          "minimum": 0,
+          "title": "Declared Only Modules",
+          "type": "integer"
+        },
+        "failed_modules": {
+          "minimum": 0,
+          "title": "Failed Modules",
+          "type": "integer"
+        },
+        "partial_modules": {
+          "minimum": 0,
+          "title": "Partial Modules",
+          "type": "integer"
+        },
+        "resolved_modules": {
+          "minimum": 0,
+          "title": "Resolved Modules",
+          "type": "integer"
+        },
+        "total_modules": {
+          "minimum": 0,
+          "title": "Total Modules",
+          "type": "integer"
+        },
+        "unsupported_modules": {
+          "minimum": 0,
+          "title": "Unsupported Modules",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "total_modules",
+        "resolved_modules",
+        "partial_modules",
+        "declared_only_modules",
+        "unsupported_modules",
+        "failed_modules"
+      ],
+      "title": "CoverageSummary",
+      "type": "object"
+    },
+    "DependencyEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "declared_constraint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Declared Constraint"
+        },
+        "dependency_scope": {
+          "$ref": "#/$defs/DependencyScope"
+        },
+        "edge_id": {
+          "title": "Edge Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "module_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Module Id"
+        },
+        "relationship": {
+          "$ref": "#/$defs/Relationship"
+        },
+        "resolution": {
+          "$ref": "#/$defs/EdgeResolution"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_scope": {
+          "$ref": "#/$defs/EdgeSourceScope"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "edge_id",
+        "source_id",
+        "target_id",
+        "relationship",
+        "evidence_ids",
+        "module_id",
+        "resolution",
+        "dependency_scope",
+        "declared_constraint",
+        "source_scope"
+      ],
+      "title": "DependencyEdge",
+      "type": "object"
+    },
+    "DependencyScope": {
+      "enum": [
+        "production",
+        "development",
+        "optional",
+        "peer",
+        "build",
+        "unknown"
+      ],
+      "title": "DependencyScope",
+      "type": "string"
+    },
+    "Directness": {
+      "enum": [
+        "DIRECT",
+        "TRANSITIVE",
+        "UNRESOLVED"
+      ],
+      "title": "Directness",
+      "type": "string"
+    },
+    "EdgeResolution": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "UNRESOLVED"
+      ],
+      "title": "EdgeResolution",
+      "type": "string"
+    },
+    "EdgeSourceScope": {
+      "enum": [
+        "SOURCE",
+        "ARTIFACT",
+        "UNKNOWN"
+      ],
+      "title": "EdgeSourceScope",
+      "type": "string"
+    },
+    "ImagePresence": {
+      "enum": [
+        "OBSERVED",
+        "NOT_OBSERVED_IN_SCANNED_IMAGE",
+        "NOT_CHECKED",
+        "UNKNOWN"
+      ],
+      "title": "ImagePresence",
+      "type": "string"
+    },
+    "PackageSourceType": {
+      "enum": [
+        "REGISTRY",
+        "GIT",
+        "TARBALL",
+        "WORKSPACE",
+        "LOCAL",
+        "UNKNOWN"
+      ],
+      "title": "PackageSourceType",
+      "type": "string"
+    },
+    "ProjectModule": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_sbom_status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "ci_files": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Ci Files",
+          "type": "array"
+        },
+        "coverage": {
+          "$ref": "#/$defs/Coverage"
+        },
+        "coverage_reason": {
+          "title": "Coverage Reason",
+          "type": "string"
+        },
+        "dockerfiles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dockerfiles",
+          "type": "array"
+        },
+        "ecosystem": {
+          "title": "Ecosystem",
+          "type": "string"
+        },
+        "file_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "File Counts",
+          "type": "object"
+        },
+        "lockfiles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Lockfiles",
+          "type": "array"
+        },
+        "manifests": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Manifests",
+          "type": "array"
+        },
+        "module_id": {
+          "title": "Module Id",
+          "type": "string"
+        },
+        "relative_path": {
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "scan_stage": {
+          "additionalProperties": {
+            "$ref": "#/$defs/StageStatus"
+          },
+          "title": "Scan Stage",
+          "type": "object"
+        },
+        "scanner_names": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Scanner Names",
+          "type": "array"
+        }
+      },
+      "required": [
+        "module_id",
+        "relative_path",
+        "ecosystem",
+        "manifests",
+        "lockfiles",
+        "ci_files",
+        "dockerfiles",
+        "coverage",
+        "coverage_reason",
+        "scanner_names",
+        "file_counts",
+        "scan_stage",
+        "artifact_sbom_status"
+      ],
+      "title": "ProjectModule",
+      "type": "object"
+    },
+    "Relationship": {
+      "description": "Edge types from \u00a77.1.",
+      "enum": [
+        "CONTAINS_MODULE",
+        "DECLARES",
+        "DEPENDS_ON",
+        "BUILDS_FROM",
+        "OBSERVED_IN",
+        "INVOKES_DURING_BUILD",
+        "INVOKES_DURING_INSTALL",
+        "MAY_INVOKE"
+      ],
+      "title": "Relationship",
+      "type": "string"
+    },
+    "Resolution": {
+      "enum": [
+        "RESOLVED",
+        "DECLARED_ONLY",
+        "UNKNOWN_VERSION",
+        "CONFLICT"
+      ],
+      "title": "Resolution",
+      "type": "string"
+    },
+    "StageStatus": {
+      "enum": [
+        "NOT_RUN",
+        "RUNNING",
+        "COMPLETE",
+        "PARTIAL",
+        "FAILED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/GraphBundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "items": {
+        "$ref": "#/$defs/Component"
+      },
+      "title": "Components",
+      "type": "array"
+    },
+    "coverage_summary": {
+      "$ref": "#/$defs/CoverageSummary"
+    },
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/DependencyEdge"
+      },
+      "title": "Edges",
+      "type": "array"
+    },
+    "modules": {
+      "items": {
+        "$ref": "#/$defs/ProjectModule"
+      },
+      "title": "Modules",
+      "type": "array"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scan_id",
+    "modules",
+    "components",
+    "edges",
+    "coverage_summary",
+    "warnings"
+  ],
+  "title": "GraphBundle",
+  "type": "object"
+}

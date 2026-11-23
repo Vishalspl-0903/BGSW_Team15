@@ -1,0 +1,27 @@
+{
+  "scan_id": "fixture-m1",
+  "selected_occurrence_id": "occ:root-tiny-helper",
+  "direction": "dependents",
+  "nodes": [
+    {
+      "id": "occ:root-tiny-helper",
+      "type": "occurrence",
+      "label": "tiny-helper@2.0.0"
+    },
+    {
+      "id": "occ:root-example-web",
+      "type": "occurrence",
+      "label": "example-web@1.0.0"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:web-helper",
+      "source_id": "occ:root-example-web",
+      "target_id": "occ:root-tiny-helper",
+      "relationship": "DEPENDS_ON"
+    }
+  ],
+  "truncated": false,
+  "coverage_notice": "Graph includes only supported resolved relationships"
+}

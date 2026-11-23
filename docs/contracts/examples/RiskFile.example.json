@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "fixture-m1",
+  "assessments": [
+    {
+      "schema_version": "1.0",
+      "scan_id": "fixture-m1",
+      "finding_id": "find:mock-adv-tiny-helper",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "severity_label": "HIGH",
+        "execution_evidence": "NOT_ESTABLISHED",
+        "rule": "R2"
+      },
+      "rationale": "HIGH published severity on a resolved package; reachability unknown and not scored as zero",
+      "evidence_ids": [
+        "ev:lock-helper"
+      ],
+      "unknowns": [
+        "reachability",
+        "kev_status"
+      ],
+      "claim_ids": [
+        "clm:1",
+        "clm:2"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "clm:1",
+      "scan_id": "fixture-m1",
+      "text": "tiny-helper 2.0.0 is resolved in the lockfile under example-web",
+      "claim_type": "PACKAGE_PRESENT",
+      "evidence_ids": [
+        "ev:lock-helper"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:2",
+      "scan_id": "fixture-m1",
+      "text": "tiny-helper is safe",
+      "claim_type": "FIX_SAFETY",
+      "evidence_ids": [],
+      "basis": "VERIFIED",
+      "validated": false,
+      "validation_errors": [
+        "VERIFIED claim cites no evidence",
+        "claim_type FIX_SAFETY cannot be VERIFIED"
+      ]
+    }
+  ]
+}

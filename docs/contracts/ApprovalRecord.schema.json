@@ -1,0 +1,123 @@
+{
+  "$defs": {
+    "ApprovalDecision": {
+      "enum": [
+        "APPROVE",
+        "REJECT",
+        "REVOKE"
+      ],
+      "title": "ApprovalDecision",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/ApprovalRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Human decision bound to an exact proposal digest (\u00a76.12, \u00a722.2).",
+  "properties": {
+    "audit_result_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Audit Result Id"
+    },
+    "commit_sha": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commit Sha"
+    },
+    "decided_at": {
+      "title": "Decided At",
+      "type": "string"
+    },
+    "decision": {
+      "$ref": "#/$defs/ApprovalDecision"
+    },
+    "expires_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Expires At"
+    },
+    "lockfile_sha256": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Lockfile Sha256"
+    },
+    "policy_version": {
+      "minimum": 1,
+      "title": "Policy Version",
+      "type": "integer"
+    },
+    "proposal_id": {
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "proposal_sha256": {
+      "title": "Proposal Sha256",
+      "type": "string"
+    },
+    "reviewer_label": {
+      "title": "Reviewer Label",
+      "type": "string"
+    },
+    "reviewer_role": {
+      "title": "Reviewer Role",
+      "type": "string"
+    },
+    "revokes_event_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Revokes Event Id"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision",
+    "reviewer_label",
+    "reviewer_role",
+    "scan_id",
+    "proposal_id",
+    "proposal_sha256",
+    "audit_result_id",
+    "commit_sha",
+    "lockfile_sha256",
+    "policy_version",
+    "decided_at",
+    "expires_at"
+  ],
+  "title": "ApprovalRecord",
+  "type": "object"
+}

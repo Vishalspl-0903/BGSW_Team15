@@ -1,0 +1,252 @@
+{
+  "$defs": {
+    "ComponentSourceScope": {
+      "enum": [
+        "SOURCE",
+        "ARTIFACT",
+        "BOTH",
+        "UNKNOWN"
+      ],
+      "title": "ComponentSourceScope",
+      "type": "string"
+    },
+    "DependencyScope": {
+      "enum": [
+        "production",
+        "development",
+        "optional",
+        "peer",
+        "build",
+        "unknown"
+      ],
+      "title": "DependencyScope",
+      "type": "string"
+    },
+    "Directness": {
+      "enum": [
+        "DIRECT",
+        "TRANSITIVE",
+        "UNRESOLVED"
+      ],
+      "title": "Directness",
+      "type": "string"
+    },
+    "ImagePresence": {
+      "enum": [
+        "OBSERVED",
+        "NOT_OBSERVED_IN_SCANNED_IMAGE",
+        "NOT_CHECKED",
+        "UNKNOWN"
+      ],
+      "title": "ImagePresence",
+      "type": "string"
+    },
+    "PackageSourceType": {
+      "enum": [
+        "REGISTRY",
+        "GIT",
+        "TARBALL",
+        "WORKSPACE",
+        "LOCAL",
+        "UNKNOWN"
+      ],
+      "title": "PackageSourceType",
+      "type": "string"
+    },
+    "Resolution": {
+      "enum": [
+        "RESOLVED",
+        "DECLARED_ONLY",
+        "UNKNOWN_VERSION",
+        "CONFLICT"
+      ],
+      "title": "Resolution",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/Component.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Artifact Hashes",
+      "type": "array"
+    },
+    "declared_constraint": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Declared Constraint"
+    },
+    "dependency_scopes": {
+      "items": {
+        "$ref": "#/$defs/DependencyScope"
+      },
+      "title": "Dependency Scopes",
+      "type": "array"
+    },
+    "directness": {
+      "$ref": "#/$defs/Directness"
+    },
+    "ecosystem": {
+      "title": "Ecosystem",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "image_presence": {
+      "$ref": "#/$defs/ImagePresence"
+    },
+    "install_stage_indicator": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Install Stage Indicator"
+    },
+    "license": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "License"
+    },
+    "manifest_refs": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Manifest Refs",
+      "type": "array"
+    },
+    "module_id": {
+      "title": "Module Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "occurrence_id": {
+      "title": "Occurrence Id",
+      "type": "string"
+    },
+    "package_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Package Key"
+    },
+    "package_source_type": {
+      "$ref": "#/$defs/PackageSourceType"
+    },
+    "purl": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Purl"
+    },
+    "registry_host": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Registry Host"
+    },
+    "resolution": {
+      "$ref": "#/$defs/Resolution"
+    },
+    "resolved_source_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resolved Source Url"
+    },
+    "resolved_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resolved Version"
+    },
+    "source_refs": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Refs",
+      "type": "array"
+    },
+    "source_scope": {
+      "$ref": "#/$defs/ComponentSourceScope"
+    }
+  },
+  "required": [
+    "package_key",
+    "ecosystem",
+    "name",
+    "resolved_version",
+    "declared_constraint",
+    "purl",
+    "occurrence_id",
+    "module_id",
+    "source_refs",
+    "resolution",
+    "evidence_ids",
+    "install_stage_indicator",
+    "dependency_scopes",
+    "directness",
+    "license",
+    "artifact_hashes",
+    "package_source_type",
+    "resolved_source_url",
+    "registry_host",
+    "source_scope",
+    "image_presence",
+    "manifest_refs"
+  ],
+  "title": "Component",
+  "type": "object"
+}

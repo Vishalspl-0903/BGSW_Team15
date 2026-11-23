@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "JsonValue": {},
+    "Priority": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "NEEDS_REVIEW",
+        "UNASSESSED"
+      ],
+      "title": "Priority",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/RiskAssessment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Claim Ids",
+      "type": "array"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "factors": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Factors",
+      "type": "object"
+    },
+    "finding_id": {
+      "title": "Finding Id",
+      "type": "string"
+    },
+    "priority": {
+      "$ref": "#/$defs/Priority"
+    },
+    "rationale": {
+      "title": "Rationale",
+      "type": "string"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "unknowns": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Unknowns",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scan_id",
+    "finding_id",
+    "priority",
+    "factors",
+    "rationale",
+    "evidence_ids",
+    "unknowns",
+    "claim_ids"
+  ],
+  "title": "RiskAssessment",
+  "type": "object"
+}

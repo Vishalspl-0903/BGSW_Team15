@@ -1,0 +1,11 @@
+{
+  "stage": "vulnerability_intelligence",
+  "status": "UNAVAILABLE",
+  "attempted": true,
+  "tool": "grype",
+  "tool_version": null,
+  "reason": "database not accessible",
+  "completed_at": null,
+  "known_matches": null,
+  "evidence_ids": []
+}

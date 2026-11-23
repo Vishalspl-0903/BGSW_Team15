@@ -1,0 +1,177 @@
+{
+  "$defs": {
+    "CandidateChange": {
+      "additionalProperties": false,
+      "properties": {
+        "after_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After Hash"
+        },
+        "before_hash": {
+          "title": "Before Hash",
+          "type": "string"
+        },
+        "change_description": {
+          "title": "Change Description",
+          "type": "string"
+        },
+        "relative_path": {
+          "title": "Relative Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relative_path",
+        "change_description",
+        "before_hash"
+      ],
+      "title": "CandidateChange",
+      "type": "object"
+    },
+    "FixStrategy": {
+      "enum": [
+        "DIRECT_UPGRADE",
+        "PARENT_UPGRADE",
+        "OVERRIDE",
+        "CI_CONFIG",
+        "ESCALATE"
+      ],
+      "title": "FixStrategy",
+      "type": "string"
+    },
+    "ProposalStatus": {
+      "enum": [
+        "PROPOSED",
+        "AUDITED",
+        "NEEDS_REVIEW",
+        "REJECTED",
+        "APPROVED",
+        "VALIDATING",
+        "VERIFIED",
+        "FAILED",
+        "BLOCKED"
+      ],
+      "title": "ProposalStatus",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/Proposal.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_event_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Approval Event Id"
+    },
+    "audit_result_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Audit Result Id"
+    },
+    "candidate_changes": {
+      "items": {
+        "$ref": "#/$defs/CandidateChange"
+      },
+      "title": "Candidate Changes",
+      "type": "array"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "expected_validation": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Expected Validation",
+      "type": "array"
+    },
+    "finding_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Finding Ids",
+      "type": "array"
+    },
+    "proposal_id": {
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "proposed_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Proposed Version"
+    },
+    "rationale": {
+      "title": "Rationale",
+      "type": "string"
+    },
+    "scan_id": {
+      "title": "Scan Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ProposalStatus"
+    },
+    "strategy": {
+      "$ref": "#/$defs/FixStrategy"
+    },
+    "target_module_id": {
+      "title": "Target Module Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scan_id",
+    "proposal_id",
+    "finding_ids",
+    "target_module_id",
+    "strategy",
+    "candidate_changes",
+    "proposed_version",
+    "rationale",
+    "evidence_ids",
+    "expected_validation",
+    "status",
+    "audit_result_id",
+    "approval_event_id"
+  ],
+  "title": "Proposal",
+  "type": "object"
+}

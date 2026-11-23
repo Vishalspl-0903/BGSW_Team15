@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "fixture-m1",
+  "proposal_id": "prop:1",
+  "worktree_id": null,
+  "approval_event_id": null,
+  "status": "BLOCKED",
+  "commands": [],
+  "build_passed": null,
+  "tests_passed": null,
+  "rescan_completed": null,
+  "before_sbom_path": null,
+  "after_sbom_path": null,
+  "removed_findings": [],
+  "new_findings": [],
+  "remaining_findings": [
+    "find:mock-adv-tiny-helper"
+  ],
+  "warnings": [
+    "Validation requires fresh approval"
+  ],
+  "started_at": "2026-11-23T10:31:00Z",
+  "finished_at": "2026-11-23T10:31:00Z"
+}

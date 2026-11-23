@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "DependencyScope": {
+      "enum": [
+        "production",
+        "development",
+        "optional",
+        "peer",
+        "build",
+        "unknown"
+      ],
+      "title": "DependencyScope",
+      "type": "string"
+    },
+    "EdgeResolution": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "UNRESOLVED"
+      ],
+      "title": "EdgeResolution",
+      "type": "string"
+    },
+    "EdgeSourceScope": {
+      "enum": [
+        "SOURCE",
+        "ARTIFACT",
+        "UNKNOWN"
+      ],
+      "title": "EdgeSourceScope",
+      "type": "string"
+    },
+    "Relationship": {
+      "description": "Edge types from \u00a77.1.",
+      "enum": [
+        "CONTAINS_MODULE",
+        "DECLARES",
+        "DEPENDS_ON",
+        "BUILDS_FROM",
+        "OBSERVED_IN",
+        "INVOKES_DURING_BUILD",
+        "INVOKES_DURING_INSTALL",
+        "MAY_INVOKE"
+      ],
+      "title": "Relationship",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/DependencyEdge.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "declared_constraint": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Declared Constraint"
+    },
+    "dependency_scope": {
+      "$ref": "#/$defs/DependencyScope"
+    },
+    "edge_id": {
+      "title": "Edge Id",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "module_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Module Id"
+    },
+    "relationship": {
+      "$ref": "#/$defs/Relationship"
+    },
+    "resolution": {
+      "$ref": "#/$defs/EdgeResolution"
+    },
+    "source_id": {
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_scope": {
+      "$ref": "#/$defs/EdgeSourceScope"
+    },
+    "target_id": {
+      "title": "Target Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "edge_id",
+    "source_id",
+    "target_id",
+    "relationship",
+    "evidence_ids",
+    "module_id",
+    "resolution",
+    "dependency_scope",
+    "declared_constraint",
+    "source_scope"
+  ],
+  "title": "DependencyEdge",
+  "type": "object"
+}

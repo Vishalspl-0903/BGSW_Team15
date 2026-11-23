@@ -52,10 +52,21 @@ Guardian is built on the premise that **a guardian cannot protect what it has no
 - **Fixture Watermark:** Displays an explicit `[FIXTURE WATERMARK]` whenever mock or test data is shown, ensuring synthetic data is never confused with live scans.
 
 ### 🛡️ Day 1: Categorized Security Findings & Provenance
-- **Confirmed Advisories:** Matches resolved package occurrences to verified CVE/GHSA records from OSV.dev with CVSS scores and published fix information.
-- **Suspicious Changes:** Flags non-CVE indicators such as floating `latest` versions and unpinned non-registry tarball URLs with file line pointers.
+- **Confirmed Advisories:** Grype matches resolved package occurrences to CVE/GHSA records using a captured database snapshot, with published severity and fix information when available.
+- **CI Policy Indicators:** Flags mutable third-party GitHub Action references and records the exact workflow location. These are review indicators, not proof of compromise.
 - **Coverage Gap Visibility:** Explicitly records scanner limitations (e.g., container scan not executed) as coverage gaps rather than claiming false safety.
 - **Verifiable Reports:** Generates machine-readable `report.json` and human-readable `report.md` via `guardian.reporter.create_report()`.
+- **Supply Chain Time Machine:** Compares two canonical scan runs for package, version, source, edge and advisory changes. Vulnerability changes are attributed to code only when both runs used the same advisory snapshot.
+
+Static scanning and comparison use the CLI; Streamlit reads the resulting artifacts:
+
+```powershell
+py -3.11 -m guardian.cli scan --repo https://github.com/OWASP/NodeGoat --ref <full-commit-sha> --out runs/nodegoat-day1
+py -3.11 -m guardian.cli validate-run runs/nodegoat-day1/<scan-id>
+py -3.11 -m guardian.cli report --run runs/nodegoat-day1/<scan-id>
+py -3.11 -m guardian.cli compare --baseline runs/<baseline-id> --current runs/<current-id> --out runs/comparison.json
+py -3.11 -m streamlit run ui/app.py
+```
 
 ### 🔧 Day 2: Audited Fix Candidates & Authentic Approval
 - **Static Candidate Audit:** Evaluates proposed package upgrades for registry origin, integrity hashes, and transitive CVE re-introduction.

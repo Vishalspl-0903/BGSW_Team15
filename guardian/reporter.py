@@ -461,9 +461,9 @@ def create_report(run_dir: str) -> tuple[str, str]:
     for name in ["metadata.json", "module_index.json", "graph.json", "evidence.jsonl", "findings.json", "sbom.cdx.json", "proposals.json", "validation.json"]:
         file_p = run_path / name
         if file_p.is_file():
-            artifact_paths[name] = str(file_p)
-        else:
-            artifact_paths[name] = "NOT_AVAILABLE"
+            artifact_paths[name] = name
+    for file_p in sorted((run_path / "sbom").glob("*.json")):
+        artifact_paths[file_p.relative_to(run_path).as_posix()] = file_p.relative_to(run_path).as_posix()
 
     val_res = data.get("validation") or {}
     val_status = "NOT_RUN"
@@ -473,17 +473,9 @@ def create_report(run_dir: str) -> tuple[str, str]:
     report_dict: dict[str, Any] = {
         "schema_version": "1.0",
         "scan_id": meta.get("scan_id", "scan-unknown"),
-        "metadata": {
-            "repo_url": meta.get("repo_url", "NOT_AVAILABLE"),
-            "commit_sha": meta.get("commit_sha"),
-            "source_kind": meta.get("source_kind", "UNKNOWN"),
-            "status": meta.get("status", "UNKNOWN"),
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-            "tool_versions": meta.get("tool_versions", {}),
-            "database_snapshots": meta.get("database_snapshots", {})
-        },
+        "metadata": meta,
         "coverage_summary": coverage_sum,
-        "component_count": len(components),
+        "component_count": len({c["package_key"] for c in components if c.get("package_key")}),
         "occurrence_count": len(components),
         "edge_count": len(edges),
         "findings_summary": findings_summary,
@@ -496,13 +488,24 @@ def create_report(run_dir: str) -> tuple[str, str]:
         ],
         "limitations": [
             "Discovery depends on manifest/lockfile completeness; undeclared vendored binaries are not inspected.",
-            "Reachability and execution evidence are marked as observed or potential based on entrypoints and scripts.",
+            "A dependency path does not establish runtime reachability or exploitation; no application code was executed.",
             "Fix proposals require human authorization and isolated build/rescan validation before acceptance."
         ],
         "artifact_paths": artifact_paths
     }
 
-    # Write report.json
+    for stage, record in meta.get("stage_records", {}).items():
+        if record.get("status") != "COMPLETE":
+            report_dict["limitations"].append(
+                f"{stage}: {record.get('status', 'NOT_RUN')} - {record.get('reason') or 'not completed'}"
+            )
+    report_dict["limitations"].extend(graph.get("warnings", []))
+    if not any(name.startswith("sbom/") or name == "sbom.cdx.json" for name in artifact_paths):
+        report_dict["limitations"].append("SBOM: NOT_AVAILABLE")
+    from guardian.schemas import Report
+    report_dict = Report.model_validate(report_dict).to_json_dict()
+
+    # Validate before writing either artifact; never export a fabricated scan identity.
     json_path = run_path / "report.json"
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(report_dict, f, indent=2)

@@ -1,52 +1,69 @@
-# Day 1 Integration Status — Not Release Sign-off
-
-**Status: M1 GRAPH DEMO VERIFIED; DAY 1 RELEASE NOT VERIFIED.** The integration
-candidate suite and a controlled sample graph run passed locally. Advisory
-scanning is blocked because Syft is unavailable. The historical NodeGoat run
-below is invalid and must not be presented as evidence.
+# Day 1 integrated release evidence
 
 ```yaml
-release: M1_GRAPH_DEMO_ONLY
+release: day1-integrated-candidate
 integration_branch: integrate/m1
-checkout_commit: 72c0eda
-main_commit: a0d081a (does not contain the role integrations)
 contract_schema_version: '1.0'
 members_merged: [A, B, C, D, E]
-real_sample_repo: controlled sandbox/sample-app (local fixture; no untrusted code executed)
-verified_demo_run: runs/m1-demo
-verified_demo_scan_id: scan-ffff0b47d5cb447cb4f45bf7b1dedd60
-verified_demo_status: PARTIAL
-verified_demo_graph: 1 npm module, 2 occurrences, 2 edges (1 direct, 1 transitive)
-verified_demo_transitive_path: mod:c3633b75a7648db82995c0ce -> occ:b17519514a58bc863afe65b4 -> occ:7c4a69d369238e657a5cced8
-verified_demo_validation: PASS
-scan_run_dir: runs/day1-nodegoat (INVALID FOR DEMO: graph arrays are empty; SBOM artifacts do not match current adapters)
-manifest_count: UNVERIFIED
-module_count: UNVERIFIED
-resolved_component_count: UNVERIFIED
-edge_count: UNVERIFIED
-known_advisory_ids: []
-non_cve_rule_ids: []
-ci_or_image_inspected: UNVERIFIED
-coverage_status: UNVERIFIED
-tests_passed: 310
+real_sample_repo: https://github.com/OWASP/NodeGoat
+baseline_commit: 91d8adb963f5de15ccadc2b15a1b6aa67c624c4e
+current_commit: c5cb68a7084e4ae7dcc60e6a98768720a81841e8
+baseline_run_dir: runs/nodegoat-baseline/cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb
+current_run_dir: runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190
+manifest_count: 1
+module_count: 1
+resolved_component_occurrences: 1479
+package_identity_count: 1091
+edge_count: 2296
+confirmed_advisory_findings: 91
+non_cve_rule_ids: [D5-UNPINNED-ACTION]
+non_cve_findings: 6
+ci_or_image_inspected: CI
+coverage_status: RESOLVED
+tests_passed: 313
 tests_failed: 0
 tests_skipped: 8
 subtests_passed: 40
 llm_mode: disabled
-external_tools_unavailable: [syft, grype]
-limitations: [controlled local fixture only; advisory stage BLOCKED; no real repository scan; no main merge]
+syft_version: 1.57.2
+grype_version: 0.122.1
+grype_database_built: '2026-11-23T06:28:32Z'
+external_tools_unavailable: [trivy, osv-scanner]
 reviewers: []
 ```
 
-## What is established
-- The canonical contract fixture exists and explicitly labels its synthetic evidence.
-- This integration candidate contains A, B, C, D, and E implementations.
-- The candidate is not a verified M1 release or live demo until the required local checks pass.
+Both repository scans were static. Guardian did not install dependencies, run
+NodeGoat scripts, build a container, or execute repository code. The current run
+is `COMPLETE` and `validate-run` passes. Its canonical report is in the current
+run directory above.
 
-## Required local verification
-1. Install Python 3.11 or 3.12 and dependencies from `ui/requirements.txt`.
-2. Run `python -m pytest -q` and retain the complete output.
-3. Run `python -m guardian.cli validate-run tests/fixtures/contract_m1`.
-4. Run a scan with Syft/Grype available; preserve the produced run directory and validate it with `python -m guardian.cli validate-run <run-dir>`.
-5. Launch the UI and demonstrate that validated run. Do not select `runs/day1-nodegoat` until it is regenerated and validated.
+The Time Machine comparison used the same Grype database snapshot for both
+commits. Measured differences are 13 added package occurrences, 8 in-place
+version changes, 20 source/integrity record changes, 46 added dependency edges,
+22 removed dependency edges and 5 bounded changed paths. Both commits have 91
+confirmed advisory findings, so this comparison has zero newly observed
+advisories. This does not establish runtime reachability or exploitability.
 
+The eight skips are environment-gated cases: optional live scanner checks and
+platform-specific symlink behavior. They are not counted as passing tests.
+
+## Commands actually executed
+
+```powershell
+py -3.11 -m guardian.cli scan --repo https://github.com/OWASP/NodeGoat --ref 91d8adb963f5de15ccadc2b15a1b6aa67c624c4e --out runs/nodegoat-baseline
+py -3.11 -m guardian.cli scan --repo https://github.com/OWASP/NodeGoat --ref c5cb68a7084e4ae7dcc60e6a98768720a81841e8 --out runs/nodegoat-current
+py -3.11 -m guardian.cli validate-run runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190
+py -3.11 -m guardian.cli report --run runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190
+py -3.11 -m guardian.cli compare --baseline runs/nodegoat-baseline/cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb --current runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190 --out runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190/comparison.json
+py -3.11 -m pytest -q
+py -3.11 -m streamlit run ui/app.py
+```
+
+## Limits
+
+- Source graph coverage reflects supported npm lockfile and Syft observations;
+  Syft found 381 packages while the lockfile parser found 1,091 identities.
+- No container image was built or inspected; CI is the required non-source surface.
+- Findings are advisory and configuration evidence, not proof of exploitation.
+- The release tag and human reviewer remain release-captain actions after the
+  final `main` commit is inspected.

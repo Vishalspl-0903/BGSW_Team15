@@ -197,6 +197,7 @@ class ScanRun:
         self.errors: list[str] = []
         self.records: dict[str, dict] = {}
         self.tool_versions: dict[str, str] = {"python": platform.python_version()}
+        self.database_snapshots: dict[str, str | None] = {}
         self.capabilities: dict[str, str] = {"artifact": "NOT_RUN: no container image analyzed"}
         self.log = EventLog(run_dir, scan_id)
         self.wf = scan_workflow_id(scan_id)
@@ -257,7 +258,7 @@ class ScanRun:
             commit_sha=self.commit_sha, source_kind=self.source_kind, started_at=self.started_at,
             finished_at=utc_now() if finished else None, status=status, tool_versions=self.tool_versions,
             errors=self.errors, stage_statuses={k: v["status"] for k, v in self.records.items()},
-            database_snapshots={}, source_snapshot_sha256=self.snapshot_sha,
+            database_snapshots=self.database_snapshots, source_snapshot_sha256=self.snapshot_sha,
             scope_capabilities=self.capabilities, stage_records=self.records,
         )
         write_json_atomic(self.run_dir / "metadata.json", meta.to_json_dict())
@@ -479,6 +480,11 @@ def run_scan_pipeline(run: ScanRun, repo_dir: Path, *, baseline_ref: str | None 
         if rejected and main.status.value == "COMPLETE":
             mirrored.update(status="PARTIAL", reason="some findings rejected; see errors")
         run.records[stage] = mirrored
+        if main.tool and main.tool_version:
+            run.tool_versions[main.tool] = main.tool_version
+        advisory_as_of = result.get("stage_details", {}).get("advisory_as_of")
+        if stage == "advisory" and advisory_as_of:
+            run.database_snapshots[main.tool or "advisory"] = advisory_as_of
 
     rich_vulns = _optional("guardian.adapters.vulns", "run_vulnerability_intelligence")
     vulns = _optional("guardian.adapters.vulns", "scan_known_vulnerabilities")
@@ -868,6 +874,23 @@ def cmd_status(args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
+def cmd_compare(args: argparse.Namespace) -> int:
+    """Compare two canonical runs without executing either repository."""
+    from guardian.analysis.time_machine import ComparisonError, compare_runs
+    try:
+        result = compare_runs(args.baseline, args.current, max_changes=args.max_changes)
+    except ComparisonError as exc:
+        print(f"compare: BLOCKED - {exc}")
+        return EXIT_BLOCKED
+    if args.out:
+        from guardian.state import write_json_atomic
+        write_json_atomic(Path(args.out), result)
+        print(f"comparison: {Path(args.out).as_posix()}")
+    else:
+        print(json.dumps(result, indent=2))
+    return EXIT_OK
+
+
 # ---------------------------------------------------------------------------
 
 
@@ -917,6 +940,13 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("benchmark", help="graph benchmark (B)")
     p.add_argument("--fixture")
     p.set_defaults(func=cmd_benchmark)
+
+    p = sub.add_parser("compare", help="compare two scanned commits without rescanning")
+    p.add_argument("--baseline", required=True, help="baseline run directory")
+    p.add_argument("--current", required=True, help="current run directory")
+    p.add_argument("--max-changes", type=int, default=200)
+    p.add_argument("--out", help="optional comparison JSON path")
+    p.set_defaults(func=cmd_compare)
 
     p = sub.add_parser("export-schemas", help="write JSON Schema files")
     p.add_argument("--out", default="docs/contracts")

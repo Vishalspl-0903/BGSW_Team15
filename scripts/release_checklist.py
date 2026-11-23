@@ -1,4 +1,4 @@
-"""Automated Day 1 Release Train Verification Checklist (§16 / §21).
+"""Automated Day 1 Release Train Verification Checklist (project sections 16 and 21).
 
 Usage:
     python scripts/release_checklist.py [--run-dir RUN_DIR]
@@ -19,8 +19,7 @@ if str(REPO_ROOT) not in sys.path:
 
 def check(name: str, passed: bool, details: str = "") -> bool:
     mark = "PASS" if passed else "FAIL"
-    status_icon = "✅" if passed else "❌"
-    print(f"[{mark}] {status_icon} {name}")
+    print(f"[{mark}] {name}")
     if details:
         print(f"       {details}")
     return passed
@@ -28,7 +27,10 @@ def check(name: str, passed: bool, details: str = "") -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Guardian Day 1 Release Checklist")
-    parser.add_argument("--run-dir", default=str(REPO_ROOT / "runs" / "day1-nodegoat"), help="Run directory to evaluate")
+    candidates = sorted((REPO_ROOT / "runs" / "nodegoat-current").glob("*/metadata.json"),
+                        key=lambda path: path.stat().st_mtime, reverse=True)
+    default_run = candidates[0].parent if candidates else REPO_ROOT / "runs" / "nodegoat-current"
+    parser.add_argument("--run-dir", default=str(default_run), help="Run directory to evaluate")
     args = parser.parse_args()
 
     run_dir = Path(args.run_dir)
@@ -41,13 +43,14 @@ def main() -> int:
     print(f"Target run directory:      {run_dir}\n")
 
     # 1. Automated unit and smoke tests
-    print("--- 1. Mandatory Test Suite (§16.4 / §21.3) ---")
-    res = subprocess.run([sys.executable, "-m", "pytest", "-q"], cwd=str(REPO_ROOT), capture_output=True, text=True)
+    print("--- 1. Mandatory Test Suite (sections 16.4 and 21.3) ---")
+    res = subprocess.run([sys.executable, "-m", "pytest", "-q"], cwd=str(REPO_ROOT), capture_output=True,
+                         text=True, encoding="utf-8", errors="replace", timeout=180)
     tests_ok = (res.returncode == 0)
     all_passed &= check("Pytest test suite exits 0 without failures", tests_ok, res.stdout.strip())
 
     # 2. Contract Fixture Validity (§9.3)
-    print("\n--- 2. Minimal Valid Live Fixture (§9.3) ---")
+    print("\n--- 2. Minimal Valid Live Fixture (section 9.3) ---")
     contract_dir = REPO_ROOT / "tests" / "fixtures" / "contract_m1"
     required_fixture_files = ["metadata.json", "module_index.json", "graph.json", "evidence.jsonl", "findings.json"]
     fixture_files_ok = all((contract_dir / f).is_file() for f in required_fixture_files)
@@ -60,6 +63,11 @@ def main() -> int:
     sbom_candidates = [run_dir / "sbom" / "source.syft.json", run_dir / "sbom" / "syft.cdx.json", run_dir / "sbom.cdx.json"]
     run_files_ok = run_files_ok and any(p.is_file() and p.stat().st_size > 0 for p in sbom_candidates)
     all_passed &= check(f"Required run artifacts present in {run_dir.name}", run_files_ok)
+    validation = subprocess.run([sys.executable, "-m", "guardian.cli", "validate-run", str(run_dir)],
+                                cwd=str(REPO_ROOT), capture_output=True, text=True, encoding="utf-8",
+                                errors="replace", timeout=60)
+    all_passed &= check("Canonical run schema and references validate", validation.returncode == 0,
+                        validation.stdout.strip())
 
     # 4. Dependency Graph Integrity
     print("\n--- 4. Dependency Graph & Supply Chain Integrity ---")
@@ -103,7 +111,7 @@ def main() -> int:
             all_passed &= check("Run metadata is valid JSON", False, str(exc))
 
     # 6. Report Generation Verification
-    print("\n--- 6. Verifiable Report Generation (§14 D.2) ---")
+    print("\n--- 6. Verifiable Report Generation (section 14 D.2) ---")
     try:
         from guardian.reporter import create_report
         json_p, md_p = create_report(str(run_dir))
@@ -114,11 +122,11 @@ def main() -> int:
 
     print("\n==================================================================")
     if all_passed:
-        print("🎉 RELEASE CHECKLIST: ALL P0 DAY 1 GATES PASSED (READY FOR TAG)")
+        print("RELEASE CHECKLIST: ALL P0 DAY 1 GATES PASSED (READY FOR TAG)")
         print("==================================================================")
         return 0
     else:
-        print("⚠️ RELEASE CHECKLIST: GATE FAILED - DO NOT TAG day1-integrated")
+        print("RELEASE CHECKLIST: GATE FAILED - DO NOT TAG day1-integrated")
         print("==================================================================")
         return 1
 

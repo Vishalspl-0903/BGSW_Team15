@@ -19,6 +19,6 @@ Thumbs.db
 *.zip
 
 # pinned source checkout retained locally; committed run artifacts contain the graph evidence
-runs/nodegoat-m1/*/repo/
+runs/nodegoat-*/*/repo/
 runs/m1-demo-security/
 runs/m1-demo-syft*/

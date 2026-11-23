@@ -13,7 +13,9 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from guardian import reporter
-from guardian.analysis.paths import get_neighbors
+from guardian.analysis.paths import get_neighbors, get_dependency_path
+from ui.day1 import render_day1
+from ui.time_machine import render_time_machine
 
 
 def _dot_quote(value: object) -> str:
@@ -31,12 +33,16 @@ def _node_label(node_id: str | None, components: dict, modules: dict) -> str:
 
 st.set_page_config(page_title="Guardian Dependency Graph", layout="wide")
 
+run_metadata = list((REPO_ROOT / "runs").glob("**/metadata.json"))
 runs = sorted(
-    (REPO_ROOT / "runs" / "nodegoat-m1").glob("*/metadata.json"),
+    [path for path in run_metadata if "nodegoat" in path.as_posix().casefold()],
     key=lambda path: path.stat().st_mtime,
     reverse=True,
 )
-run_dir = runs[0].parent if runs else REPO_ROOT / "runs" / "m1-demo"
+if not runs:
+    st.info("No NodeGoat scan is available. Run the documented CLI scan first.")
+    st.stop()
+run_dir = runs[0].parent
 data = reporter.load_run_data(run_dir)
 metadata = data.get("metadata") or {}
 graph = data.get("graph") or {}
@@ -44,7 +50,16 @@ components = graph.get("components") or []
 modules = graph.get("modules") or []
 edges = graph.get("edges") or []
 
-st.title("NodeGoat Dependency Graph")
+view = st.sidebar.radio("View", ["Dependency graph", "Day 1 findings", "Time Machine"])
+title = {"Dependency graph": "NodeGoat Dependency Graph", "Day 1 findings": "NodeGoat Security Findings",
+         "Time Machine": "Supply Chain Time Machine"}[view]
+st.title(title)
+if view == "Day 1 findings":
+    render_day1(data, run_dir)
+    st.stop()
+if view == "Time Machine":
+    render_time_machine([path.parent for path in runs])
+    st.stop()
 
 if not graph or not (run_dir / "graph.sqlite").is_file():
     st.info("The dependency graph is not ready yet.")
@@ -164,6 +179,14 @@ dot.append("}")
 st.caption("Blue: module    Green: direct dependency    Purple: transitive dependency")
 st.graphviz_chart("\n".join(dot), width="stretch")
 
+if center in component_map:
+    selected = component_map[center]
+    path = get_dependency_path(str(run_dir / "graph.sqlite"), metadata["scan_id"], selected["module_id"], center)
+    st.caption("Dependency path: " + (" → ".join(_node_label(n, component_map, module_map) for n in path["node_ids"]) or path["status"]))
+    with st.expander("Path evidence and coverage"):
+        st.json(path)
+        st.json(module_map[selected["module_id"]])
+
 st.subheader("Connection Details")
 evidence_map = data.get("evidence", {})
 rows = []
@@ -177,7 +200,7 @@ for edge in visible_edges:
             "Scope": edge.get("dependency_scope") or "dependency",
             "Source": "; ".join(
                 f"{record.get('source_path') or record.get('raw_artifact') or 'Unavailable'}"
-                f"{record.get('json_pointer') or ''}"
+                f"{'#' + record['json_pointer'] if record.get('json_pointer') else ''}"
                 for record in records
             ) or "Unavailable",
         }

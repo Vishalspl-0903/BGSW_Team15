@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190",
+  "modules": [
+    {
+      "module_id": "mod:09f822218fa85a6190755233",
+      "relative_path": ".",
+      "ecosystem": "npm",
+      "manifests": [
+        "package.json"
+      ],
+      "lockfiles": [
+        "package-lock.json"
+      ],
+      "ci_files": [
+        ".github/workflows/e2e-test.yml",
+        ".github/workflows/lint.yml"
+      ],
+      "dockerfiles": [
+        "Dockerfile",
+        "docker-compose.yml"
+      ],
+      "coverage": "RESOLVED",
+      "coverage_reason": "",
+      "scanner_names": [
+        "guardian-npm-lock-parser",
+        "guardian-static-module-index"
+      ],
+      "file_counts": {
+        "manifests_found": 1,
+        "manifests_scanned": 1,
+        "lockfiles_found": 1,
+        "lockfiles_scanned": 1,
+        "failed": 0,
+        "unsupported": 0,
+        "lock_packages": 1479
+      },
+      "scan_stage": {
+        "inventory": "COMPLETE",
+        "graph": "COMPLETE",
+        "advisory": "NOT_RUN",
+        "ci": "NOT_RUN",
+        "container": "NOT_RUN"
+      },
+      "artifact_sbom_status": "NOT_RUN"
+    }
+  ]
+}

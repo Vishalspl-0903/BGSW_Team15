@@ -45,8 +45,13 @@ class ReporterTests(unittest.TestCase):
             self.assertEqual(report["component_count"], 2)
             self.assertEqual(report["edge_count"], 2)
             self.assertEqual(report["findings_summary"]["total"], 0)
-            # Assert missing artifacts are labeled NOT_AVAILABLE, not blank success
-            self.assertEqual(report["artifact_paths"]["sbom.cdx.json"], "NOT_AVAILABLE")
+            from guardian.schemas import Report
+            Report.model_validate(report)
+            self.assertNotIn("sbom.cdx.json", report["artifact_paths"])
+            self.assertIn("SBOM: NOT_AVAILABLE", report["limitations"])
+            self.assertEqual(report["metadata"]["scan_id"], report["scan_id"])
+            for relative in report["artifact_paths"].values():
+                self.assertTrue((tmp_path / relative).is_file())
 
             # Verify markdown contains header and honesty limitations
             md_content = Path(md_p).read_text(encoding="utf-8")

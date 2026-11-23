@@ -455,4 +455,8 @@ def run_vulnerability_intelligence(
 
 def scan_known_vulnerabilities(scan_id: str, graph: Any, run_dir: str) -> list[Any]:
     """Public contract (PROJECT.md 9.4).  Use ``run_vulnerability_intelligence`` for the stage record."""
-    return run_vulnerability_intelligence(scan_id, graph, run_dir)["findings"]
+    result = run_vulnerability_intelligence(scan_id, graph, run_dir)
+    stage = _as_dict(result["stage"])
+    if stage["status"] != "COMPLETE":
+        raise VulnerabilityScanError(f"Advisory scan {stage['status']}: {stage.get('reason')}")
+    return result["findings"]

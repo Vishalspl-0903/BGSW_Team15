@@ -160,20 +160,27 @@ class AliasAndMappingRules(unittest.TestCase):
         self.assertEqual(finding["severity_label"], "Medium")
         self.assertTrue(any("disagree on severity" in u for u in finding["uncertainties"]))
 
-    def test_version_mismatch_is_unresolved_component_not_dropped(self) -> None:
+    def test_version_mismatch_is_coverage_gap_not_vulnerability(self) -> None:
         graph = copy.deepcopy(GRAPH)
         next(c for c in graph["components"] if c["name"] == "lodash")["resolved_version"] = "4.17.21"
         result = _convert({"matches": [_match("SIM-ADV-I", "lodash", "4.17.20")]}, graph)
         finding = result["findings"][0]
+        self.assertEqual(finding["finding_type"], "COVERAGE_GAP")
+        self.assertEqual(finding["classification"], "COVERAGE_LIMITATION")
+        self.assertEqual(finding["evidence_basis"], "UNKNOWN")
+        self.assertEqual(finding["priority"], "NEEDS_REVIEW")
         self.assertEqual(finding["occurrence_ids"], [])
         self.assertTrue(any("UNRESOLVED_COMPONENT" in u for u in finding["uncertainties"]))
+        self.assertIn("coverage gap", finding["description"])
         self.assertEqual(result["unmapped_matches"], 1)
 
-    def test_declared_only_components_are_never_matched(self) -> None:
+    def test_declared_only_components_are_coverage_gap(self) -> None:
         graph = copy.deepcopy(GRAPH)
         comp = next(c for c in graph["components"] if c["name"] == "lodash")
         comp.update(resolution="DECLARED_ONLY", resolved_version=None, package_key=None)
         finding = _convert({"matches": [_match("SIM-ADV-J", "lodash", "4.17.20")]}, graph)["findings"][0]
+        self.assertEqual(finding["finding_type"], "COVERAGE_GAP")
+        self.assertEqual(finding["classification"], "COVERAGE_LIMITATION")
         self.assertEqual(finding["occurrence_ids"], [])
 
     def test_purl_parsing(self) -> None:

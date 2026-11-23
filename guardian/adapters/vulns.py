@@ -271,25 +271,31 @@ def findings_from_grype_report(
                        f" using {', '.join(group['match_types']) or 'an unspecified match type'}."
                        f"{' Advisory summary: ' + summary if summary else ''}")
         severity = group["severity_label"]
+        is_mapped = bool(pkg and occurrences)
+        finding_type = "VULNERABILITY" if is_mapped else "COVERAGE_GAP"
+        classification = "CONFIRMED_ADVISORY" if is_mapped else "COVERAGE_LIMITATION"
+        if not is_mapped:
+            description += (" This advisory match could not be mapped to a resolved graph component; "
+                            "it is recorded as a coverage gap, not a confirmed vulnerability.")
         findings.append({
             "schema_version": SCHEMA_VERSION, "scan_id": scan_id,
-            "finding_id": _stable_id("fnd", scan_id, "VULNERABILITY",
+            "finding_id": _stable_id("fnd", scan_id, finding_type,
                                      [pkg["ecosystem"], pkg["name"], pkg["version"]] if pkg else None,
                                      sorted(ids + group["aliases"])),
-            "finding_type": "VULNERABILITY",
+            "finding_type": finding_type,
             "title": f"{name}: {group['display_id']}" + (f" ({severity})" if severity else ""),
             "description": description,
             "module_ids": module_ids, "occurrence_ids": occurrence_ids,
             "advisory_ids": ids, "advisory_urls": group["urls"][:10],
             "rule_id": None, "severity_label": severity, "cvss_score": group["cvss_score"],
-            "priority": initial_priority(severity),
+            "priority": initial_priority(severity) if is_mapped else "NEEDS_REVIEW",
             "evidence_ids": obs_eids + component_eids,
             "dependency_path_node_ids": path_nodes if path_status == "FOUND" else [],
             "path_status": path_status,
             "execution_stage": "UNKNOWN", "execution_evidence": "NOT_ANALYZED",
-            "evidence_basis": "TOOL_OBSERVED",
+            "evidence_basis": "TOOL_OBSERVED" if is_mapped else "UNKNOWN",
             "uncertainties": uncertainties, "recommendations": recommendations,
-            "classification": "CONFIRMED_ADVISORY",
+            "classification": classification,
             "advisory_aliases": group["aliases"],
             "first_seen_in": first_seen_in,
             "advisory_as_of": advisory_as_of,

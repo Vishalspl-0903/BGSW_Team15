@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "scan-synthetic-10000",
+  "repo_url": "local://fixture/synthetic-10000",
+  "commit_sha": null,
+  "source_kind": "LOCAL_FIXTURE",
+  "started_at": "2026-11-23T10:00:00Z",
+  "finished_at": "2026-11-23T10:00:10Z",
+  "status": "COMPLETE",
+  "tool_versions": {
+    "benchmarker": "1.0"
+  },
+  "errors": [],
+  "stage_statuses": {
+    "graph": "COMPLETE"
+  },
+  "database_snapshots": {},
+  "source_snapshot_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "scope_capabilities": {
+    "scale": "10000_components"
+  }
+}

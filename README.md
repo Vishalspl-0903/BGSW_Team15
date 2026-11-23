@@ -1,116 +1,102 @@
-# BGSW Team 15: Software Supply Chain Guardian
+# Bosch Software Supply Chain Guardian 🛡️
 
-> **Know what you build. Trust what you ship.**
-> An agentic system that analyses a software supply chain, finds dependency risks, vulnerabilities and suspicious changes, and proves every finding with evidence.
-
-This branch (`feature/day1-dependency-graph`) contains our **Day 1 work: the "Guardian's eyes"**: discovery of every component in the sample application, its dependency graph, known vulnerabilities, and the path each one takes into the app.
-
-**Start here:** download [`dependency-graph/output/graph.html`](dependency-graph/output/graph.html) and open it in a browser. It's an interactive graph that works offline.
+> **Evidence-first software supply chain decision system.**  
+> *"Discover what the software depends on, prove what we know and don't know, challenge the proposed fix, and validate safer delivery."*
 
 ---
 
-## Milestones covered (Day 1: Build the Guardian's eyes)
+## 1. Quick Start (One-Command UI Launch)
 
-| # | Day 1 milestone (organiser brief) | Status | What we delivered |
-|---|---|---|---|
-| 1 | **Discover components**: analyse manifests and lockfiles, identify direct and transitive dependencies, capture names and versions | ✅ Done | 1,091 packages from `package.json` + `package-lock.json`, each tagged direct/transitive, runtime/dev-only, optional |
-| 2 | **Build the supply chain view**: SBOM, dependency graph, where each component originates, inspect a container image or CI/CD workflow | 🟡 Mostly done | ✅ CycloneDX 1.5 SBOM · ✅ graph with 1,977 dependency links · ✅ source URL, registry and integrity hash per package · ⏳ container image / CI workflow inspection is next |
-| 3 | **Detect vulnerabilities**: match components to known vulnerabilities, capture CVE, severity and fixes, trace transitive ones back to their source | ✅ Done | 131 vulnerable packages (41 ship at runtime), 196 advisories from OSV.dev, fixed versions, and the shortest paths from the app to each one |
-| 4 | **Detect suspicious changes**: at least one supply-chain anomaly | 🟡 Partly done | Real findings: a dependency downloaded from a GitHub tarball of the `master` branch (not the npm registry), an unpinned `latest` dependency, a malicious-package advisory (`fsevents@1.2.9`), install-script flags. ⏳ Comparing a baseline with a new commit ("what changed") is next |
-| 5 | **Present evidence**: what was detected, which component, dependency path, supporting evidence, initial risk level | 🟡 Mostly done | Interactive graph with a details panel per package, `vulnerabilities.json`, summary tables, raw OSV responses + sha256 hashes. ⏳ Formal evidence ids and scan-status reporting are next |
+### Prerequisites
+- Python 3.11 or 3.12 installed.
 
-**Day 1 checkpoint ("Show us what is in the application, what changed, and what appears risky"):** *what is in the application* ✅ · *what appears risky* ✅ · *what changed* ⏳.
+### Launch Guardian Reviewer UI
 
----
-
-## What we did
-
-1. **Chose the sample application:** [OWASP NodeGoat](https://github.com/OWASP/NodeGoat) (Apache-2.0), a deliberately vulnerable Node.js app with a realistic dependency tree, a committed lockfile, a Dockerfile and GitHub Actions workflows. Analysed at commit `c5cb68a7084e` (21 Jun 2023).
-2. **Built the dependency graph from the lockfile only.** Nothing was installed and no package code or install script was executed. The builder links each package to its dependencies the way Node.js resolves them, then merges duplicate installs into one node per `name@version`.
-3. **Classified every component:** direct vs transitive, runtime vs dev-only, optional, depth, source URL, registry, integrity hash, licence, install-script flag.
-4. **Traced dependency paths:** up to 5 shortest paths from the app to every package. Runtime packages use runtime-only paths, so a path never goes through a dev tool.
-5. **Matched known vulnerabilities** against [OSV.dev](https://osv.dev): one batch query for all packages, then the full advisory records (severity, CVE aliases, CVSS, smallest fixed version).
-6. **Flagged supply-chain risks that aren't CVEs:** packages not downloaded from the npm registry, unpinned versions, install scripts, malicious-package advisories.
-7. **Generated the outputs:** interactive HTML graph, two PNG views, machine-readable JSON, CycloneDX SBOM, summary, and evidence files (raw responses + hashes).
-8. **Verified the outputs:** reviewed the PNGs; opened the HTML in a browser with no console errors; tested search, the details panel, path highlighting and the full graph including dev dependencies.
-
-## Key results
-
-| Metric | Value |
-|---|---|
-| Packages (unique `name@version`) | **1,091** |
-| Dependency edges | **1,977** (0 unresolved) |
-| Direct runtime / direct dev | **16 / 20** |
-| Transitive | **1,055** |
-| Ship at runtime / dev-only | **380 / 711** |
-| Deepest dependency chain | **13** |
-| Packages with known advisories (all / runtime) | **131 / 41** |
-| Distinct advisories | **196** |
-| Worst severity per vulnerable package | malicious 1 · critical 27 · high 65 · moderate 30 · low 8 |
-
-**Most important findings**
-
-| Package | How it gets into the app | Worst | Fixed in |
-|---|---|---|---|
-| `fsevents@1.2.9` | app → forever → forever-monitor → chokidar → fsevents (optional, macOS only) | malicious-package advisory (MAL-2023-462, CVE-2023-45311) | 1.2.11 |
-| `underscore@1.9.1` | direct dependency | critical (CVE-2021-23358) | 1.13.8 |
-| `bson@1.0.9` | app → mongodb → mongodb-core → bson | critical (CVE-2020-7610) | 1.1.4 |
-| `marked@0.3.5` | direct dependency | high (6 advisories) | 4.0.10 |
-| `body-parser@1.18.3` | direct dependency | high (3 advisories) | 1.20.9 |
-| `qs@6.5.2` | app → body-parser → qs | high (CVE-2022-24999) | 6.16.0 |
-| `grunt-if@0.2.0` | direct dev dependency downloaded from `github.com/.../tarball/master` | not from the npm registry, unpinned | — |
-
-Full details: [`dependency-graph/README.md`](dependency-graph/README.md) and [`dependency-graph/output/summary.md`](dependency-graph/output/summary.md).
-
----
-
-## Repository layout
-
-```
-README.md                       this file
-dependency-graph/
-  README.md                     detailed description, method, outputs, limits
-  build_graph.py                builds the graph, queries OSV, writes JSON + SBOM
-  render_graph.py               draws graph.html, the PNGs and the summary
-  graph_template.html           page template for graph.html
-  requirements.txt              Python dependencies
-  vendor/vis-network-9.1.9.min.js   graph library (Apache-2.0 OR MIT), inlined into graph.html
-  output/                       generated results (graph.html, PNGs, JSON, SBOM, evidence)
+**Windows:**
+```cmd
+.\scripts\run_ui.bat
 ```
 
-## Reproduce
-
+**Linux / macOS:**
 ```bash
-# 1. Get the sample application at the analysed commit (do NOT npm install or start it)
-git clone https://github.com/OWASP/NodeGoat sandbox/sample-app
-git -C sandbox/sample-app checkout c5cb68a7084e
-
-# 2. Build the graph
-cd dependency-graph
-pip install -r requirements.txt
-python -I build_graph.py --repo ../sandbox/sample-app --out output
-#   offline (graph only, no vulnerability lookup):  add --no-osv
+python -m streamlit run ui/app.py
 ```
 
-## Safety notes
-
-- The graph is built **without installing or running** the sample application or any of its packages.
-- **NodeGoat is deliberately hackable** and listens on all network interfaces. Never run it directly on a laptop with `npm start`. Run it only in Docker, bound to localhost (`127.0.0.1:4000:4000`).
-- No credentials or secrets are used or stored. The only network calls are the git clone and the public OSV.dev API (package names and versions only).
-
-## Limits
-
-- "Vulnerable" means the exact version has a published advisory. Whether the vulnerable code is reachable is the next step (risk prioritisation).
-- Advisory data is a snapshot from OSV.dev (23 Nov 2026).
-- Optional packages such as `fsevents` are installed only on supported platforms (macOS). The container image scan will confirm what actually ships.
-
-## Next
-
-1. Scan-status and coverage report (so "not checked" is never shown as "clean"), plus a cross-check of the graph against `npm ls`.
-2. CI workflow and Dockerfile inspection, then the container image SBOM (what actually ships).
-3. Change detection between a baseline and a new commit ("what changed").
-4. Day 2: risk prioritisation, remediation with human approval, validation and the Guardian report.
+The reviewer interface will open in your browser at `http://localhost:8501`.
 
 ---
 
-*Advisory data from [OSV.dev](https://osv.dev). Sample application: OWASP NodeGoat (Apache-2.0). Graph rendering: vis-network (Apache-2.0 OR MIT).*
+## 2. Running Automated Tests & Release Verification
+
+Run the full automated test suite:
+```bash
+python -m pytest -q
+```
+
+Run the Day 1 Release Train Verification Checklist (§16 / §21):
+```bash
+python scripts/release_checklist.py
+```
+
+---
+
+## 3. Key Capabilities & Architectural Scope
+
+Guardian is built on the premise that **a guardian cannot protect what it has not reliably discovered**.
+
+### 📦 M1: Scalable Supply Chain Graph & Traceable Provenance
+- **Safe Static Intake:** Parses lockfiles and manifests without executing untrusted install scripts.
+- **Transitive Dependency Resolution:** Resolves deep transitive package occurrences (e.g. `express ➔ qs`) without requiring explicit source imports.
+- **Traceable Paths:** Computes deterministic shortest paths from the project root module to any vulnerable transitive dependency.
+- **Scalable Bounded Rendering:** Avoids browser-crashing force-layouts on large graphs by enforcing bounded neighborhood queries (capped at 150 nodes) and expandable adjacency lists. Verified on synthetic 10,000-component fixtures.
+- **Fixture Watermark:** Displays an explicit `[FIXTURE WATERMARK]` whenever mock or test data is shown, ensuring synthetic data is never confused with live scans.
+
+### 🛡️ Day 1: Categorized Security Findings & Provenance
+- **Confirmed Advisories:** Matches resolved package occurrences to verified CVE/GHSA records from OSV.dev with CVSS scores and published fix information.
+- **Suspicious Changes:** Flags non-CVE indicators such as floating `latest` versions and unpinned non-registry tarball URLs with file line pointers.
+- **Coverage Gap Visibility:** Explicitly records scanner limitations (e.g., container scan not executed) as coverage gaps rather than claiming false safety.
+- **Verifiable Reports:** Generates machine-readable `report.json` and human-readable `report.md` via `guardian.reporter.create_report()`.
+
+### 🔧 Day 2: Audited Fix Candidates & Authentic Approval
+- **Static Candidate Audit:** Evaluates proposed package upgrades for registry origin, integrity hashes, and transitive CVE re-introduction.
+- **Critic & Guard Verdicts:** Challenges remediation proposals and applies deterministic policy guards.
+- **Authentic Approval Gate:** Adheres to strict fail-closed state management (§14 D.3 / §21 G15). The interface operates in an explicit read-only mode in the absence of an authenticated daemon—never faking state transitions.
+- **Independent Validation:** Tracks isolated build/test/rescan outputs and before/after finding deltas.
+
+---
+
+## 4. Repository Structure & Ownership
+
+```text
+├── .github/workflows/ci.yml       # Automated project CI pipeline
+├── guardian/
+│   ├── intake.py                  # [A] Safe static intake & URL normalizer
+│   ├── module_index.py            # [A] Multi-module repository indexer
+│   ├── reporter.py                # [D] Report generation & graph traversal queries
+│   └── validator.py               # [A] Fix proposal validation gate
+├── ui/
+│   ├── app.py                     # [D] Streamlit reviewer interface
+│   └── requirements.txt           # UI dependencies (streamlit, pydantic)
+├── docs/
+│   ├── demo-script.md             # [D] Step-by-step 2–5 minute presentation guide
+│   ├── day1_release.md            # [D] Normative Day 1 sign-off record (§16.5)
+│   └── responsible-ai.md          # [D] System safety & Responsible AI principles
+├── scripts/
+│   ├── run_ui.bat                 # [D] Windows one-command startup script
+│   └── release_checklist.py       # [D] Automated release train verification (§16/21)
+├── tests/
+│   ├── a_intake/                  # [A] Intake & module index unit tests
+│   ├── a_validator/               # [A] Proposal validation unit tests
+│   ├── d_report/                  # [D] Report generator & snapshot tests
+│   └── d_ui/                      # [D] UI smoke, bounded scale & XSS tests
+└── runs/
+    └── day1-nodegoat/             # Merged Day 1 run data (1,091 packages, 196 advisories)
+```
+
+---
+
+## 5. Non-Negotiable Honesty
+- Unknown dependencies are never shown as safe.
+- Missing evidence records are explicitly labeled `NOT_AVAILABLE`.
+- Vulnerability detection is performed solely by scanning engines; the UI never fabricates security claims or findings.
+

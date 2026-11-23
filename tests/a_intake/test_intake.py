@@ -1,8 +1,20 @@
 from __future__ import annotations
 
 import unittest
+import json
+from pathlib import Path
+from subprocess import CompletedProcess
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
-from guardian.intake import IntakeError, normalize_repo_url
+from guardian.intake import (
+    IntakeError,
+    _inspect_snapshot,
+    _run_git,
+    _safe_ref,
+    acquire_repo,
+    normalize_repo_url,
+)
 
 
 class NormalizeRepoUrlTests(unittest.TestCase):
@@ -27,6 +39,54 @@ class NormalizeRepoUrlTests(unittest.TestCase):
         ):
             with self.subTest(value=value), self.assertRaises(IntakeError):
                 normalize_repo_url(value)
+
+    def test_rejects_unsafe_git_refs(self) -> None:
+        for value in ("--upload-pack=bad", "../main", "main..other", "main@{1}", "bad ref", "a//b"):
+            with self.subTest(value=value), self.assertRaises(IntakeError):
+                _safe_ref(value)
+
+    def test_git_invocation_disables_redirects_hooks_and_shell(self) -> None:
+        completed = CompletedProcess(args=[], returncode=0, stdout="git version test\n", stderr="")
+        with patch("guardian.intake.subprocess.run", return_value=completed) as run:
+            result = _run_git(["--version"])
+        self.assertEqual(result.returncode, 0)
+        argv = run.call_args.args[0]
+        self.assertIn("http.followRedirects=false", argv)
+        self.assertIn("protocol.file.allow=never", argv)
+        self.assertTrue(any(value.startswith("core.hooksPath=") for value in argv))
+        self.assertFalse(run.call_args.kwargs["shell"])
+        self.assertGreater(run.call_args.kwargs["timeout"], 0)
+
+    def test_snapshot_hash_is_repeatable_and_does_not_modify_source(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = root / "package.json"
+            source.write_text('{"name":"fixture"}', encoding="utf-8")
+            before = source.read_bytes()
+            first = _inspect_snapshot(root)
+            second = _inspect_snapshot(root)
+            after = source.read_bytes()
+        self.assertEqual(first, second)
+        self.assertEqual(before, after)
+
+    def test_clone_failure_emits_explicit_redacted_failed_metadata(self) -> None:
+        def fake_git(argv, cwd=None):
+            del cwd
+            if argv == ["--version"]:
+                return CompletedProcess(argv, 0, "git version test\n", "")
+            return CompletedProcess(argv, 128, "", "remote included sensitive diagnostic")
+
+        with TemporaryDirectory() as tmp, patch(
+            "guardian.intake._run_git", side_effect=fake_git
+        ):
+            result = acquire_repo("https://github.com/example/project", "main", tmp)
+
+        self.assertEqual(result.status.value, "FAILED")
+        self.assertEqual(result.stage_statuses["intake"].value, "FAILED")
+        self.assertIsNone(result.commit_sha)
+        self.assertIsNone(result.source_snapshot_sha256)
+        self.assertEqual(result.errors, ["Git clone failed without executing repository content"])
+        self.assertNotIn("sensitive", json.dumps(result.model_dump(mode="json")))
 
 
 if __name__ == "__main__":

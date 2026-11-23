@@ -59,5 +59,5 @@ def test_consumer_loads_graph_and_queries_db(tmp_path):
     graph = json.loads(Path(out["graph"]).read_text())
     deep = next(c for c in graph["components"] if c["name"] == "deep")
     p = get_dependency_path(out["db"], "oracle", graph["modules"][0]["module_id"], deep["occurrence_id"])
-    assert p["path_status"] == "FOUND" and p["hops"] == 3     # root -> b -> c@2 -> deep
+    assert p["status"] == "FOUND" and len(p["edge_ids"]) == 3     # root -> b -> c@2 -> deep
     assert deep["purl"] == "pkg:npm/deep@1.0.0" and deep["package_key"] == "npm:deep@1.0.0"

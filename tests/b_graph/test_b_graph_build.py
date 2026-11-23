@@ -35,8 +35,8 @@ def test_hidden_transitive_three_levels(tmp_path):
     leaf = comp_by_name(graph, "leaf")[0]
     assert leaf["directness"] == "TRANSITIVE" and comp_by_name(graph, "web")[0]["directness"] == "DIRECT"
     p = get_dependency_path(db(tmp_path, graph), "s1", "mod:.", leaf["occurrence_id"])
-    assert p["path_status"] == "FOUND" and p["hops"] == 3 and p["path_node_ids"][0] == "mod:."
-    assert p["evidence_ids"]
+    assert p["status"] == "FOUND" and len(p["edge_ids"]) == 3 and p["node_ids"][0] == "mod:."
+    assert p["edge_evidence_ids"]
 
 
 def test_nested_duplicate_versions_and_scoped(tmp_path):
@@ -52,7 +52,7 @@ def test_nested_duplicate_versions_and_scoped(tmp_path):
     c2 = comp_by_name(graph, "c", "2.0.0")[0]
     p = get_dependency_path(db(tmp_path, graph), "s1", "mod:.", c2["occurrence_id"])
     names = {x["occurrence_id"]: x["name"] for x in graph["components"]}
-    assert [names.get(n, "root") for n in p["path_node_ids"]] == ["root", "b", "c"]
+    assert [names.get(n, "root") for n in p["node_ids"]] == ["root", "b", "c"]
 
 
 def test_same_package_two_modules_distinct_occurrences(tmp_path):
@@ -79,7 +79,7 @@ def test_missing_parent_no_invented_edge(tmp_path):
     assert graph["modules"][0]["coverage"] == "PARTIAL"
     assert any("UNRESOLVED_PARENT" in w for w in graph["warnings"])
     p = get_dependency_path(db(tmp_path, graph), "s1", "mod:.", orphan["occurrence_id"])
-    assert p["path_status"] == "UNRESOLVED" and p["path_node_ids"] == []
+    assert p["status"] == "UNRESOLVED" and p["node_ids"] == []
 
 
 def test_declaration_without_target_is_not_an_edge(tmp_path):
@@ -101,7 +101,7 @@ def test_cycle_terminates(tmp_path):
     graph = g(tmp_path, [mod()])
     d = db(tmp_path, graph)
     b = comp_by_name(graph, "b")[0]
-    assert get_dependency_path(d, "s1", "mod:.", b["occurrence_id"])["hops"] == 2
+    assert get_dependency_path(d, "s1", "mod:.", b["occurrence_id"])["edge_ids"].__len__() == 2
     n = get_neighbors(d, "s1", b["occurrence_id"], "both", depth=10)
     assert len(n["nodes"]) == 3
     assert get_reverse_impact(d, "s1", b["occurrence_id"])["modules"] == ["mod:."]
@@ -211,7 +211,7 @@ def test_synthetic_scale_bounded(tmp_path, n):
     p = get_dependency_path(d, "s1", "mod:.", leaf)
     nb = get_neighbors(d, "s1", "mod:.", "out", depth=10, max_nodes=150)
     q_ms = (time.perf_counter() - t) * 1000
-    assert p["path_status"] == "FOUND" and p["hops"] == n
+    assert p["status"] == "FOUND" and len(p["edge_ids"]) == n
     assert len(nb["nodes"]) <= 150
     print(f"\nSCALE n={n}: build={build_s:.2f}s path+neighbors={q_ms:.1f}ms")
     assert q_ms < 5000

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -55,6 +56,7 @@ class EvidenceStore:
         self.scan_id = scan_id
         self.run_dir = Path(run_dir) if run_dir else None
         self.records: dict[str, dict[str, Any]] = {}
+        self.errors: list[str] = []
 
     def add(
         self,
@@ -95,25 +97,62 @@ class EvidenceStore:
             }
         return evidence_id
 
-    def save_raw(self, name: str, data: bytes) -> tuple[str | None, str]:
-        """Persist raw bytes under ``<run>/raw/<name>``; return (relpath, sha256)."""
+    def save_raw(self, name: str, data: bytes, subdir: str = "raw") -> tuple[str | None, str]:
+        """Persist bytes under ``<run>/<subdir>/<name>`` (subdir: raw|sbom); return (relpath, sha256)."""
+        if subdir not in ("raw", "sbom"):
+            raise ValueError("subdir must be 'raw' or 'sbom'")
         digest = sha256_bytes(data)
         if self.run_dir is None:
             return None, digest
-        safe = Path(name).name  # no traversal out of raw/
-        target = self.run_dir / "raw" / safe
+        safe = Path(name).name  # no traversal out of the subdir
+        target = self.run_dir / subdir / safe
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-        return f"raw/{safe}", digest
+        return f"{subdir}/{safe}", digest
 
     def flush(self) -> Path | None:
+        """Append new records to ``evidence.jsonl``; never rewrite or truncate it.
+
+        Records whose ``evidence_id`` is already in the file are skipped (IDs are
+        deterministic). If the stored record differs in content (``recorded_at``
+        aside) the stored one is kept and the conflict is added to ``self.errors``.
+        All new lines are serialised before the file is opened, so a
+        serialisation failure writes nothing.
+        """
         if self.run_dir is None:
             return None
         self.run_dir.mkdir(parents=True, exist_ok=True)
         path = self.run_dir / "evidence.jsonl"
-        with open(path, "w", encoding="utf-8", newline="\n") as fh:
-            for rec in self.records.values():
-                fh.write(json.dumps(rec, sort_keys=True, ensure_ascii=False) + "\n")
+        existing: dict[str, dict[str, Any]] = {}
+        ends_with_newline = True
+        if path.exists():
+            data = path.read_bytes()
+            ends_with_newline = not data or data.endswith(b"\n")
+            for n, line in enumerate(data.splitlines(), 1):
+                if not line.strip():
+                    continue
+                try:
+                    rec = json.loads(line)
+                    existing[rec["evidence_id"]] = rec
+                except (ValueError, KeyError, TypeError):
+                    self.errors.append(f"evidence.jsonl line {n} is unreadable; left untouched")
+        lines: list[str] = []
+        for eid, rec in self.records.items():
+            if eid in existing:
+                old = {k: v for k, v in existing[eid].items() if k != "recorded_at"}
+                new = json.loads(json.dumps({k: v for k, v in rec.items() if k != "recorded_at"}, ensure_ascii=False))
+                if new != old:
+                    self.errors.append(f"{eid}: record differs from the stored one; stored record kept")
+                continue
+            lines.append(json.dumps(rec, sort_keys=True, ensure_ascii=False) + "\n")
+        if lines:
+            payload = ("" if ends_with_newline else "\n") + "".join(lines)
+            with open(path, "a", encoding="utf-8", newline="\n") as fh:
+                fh.write(payload)
+                fh.flush()
+                os.fsync(fh.fileno())
+        elif not path.exists():
+            path.touch()
         return path
 
     def index(self) -> dict[str, dict[str, Any]]:

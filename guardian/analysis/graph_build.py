@@ -20,10 +20,38 @@ from guardian.evidence import EvidenceStore, sha256_bytes, stable_id
 
 SCHEMA_VERSION = "1.0"
 _LOCKNAMES = ("package-lock.json", "npm-shrinkwrap.json")
+OUTSIDE_PLACEHOLDER = "<outside-repo>"
+_DRIVE = re.compile(r"^[A-Za-z]:")
+_PATH_LISTS = ("manifests", "lockfiles", "ci_files", "dockerfiles")
 
 
 def _posix(p: str) -> str:
     return p.replace("\\", "/")
+
+
+def _unsafe_path(p: Any) -> bool:
+    """Not a plain repository-relative POSIX path (absolute, drive, UNC, '..', NUL)."""
+    if not isinstance(p, str) or "\x00" in p:
+        return True
+    q = _posix(p)
+    return q.startswith("/") or bool(_DRIVE.match(q)) or ".." in q.split("/")
+
+
+def _quarantine_paths(mod: dict[str, Any]) -> set[str]:
+    """Replace unsafe paths with a fixed placeholder; return the fields that were affected."""
+    hit: set[str] = set()
+    for k in _PATH_LISTS:
+        clean = []
+        for x in mod.get(k) or []:
+            if _unsafe_path(x):
+                hit.add(k)
+                x = OUTSIDE_PLACEHOLDER
+            clean.append(x)
+        mod[k] = list(dict.fromkeys(clean))
+    if _unsafe_path(mod.get("relative_path")):
+        hit.add("relative_path")
+        mod["relative_path"] = OUTSIDE_PLACEHOLDER
+    return hit
 
 
 def _as_dict(module: Any) -> dict[str, Any]:
@@ -35,7 +63,7 @@ def _as_dict(module: Any) -> dict[str, Any]:
         raise TypeError("module must be a dict or a pydantic ProjectModule")
     # repository-relative paths are POSIX-style in every ID and reference
     for k in ("manifests", "lockfiles", "ci_files", "dockerfiles"):
-        d[k] = [_posix(x) for x in d.get(k) or []]
+        d[k] = [_posix(x) if isinstance(x, str) else x for x in d.get(k) or []]
     if isinstance(d.get("relative_path"), str):
         d["relative_path"] = _posix(d["relative_path"])
     return d
@@ -284,6 +312,8 @@ def _syft_crosscheck(syft: dict[str, Any], comps: list[dict], warnings: list[str
     if syft.get("status") != "COMPLETE":
         warnings.append(f"SYFT_{syft.get('status')}: {syft.get('reason', '')}".rstrip(": "))
         return
+    if syft.get("cdx_warning"):
+        warnings.append(f"SYFT_CDX_INVALID: {syft['cdx_warning']}")
     syft_set = {(p["name"], p["version"]) for p in syft["packages"] if p.get("type") in ("npm", None)}
     lock_set = {(c["name"], c["resolved_version"]) for c in comps if c["resolved_version"]}
     only_syft, only_lock = syft_set - lock_set, lock_set - syft_set
@@ -312,7 +342,20 @@ def build_graph_with_evidence(
     for m in modules:
         mod = _as_dict(m)
         before = (len(comps), len(edges), len(warnings))
+        quarantined = _quarantine_paths(mod)      # bad paths never reach graph.json, evidence or warnings
         try:
+            if quarantined:
+                code = "LOCKFILE_PATH_OUTSIDE_REPO" if "lockfiles" in quarantined else "MODULE_PATH_OUTSIDE_REPO"
+                store.add("TOOL_LOG", f"input validation failure: {', '.join(sorted(quarantined))} path outside "
+                          f"repository for module {mod.get('module_id')}; observation quarantined",
+                          source_path=None, observed_value={"quarantined_fields": sorted(quarantined)})
+                warnings.append(f"{code}: module {mod.get('module_id')} path outside repository; quarantined")
+                if quarantined & {"lockfiles", "manifests", "relative_path"}:
+                    mod = _empty_module_result(
+                        mod, "FAILED", f"{'lockfile' if 'lockfiles' in quarantined else 'module'} path outside "
+                        "repository; observation quarantined", "FAILED")
+                    out_modules.append(mod)
+                    continue
             if mod.get("ecosystem") != "npm":
                 mod = _empty_module_result(
                     mod, mod.get("coverage") if mod.get("coverage") in ("UNSUPPORTED", "FAILED", "DECLARED_ONLY", "NOT_RUN") else "UNSUPPORTED",
@@ -325,6 +368,13 @@ def build_graph_with_evidence(
                                                "no package-lock.json/npm-shrinkwrap.json; versions and edges unknown")
                 else:
                     mod = _build_npm_module(scan_id, repo, mod, lock_rel, store, comps, edges, warnings)
+        except npmmod.LockfileOutsideRepo:      # symlink escape found at read time
+            del comps[before[0]:], edges[before[1]:], warnings[before[2]:]
+            mod["lockfiles"] = [OUTSIDE_PLACEHOLDER] * bool(mod.get("lockfiles"))
+            store.add("TOOL_LOG", f"input validation failure: lockfile resolves outside repository for module "
+                      f"{mod.get('module_id')}; observation quarantined", observed_value={"quarantined_fields": ["lockfiles"]})
+            mod = _empty_module_result(mod, "FAILED", "lockfile path outside repository; observation quarantined", "FAILED")
+            warnings.append(f"LOCKFILE_PATH_OUTSIDE_REPO: module {mod.get('module_id')} lockfile resolves outside repository; quarantined")
         except (npmmod.LockfileError, OSError, KeyError, TypeError, ValueError) as exc:
             del comps[before[0]:], edges[before[1]:], warnings[before[2]:]  # drop partial output of this module only
             raw = getattr(exc, "raw", None)
@@ -339,6 +389,8 @@ def build_graph_with_evidence(
     if use_syft:
         _syft_crosscheck(syftmod.run_syft(repo, store), comps, warnings)
 
+    store.flush()
+    warnings.extend(f"EVIDENCE_CONFLICT: {e}" for e in store.errors)
     cov = [m["coverage"] for m in out_modules]
     summary = {
         "total_modules": len(out_modules),
@@ -352,7 +404,6 @@ def build_graph_with_evidence(
         "schema_version": SCHEMA_VERSION, "scan_id": scan_id, "modules": out_modules,
         "components": comps, "edges": edges, "coverage_summary": summary, "warnings": warnings,
     }
-    store.flush()
     try:
         from guardian.schemas import GraphBundle  # C's canonical model, when merged
     except ImportError:

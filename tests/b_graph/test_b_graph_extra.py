@@ -165,14 +165,14 @@ def test_truncation_flag(tmp_path, monkeypatch):
     d = db(tmp_path, graph)
     monkeypatch.setattr(paths, "MAX_VISITED", 5)
     p = get_dependency_path(d, "s1", "mod:.", comp_by_name(graph, "p99")[0]["occurrence_id"])
-    assert p["truncated"] is True and p["path_status"] == "UNRESOLVED" and p["path_node_ids"] == []
+    assert p["truncated"] is True and p["status"] == "TRUNCATED" and p["node_ids"] == []
 
 
 def test_unknown_node_is_not_found(tmp_path):
     graph = _chain(tmp_path, 3)
     d = db(tmp_path, graph)
     p = get_dependency_path(d, "s1", "mod:.", "occ:does-not-exist")
-    assert p["status"] == "NOT_FOUND" and p["path_node_ids"] == []
+    assert p["status"] == "NOT_FOUND" and p["node_ids"] == []
     assert get_neighbors(d, "s1", "occ:nope")["status"] == "NOT_FOUND"
     assert get_reverse_impact(d, "s1", "occ:nope")["status"] == "NOT_FOUND"
 
@@ -187,10 +187,10 @@ def test_no_known_path_vs_unresolved(tmp_path):
     graph = g(tmp_path, [mod()])
     d = db(tmp_path, graph)
     p = get_dependency_path(d, "s1", "mod:.", comp_by_name(graph, "c1")[0]["occurrence_id"])
-    assert p["path_status"] == "NO_KNOWN_PATH" and p["status"] == "OK"
+    assert p["status"] == "NO_KNOWN_PATH"
     assert "unreachable" not in json.dumps(p).lower()
     o = get_dependency_path(d, "s1", "mod:.", comp_by_name(graph, "orphan")[0]["occurrence_id"])
-    assert o["path_status"] == "UNRESOLVED"
+    assert o["status"] == "UNRESOLVED"
 
 
 def test_cycle_path_and_reverse_terminate(tmp_path):
@@ -201,7 +201,7 @@ def test_cycle_path_and_reverse_terminate(tmp_path):
     graph = g(tmp_path, [mod()])
     d = db(tmp_path, graph)
     a = comp_by_name(graph, "a")[0]["occurrence_id"]
-    assert get_dependency_path(d, "s1", "mod:.", a)["hops"] == 1
+    assert get_dependency_path(d, "s1", "mod:.", a)["edge_ids"].__len__() == 1
     assert get_reverse_impact(d, "s1", a)["modules"] == ["mod:."]
 
 
@@ -269,7 +269,7 @@ def _assert_same(d, graph):
         for c in graph["components"]:
             new = get_dependency_path(d, "s1", m["module_id"], c["occurrence_id"])
             old = _reference_path(d, "s1", m["module_id"], c["occurrence_id"])
-            assert (new["path_status"], new["path_node_ids"], new["path_edge_ids"]) == old
+            assert (new["status"], new["node_ids"], new["edge_ids"]) == old
 
 
 def test_new_path_matches_reference_on_fixtures(tmp_path):
@@ -312,7 +312,7 @@ def test_path_timing(tmp_path, n):
         old_t = time.perf_counter()
         old = _reference_path(d, "s1", "mod:.", leaf)
         old_ms = (time.perf_counter() - old_t) * 1000
-        assert old[1] == p["path_node_ids"]
+        assert old[1] == p["node_ids"]
     print(f"\nPATH n={n}: new={ms:.1f}ms reference={old_ms:.1f}ms")
-    assert p["path_status"] == "FOUND" and p["hops"] == n and len(p["path_node_ids"]) == n + 1
+    assert p["status"] == "FOUND" and len(p["edge_ids"]) == n and len(p["node_ids"]) == n + 1
     assert ms < 2000

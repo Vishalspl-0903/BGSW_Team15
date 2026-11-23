@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "scan-m1-fixture",
+  "modules": [
+    {
+      "module_id": "mod-root",
+      "relative_path": ".",
+      "ecosystem": "npm",
+      "manifests": ["package.json"],
+      "lockfiles": ["package-lock.json"],
+      "ci_files": [".github/workflows/ci.yml"],
+      "dockerfiles": [],
+      "coverage": "RESOLVED",
+      "coverage_reason": "",
+      "scanner_names": ["syft"],
+      "file_counts": {
+        "found": 12,
+        "scanned": 12,
+        "failed": 0,
+        "unsupported": 0
+      },
+      "scan_stage": {
+        "inventory": "COMPLETE",
+        "graph": "COMPLETE"
+      },
+      "artifact_sbom_status": "NOT_RUN"
+    }
+  ],
+  "components": [
+    {
+      "package_key": "npm:express@4.17.1",
+      "ecosystem": "npm",
+      "name": "express",
+      "resolved_version": "4.17.1",
+      "declared_constraint": "^4.17.1",
+      "purl": "pkg:npm/express@4.17.1",
+      "occurrence_id": "occ-express-4.17.1",
+      "module_id": "mod-root",
+      "source_refs": ["package.json#dependencies/express", "package-lock.json#packages/node_modules/express"],
+      "resolution": "RESOLVED",
+      "evidence_ids": ["ev-manifest-01", "ev-lockfile-01"],
+      "install_stage_indicator": null,
+      "dependency_scopes": ["production"],
+      "directness": "DIRECT",
+      "license": "MIT",
+      "artifact_hashes": ["sha512-mockhash123"],
+      "package_source_type": "REGISTRY",
+      "resolved_source_url": "https://registry.npmjs.org/express/-/express-4.17.1.tgz",
+      "registry_host": "registry.npmjs.org",
+      "source_scope": "SOURCE",
+      "image_presence": "NOT_CHECKED",
+      "manifest_refs": ["package.json"]
+    },
+    {
+      "package_key": "npm:qs@6.7.0",
+      "ecosystem": "npm",
+      "name": "qs",
+      "resolved_version": "6.7.0",
+      "declared_constraint": "6.7.0",
+      "purl": "pkg:npm/qs@6.7.0",
+      "occurrence_id": "occ-qs-6.7.0",
+      "module_id": "mod-root",
+      "source_refs": ["package-lock.json#packages/node_modules/qs"],
+      "resolution": "RESOLVED",
+      "evidence_ids": ["ev-lockfile-01"],
+      "install_stage_indicator": null,
+      "dependency_scopes": ["production"],
+      "directness": "TRANSITIVE",
+      "license": "BSD-3-Clause",
+      "artifact_hashes": ["sha512-mockqs456"],
+      "package_source_type": "REGISTRY",
+      "resolved_source_url": "https://registry.npmjs.org/qs/-/qs-6.7.0.tgz",
+      "registry_host": "registry.npmjs.org",
+      "source_scope": "SOURCE",
+      "image_presence": "NOT_CHECKED",
+      "manifest_refs": ["package.json"]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge-root-express",
+      "source_id": "mod-root",
+      "target_id": "occ-express-4.17.1",
+      "relationship": "DEPENDS_ON",
+      "evidence_ids": ["ev-manifest-01"],
+      "module_id": "mod-root",
+      "resolution": "OBSERVED",
+      "dependency_scope": "production",
+      "declared_constraint": "^4.17.1",
+      "source_scope": "SOURCE"
+    },
+    {
+      "edge_id": "edge-express-qs",
+      "source_id": "occ-express-4.17.1",
+      "target_id": "occ-qs-6.7.0",
+      "relationship": "DEPENDS_ON",
+      "evidence_ids": ["ev-lockfile-01"],
+      "module_id": "mod-root",
+      "resolution": "OBSERVED",
+      "dependency_scope": "production",
+      "declared_constraint": "6.7.0",
+      "source_scope": "SOURCE"
+    }
+  ],
+  "coverage_summary": {
+    "total_modules": 1,
+    "resolved_modules": 1,
+    "partial_modules": 0,
+    "declared_only_modules": 0,
+    "unsupported_modules": 0,
+    "failed_modules": 0
+  },
+  "warnings": []
+}
+

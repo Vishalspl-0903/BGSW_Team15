@@ -1,0 +1,7 @@
+{
+ "graph.json": "41c203bbecb7f0b05844f2e32720d5bb98ec901c003b15922bf49bc92b4601af",
+ "vulnerabilities.json": "6acaa76bc3c476ee3fc7b8f561e87afd6597973853a4c487d747d2eb1e1f3433",
+ "sbom.cdx.json": "dfd06f927c264c6a65a49babc89689cad2d3c9a150f71db9e1ea2ed2f0a81669",
+ "raw/osv-querybatch.json": "c92376eedfcb02e5b31ea18cf5d6181b2a0d65655ad4e83799df8b71d9e11cc2",
+ "input:package-lock.json": "d6ca7e31c3a099d856a631b4f4d0d9eaaaca3d4586d9a5ee1674178b7c48aaea"
+}

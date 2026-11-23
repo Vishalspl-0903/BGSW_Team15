@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "scan-m1-fixture",
+  "repo_url": "local://fixture/sample-npm-app",
+  "commit_sha": null,
+  "source_kind": "LOCAL_FIXTURE",
+  "started_at": "2026-11-23T10:00:00Z",
+  "finished_at": "2026-11-23T10:00:05Z",
+  "status": "COMPLETE",
+  "tool_versions": {
+    "guardian_intake": "0.1.0",
+    "syft": "1.0.0-mock",
+    "grype": "0.74.0-mock"
+  },
+  "errors": [],
+  "stage_statuses": {
+    "intake": "COMPLETE",
+    "module_index": "COMPLETE",
+    "sbom": "COMPLETE",
+    "graph": "COMPLETE",
+    "advisory": "COMPLETE",
+    "ci": "NOT_RUN"
+  },
+  "database_snapshots": {
+    "osv": "2026-11-23T00:00:00Z"
+  },
+  "source_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope_capabilities": {
+    "ecosystems": "npm",
+    "graph_resolution": "LOCKFILE_PRECISE"
+  }
+}
+

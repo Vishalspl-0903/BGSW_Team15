@@ -33,6 +33,10 @@ class LockfileError(RuntimeError):
         self.raw = raw
 
 
+class LockfileOutsideRepo(LockfileError):
+    """Lockfile path resolves outside the authorized checkout (never echo the path)."""
+
+
 @dataclass
 class LockPackage:
     key: str                       # installed path, "" for root
@@ -147,7 +151,7 @@ def load_lockfile(path: str | Path, repo_root: str | Path | None = None) -> tupl
         try:
             p.resolve(strict=True).relative_to(Path(repo_root).resolve(strict=True))
         except (ValueError, OSError) as exc:
-            raise LockfileError("lockfile resolves outside the authorized checkout") from exc
+            raise LockfileOutsideRepo("lockfile path outside repository; observation quarantined") from exc
     try:
         if p.stat().st_size > MAX_LOCK_BYTES:
             raise LockfileError(f"lockfile exceeds {MAX_LOCK_BYTES} byte limit")

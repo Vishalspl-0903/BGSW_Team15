@@ -30,6 +30,7 @@ agent:
   max_output_chars: 8000
   timeout_seconds: 30
   max_retries: 2
+  max_findings_analyzed: 20
 
 remediation:
   require_explicit_human_approval: true
@@ -39,5 +40,6 @@ remediation:
   allowed_strategies: [DIRECT_UPGRADE, PARENT_UPGRADE, OVERRIDE, CI_CONFIG, ESCALATE]
   approval_ttl_minutes: 120
   allow_audit_reject_override: false
+  max_proposals_per_finding: 3
 
 unsupported: []

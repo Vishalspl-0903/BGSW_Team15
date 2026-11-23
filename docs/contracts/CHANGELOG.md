@@ -60,3 +60,14 @@ New helper models: `StageRecord`, `ApprovalRecord`, `CandidateChange`, `CommandR
 * `ValidationResult.status=PASS` needs approval, build/tests/rescan true, no new findings, logged exit-0 commands.
 * Only a `HUMAN` event may carry an approval; an `LLM` event can never enter REVIEW_PENDING or later states.
 * FAILED/BLOCKED `ScanMetadata` must list errors; `LOCAL_FIXTURE` must use `local://fixture/<id>` with `commit_sha=null`.
+
+## Cross-role interface requests (feat/c-contracts-brain) — please confirm or object
+
+| To | Request | What C does today |
+|---|---|---|
+| A | Inside `validate_approved_proposal`, call `guardian.agents.remediation.verify_approval(run_dir, proposal_id, approved_event_id)` (read-only; raises `ApprovalDenied`) before touching any worktree | C's `validate` command already refuses to call A without a verified approval; A's current stub returns BLOCKED and C records it |
+| A | Optional public `snapshot_local(path, workspace)` so `scan --local` reuses A's hashing instead of C's static copy | C copies allowlisted fixtures (`config/policy.yaml local_intake.allowed_roots`) into `<run>/repo` |
+| B | `build_graph(scan_id, repo_dir, modules)` gets `repo_dir == <run_dir>/repo`; append your `Evidence` lines to `<run_dir>/evidence.jsonl` (i.e. `Path(repo_dir).parent`) | C validates the returned `GraphBundle`, runs `integrity_errors()`, rejects conflicting `scan_id` |
+| B | Day 2: `guardian.fixaudit.static_audit.audit_candidate(proposal: Proposal, run_dir: str) -> FixAuditResult` | Missing auditor ⇒ proposal `BLOCKED` (fail closed) |
+| E | Adapters **raise** when a lookup cannot complete (exception class name containing `Unavailable` ⇒ stage `UNAVAILABLE`, else `FAILED`). Returning a list means the lookup COMPLETED, so `[]` is recorded as `known_matches: 0` | C never converts an exception into zero findings |
+| D | `create_report(run_dir)` should read `metadata.json.stage_records`; `null` known_matches = unknown | `report` prints UNAVAILABLE until D merges |

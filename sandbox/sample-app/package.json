@@ -1,0 +1,9 @@
+{
+  "name": "guardian-controlled-sample",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inert Role A module-discovery fixture; never published",
+  "dependencies": {
+    "fixture-direct": "1.0.0"
+  }
+}

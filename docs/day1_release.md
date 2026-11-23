@@ -1,8 +1,15 @@
 # Day 1 integrated release evidence
 
 ```yaml
-release: day1-integrated-candidate
-integration_branch: integrate/m1
+release: day1-finalization-in-review
+base_release_commit: c779db5660faebc5348aa3051d0f13fb417b97bf
+base_release_tag: day1-integrated
+finalization_branch: fix/day1-finalization
+ci_status: PENDING_FINALIZATION_PR
+green_ci_run_url: NOT_YET_AVAILABLE
+local_dependency_install: PASS (PyYAML 6.0.3 resolved from ui/requirements.txt)
+local_tests: 313 passed, 8 skipped, 40 subtests passed
+local_release_checklist: PASS
 contract_schema_version: '1.0'
 members_merged: [A, B, C, D, E]
 real_sample_repo: https://github.com/OWASP/NodeGoat
@@ -65,5 +72,6 @@ py -3.11 -m streamlit run ui/app.py
   Syft found 381 packages while the lockfile parser found 1,091 identities.
 - No container image was built or inspected; CI is the required non-source surface.
 - Findings are advisory and configuration evidence, not proof of exploitation.
-- The release tag and human reviewer remain release-captain actions after the
-  final `main` commit is inspected.
+- The old `day1-integrated` tag intentionally remains on the audited base commit.
+- Finalization is not signed off until the repair PR is green and a human reviewer
+  records the resulting merge commit and CI run URL.

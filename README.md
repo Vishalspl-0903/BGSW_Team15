@@ -61,18 +61,16 @@ Guardian is built on the premise that **a guardian cannot protect what it has no
 Static scanning and comparison use the CLI; Streamlit reads the resulting artifacts:
 
 ```powershell
-py -3.11 -m guardian.cli scan --repo https://github.com/OWASP/NodeGoat --ref <full-commit-sha> --out runs/nodegoat-day1
-py -3.11 -m guardian.cli validate-run runs/nodegoat-day1/<scan-id>
-py -3.11 -m guardian.cli report --run runs/nodegoat-day1/<scan-id>
-py -3.11 -m guardian.cli compare --baseline runs/<baseline-id> --current runs/<current-id> --out runs/comparison.json
+py -3.11 -m guardian.cli validate-run runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190
+py -3.11 -m guardian.cli report --run runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190
+py -3.11 -m guardian.cli compare --baseline runs/nodegoat-baseline/cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb --current runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190 --out runs/nodegoat-current/b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190/comparison.json
 py -3.11 -m streamlit run ui/app.py
 ```
 
-### 🔧 Day 2: Audited Fix Candidates & Authentic Approval
-- **Static Candidate Audit:** Evaluates proposed package upgrades for registry origin, integrity hashes, and transitive CVE re-introduction.
-- **Critic & Guard Verdicts:** Challenges remediation proposals and applies deterministic policy guards.
-- **Authentic Approval Gate:** Adheres to strict fail-closed state management (§14 D.3 / §21 G15). The interface operates in an explicit read-only mode in the absence of an authenticated daemon—never faking state transitions.
-- **Independent Validation:** Tracks isolated build/test/rescan outputs and before/after finding deltas.
+### 🔧 Day 2: Scaffolded, Not Released
+- Proposal, Critic, Guard, event and hash-bound approval contracts exist as scaffolding.
+- A's validator intentionally fails closed, and B's static fix-audit module is not implemented.
+- No approved patch/build/test/rescan case has been completed. Do not present Day 2 remediation as working functionality.
 
 ---
 
@@ -84,10 +82,12 @@ py -3.11 -m streamlit run ui/app.py
 │   ├── intake.py                  # [A] Safe static intake & URL normalizer
 │   ├── module_index.py            # [A] Multi-module repository indexer
 │   ├── reporter.py                # [D] Report generation & graph traversal queries
-│   └── validator.py               # [A] Fix proposal validation gate
+│   └── validator.py               # [A] Day 2 fail-closed validation placeholder
 ├── ui/
 │   ├── app.py                     # [D] Streamlit reviewer interface
-│   └── requirements.txt           # UI dependencies (streamlit, pydantic)
+│   ├── day1.py                    # [D] Findings, coverage and evidence view
+│   ├── time_machine.py            # [D] Two-commit comparison view
+│   └── requirements.txt           # Runtime/CI dependencies
 ├── docs/
 │   ├── demo-script.md             # [D] Step-by-step 2–5 minute presentation guide
 │   ├── day1_release.md            # [D] Normative Day 1 sign-off record (§16.5)
@@ -101,7 +101,8 @@ py -3.11 -m streamlit run ui/app.py
 │   ├── d_report/                  # [D] Report generator & snapshot tests
 │   └── d_ui/                      # [D] UI smoke, bounded scale & XSS tests
 └── runs/
-    └── day1-nodegoat/             # Merged Day 1 run data (1,091 packages, 196 advisories)
+    ├── nodegoat-baseline/         # Earlier pinned NodeGoat comparison run
+    └── nodegoat-current/          # Current run: 1,091 identities, 91 advisory findings
 ```
 
 ---

@@ -339,6 +339,37 @@ def _prepare_out(out: Path) -> str | None:
     return None
 
 
+def _synchronize_module_security_stages(run: ScanRun, graph, out: Path):
+    """Mirror completed run security stages into applicable module records.
+
+    ``metadata.stage_records`` remains the authoritative run-wide ledger. The
+    module fields answer whether that stage covered the module: advisory applies
+    to graph modules, while CI applies only to modules with discovered CI files.
+    """
+    from guardian.schemas import SCHEMA_VERSION, GraphBundle, ModuleIndex, StageStatus
+    from guardian.state import write_json_atomic
+
+    if graph is None:
+        return graph
+    advisory = run.records["advisory"]["status"]
+    ci_record = run.records.get("ci_workflow_policy") or run.records.get("detectors", {})
+    ci_status = ci_record.get("status", "NOT_RUN")
+    updated = []
+    for module in graph.modules:
+        stages = dict(module.scan_stage)
+        stages["advisory"] = StageStatus(advisory)
+        stages["ci"] = StageStatus(ci_status if module.ci_files else "NOT_RUN")
+        updated.append(module.model_copy(update={"scan_stage": stages}))
+    graph = GraphBundle.model_validate(graph.model_copy(update={"modules": updated}))
+    write_json_atomic(out / "module_index.json", ModuleIndex(
+        schema_version=SCHEMA_VERSION, scan_id=run.scan_id, modules=updated).to_json_dict())
+    write_json_atomic(out / "graph.json", graph.to_json_dict())
+    write_db = _optional("guardian.analysis.graph_build", "write_graph_db")
+    if write_db is not None and (out / "graph.sqlite").exists():
+        write_db(graph, str(out / "graph.sqlite"))
+    return graph
+
+
 def run_scan_pipeline(run: ScanRun, repo_dir: Path, *, baseline_ref: str | None = None,
                       llm_config=None, llm_transport=None) -> str:
     """INDEXING..ANALYZED.  Returns final RunStatus string.  Never fabricates artifacts."""
@@ -510,6 +541,7 @@ def run_scan_pipeline(run: ScanRun, repo_dir: Path, *, baseline_ref: str | None 
     else:
         collect("detectors", lambda: detect(run.scan_id, str(repo_dir), baseline_ref, str(out)),
                 "guardian.detectors")
+    graph = _synchronize_module_security_stages(run, graph, out)
     ff = FindingsFile(schema_version=SCHEMA_VERSION, scan_id=run.scan_id, findings=list(findings.values()))
     write_json_atomic(out / "findings.json", ff.to_json_dict())
     run.go("FINDINGS_READY", f"{len(findings)} finding(s); advisory {run.records['advisory']['status']}, "

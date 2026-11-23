@@ -140,9 +140,11 @@ def get_dependency_path(db_path: str, scan_id: str, module_id: str, occurrence_i
 
 
 def _edge_view(r: sqlite3.Row) -> dict[str, Any]:
+    stored = json.loads(r["data"])
     return {"edge_id": r["edge_id"], "source_id": r["source"], "target_id": r["target"],
             "relationship": r["relationship"], "resolution": r["resolution"],
-            "dependency_scope": r["scope"]}
+            "dependency_scope": r["scope"],
+            "evidence_ids": list(stored.get("evidence_ids", []))}
 
 
 def get_neighbors(db_path: str, scan_id: str, node_id: str, direction: str = "both",
@@ -179,7 +181,7 @@ def get_neighbors(db_path: str, scan_id: str, node_id: str, direction: str = "bo
                     sides.append(("target", "source"))
                 for near, far in sides:
                     rows = con.execute(
-                        f"SELECT edge_id,source,target,relationship,resolution,scope FROM edge "
+                        f"SELECT edge_id,source,target,relationship,resolution,scope,data FROM edge "
                         f"WHERE scan_id=? AND {near}=? ORDER BY edge_id LIMIT ?",
                         (scan_id, cur, max_nodes + 1)).fetchall()
                     if len(rows) > max_nodes:

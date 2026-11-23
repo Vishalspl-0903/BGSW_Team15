@@ -100,7 +100,8 @@ def test_neighbors_shape_and_directions(env):
         assert {n["type"] for n in r["nodes"]} <= {"occurrence", "module"}
     assert {n["label"] for n in get_neighbors(db, "s1", b, "dependencies")["nodes"]} == {"b@1.0.0", "c@2.0.0"}
     assert {n["label"] for n in get_neighbors(db, "s1", b, "dependents")["nodes"]} == {"b@1.0.0", "."}
-    assert all({"edge_id", "source_id", "target_id"} <= set(e) for e in get_neighbors(db, "s1", b)["edges"])
+    assert all({"edge_id", "source_id", "target_id", "evidence_ids"} <= set(e)
+               and e["evidence_ids"] for e in get_neighbors(db, "s1", b)["edges"])
     with pytest.raises(ValueError):
         get_neighbors(db, "s1", b, "sideways")
 

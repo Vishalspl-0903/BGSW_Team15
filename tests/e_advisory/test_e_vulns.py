@@ -247,7 +247,7 @@ class LiveStageStatus(unittest.TestCase):
         stage = result["stage"]
         self.assertEqual(stage["status"], "COMPLETE")
         self.assertEqual(stage["known_matches"], 5)
-        self.assertEqual(stage["advisory_as_of"], "2026-11-23T06:28:32Z")
+        self.assertEqual(result["stage_details"]["advisory_as_of"], "2026-11-23T06:28:32Z")
         self.assertEqual(cc.check_stage_record(stage), [])
         raw = json.loads((self.run_dir / "raw/grype/grype.json").read_text(encoding="utf-8"))
         self.assertEqual(cc.host_path_leaks(raw), [])

@@ -136,13 +136,18 @@ def _first_seen(run_dir: Path | None) -> str:
 
 def _stage(status: str, *, attempted: bool, reason: str | None = None, tool_version: str | None = None,
            known_matches: int | None = None, completed_at: str | None = None,
-           evidence_ids: list[str] | None = None, **extra: Any) -> dict[str, Any]:
+           evidence_ids: list[str] | None = None) -> Any:
+    """Exactly the PROJECT.md 18.3 StageRecord fields (C's model forbids extras)."""
     record = {"stage": STAGE, "status": status, "attempted": attempted, "tool": TOOL,
               "tool_version": tool_version, "reason": reason, "completed_at": completed_at,
               "known_matches": known_matches if status == "COMPLETE" else None,
               "evidence_ids": evidence_ids or []}
-    record.update(extra)
-    return record
+    return _validate("StageRecord", record)
+
+
+def _result(stage: Any, findings: list | None = None, evidence: list | None = None,
+            details: dict[str, Any] | None = None) -> dict[str, Any]:
+    return {"stage": stage, "stage_details": details or {}, "findings": findings or [], "evidence": evidence or []}
 
 
 # ----------------------------------------------------------------------------- graph mapping
@@ -334,9 +339,11 @@ def run_vulnerability_intelligence(
     timeout_s: int = _DEFAULT_TIMEOUT_S,
     auto_update_db: bool = False,
 ) -> dict[str, Any]:
-    """Run Grype on B's SBOM and return ``{"stage", "findings", "evidence", ...}``.
+    """Run Grype on B's SBOM and return ``{"stage", "stage_details", "findings", "evidence"}``.
 
-    Never raises for scan problems; they are expressed in the stage record.
+    ``stage`` holds exactly the StageRecord fields; extra facts (database build time, raw and
+    unmapped match counts, SBOM path) are in ``stage_details``.  Never raises for scan
+    problems; they are expressed in the stage record.
     """
     if not scan_id:
         raise VulnerabilityScanError("scan_id is required")
@@ -348,14 +355,13 @@ def run_vulnerability_intelligence(
     if sbom is None:
         sbom, why = _find_sbom(run)
         if sbom is None:
-            return {"stage": _stage("BLOCKED", attempted=False, reason=why), "findings": [], "evidence": []}
+            return _result(_stage("BLOCKED", attempted=False, reason=why))
     if not sbom.is_file():
-        return {"stage": _stage("BLOCKED", attempted=False, reason="SBOM file does not exist"), "findings": [], "evidence": []}
+        return _result(_stage("BLOCKED", attempted=False, reason="SBOM file does not exist"))
 
     exe = grype_executable or os.environ.get("GUARDIAN_GRYPE") or shutil.which("grype")
     if not exe or not Path(exe).is_file():
-        return {"stage": _stage("UNAVAILABLE", attempted=False, reason="grype executable not found (PATH or GUARDIAN_GRYPE)"),
-                "findings": [], "evidence": []}
+        return _result(_stage("UNAVAILABLE", attempted=False, reason="grype executable not found (PATH or GUARDIAN_GRYPE)"))
 
     env = _grype_env(auto_update_db)
     raw_dir = run / "raw" / "grype"
@@ -384,11 +390,11 @@ def run_vulnerability_intelligence(
     try:
         proc = _run([exe, f"sbom:{sbom}", "-o", "json", "-q"], env, timeout_s)
     except subprocess.TimeoutExpired:
-        return {"stage": _stage("FAILED", attempted=True, tool_version=tool_version,
-                                reason=f"grype timed out after {timeout_s}s"), "findings": [], "evidence": []}
+        return _result(_stage("FAILED", attempted=True, tool_version=tool_version,
+                              reason=f"grype timed out after {timeout_s}s"))
     except OSError as exc:
-        return {"stage": _stage("FAILED", attempted=True, tool_version=tool_version,
-                                reason=f"grype could not start: {type(exc).__name__}"), "findings": [], "evidence": []}
+        return _result(_stage("FAILED", attempted=True, tool_version=tool_version,
+                              reason=f"grype could not start: {type(exc).__name__}"))
 
     stderr = redact_host_paths(proc.stderr.decode("utf-8", "replace")[-4000:], replacements)
     (raw_dir / "grype.stderr.log").write_text(stderr, encoding="utf-8")
@@ -396,21 +402,19 @@ def run_vulnerability_intelligence(
         lowered = stderr.lower()
         db_problem = any(word in lowered for word in ("database", "vulnerability db", "db status", "no db"))
         status = "UNAVAILABLE" if db_problem else "FAILED"
-        return {"stage": _stage(status, attempted=True, tool_version=tool_version,
-                                reason=f"grype exited with {proc.returncode}: {stderr.strip()[-300:] or 'no stderr'}"),
-                "findings": [], "evidence": []}
+        return _result(_stage(status, attempted=True, tool_version=tool_version,
+                              reason=f"grype exited with {proc.returncode}: {stderr.strip()[-300:] or 'no stderr'}"))
     if len(proc.stdout) > _MAX_REPORT_BYTES:
-        return {"stage": _stage("FAILED", attempted=True, tool_version=tool_version,
-                                reason="grype report exceeds the size limit"), "findings": [], "evidence": []}
+        return _result(_stage("FAILED", attempted=True, tool_version=tool_version,
+                              reason="grype report exceeds the size limit"))
     try:
         report = json.loads(proc.stdout.decode("utf-8"))
     except (UnicodeDecodeError, ValueError):
-        return {"stage": _stage("FAILED", attempted=True, tool_version=tool_version,
-                                reason="grype output is not valid JSON"), "findings": [], "evidence": []}
+        return _result(_stage("FAILED", attempted=True, tool_version=tool_version,
+                              reason="grype output is not valid JSON"))
     if not isinstance(report, dict) or not isinstance(report.get("matches"), list):
-        return {"stage": _stage("FAILED", attempted=True, tool_version=tool_version,
-                                reason="grype output has an unsupported schema (no 'matches' list)"),
-                "findings": [], "evidence": []}
+        return _result(_stage("FAILED", attempted=True, tool_version=tool_version,
+                              reason="grype output has an unsupported schema (no 'matches' list)"))
 
     report = redact_host_paths(report, replacements)
     raw_sha = _write_json(raw_dir / "grype.json", report)
@@ -433,12 +437,14 @@ def run_vulnerability_intelligence(
         "recorded_at": recorded_at,
     })
     stage = _stage("COMPLETE", attempted=True, tool_version=tool_version, completed_at=recorded_at,
-                   known_matches=len(converted["findings"]), evidence_ids=[log_eid],
-                   advisory_as_of=advisory_as_of, raw_matches=converted["raw_matches"],
-                   unmapped_matches=converted["unmapped_matches"], sbom=_relative(sbom, run))
-    return {"stage": stage,
-            "findings": [_validate("Finding", f) for f in converted["findings"]],
-            "evidence": [_validate("Evidence", e) for e in converted["evidence"]]}
+                   known_matches=len(converted["findings"]), evidence_ids=[log_eid])
+    details = {"advisory_as_of": advisory_as_of, "database_schema": db_status.get("schemaVersion"),
+               "raw_matches": converted["raw_matches"], "unmapped_matches": converted["unmapped_matches"],
+               "sbom": _relative(sbom, run)}
+    return _result(stage,
+                   [_validate("Finding", f) for f in converted["findings"]],
+                   [_validate("Evidence", e) for e in converted["evidence"]],
+                   details)
 
 
 def scan_known_vulnerabilities(scan_id: str, graph: Any, run_dir: str) -> list[Any]:

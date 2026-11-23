@@ -69,7 +69,7 @@ class GroundTruthCases(unittest.TestCase):
         self.assertFalse(any("ignored-action" in f["title"] for f in result["findings"]))
         gap = next(f for f in result["findings"] if f["rule_id"] == "D5-UNPARSED-WORKFLOW")
         self.assertEqual((gap["finding_type"], gap["classification"]), ("COVERAGE_GAP", "COVERAGE_LIMITATION"))
-        self.assertEqual(result["stage"]["files_failed"], 1)
+        self.assertEqual(result["stage_details"]["files_failed"], 1)
 
     def test_no_workflows_is_not_run_not_clean(self) -> None:
         result = self._check("d5-none")
@@ -81,7 +81,7 @@ class GroundTruthCases(unittest.TestCase):
         result = d5_ci.scan_workflows("e-d5", str(REPO / entry["path"]))
         self.assertEqual(result["stage"]["status"], "COMPLETE")
         self.assertEqual(result["findings"], [])
-        self.assertTrue(any("declare no top-level permissions" in n for n in result["stage"]["notes"]))
+        self.assertTrue(any("declare no top-level permissions" in n for n in result["stage_details"]["notes"]))
 
 
 class FindingQuality(unittest.TestCase):

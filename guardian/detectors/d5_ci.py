@@ -129,8 +129,24 @@ def _workflow_files(repo: Path) -> list[Path]:
     return files
 
 
+_STAGE_FIELDS = ("stage", "status", "attempted", "tool", "tool_version", "reason", "completed_at",
+                 "known_matches", "evidence_ids")
+
+
 def scan_workflows(scan_id: str, repo_dir: str, run_dir: str | None = None) -> dict[str, Any]:
-    """Run D5 on one repository snapshot; returns ``{"stage", "findings", "evidence"}``."""
+    """Run D5; returns ``{"stage", "stage_details", "findings", "evidence"}``.
+
+    ``stage`` holds exactly the StageRecord fields (C's model forbids extras); file counts and
+    notes are in ``stage_details``.
+    """
+    result = _scan_workflows(scan_id, repo_dir, run_dir)
+    full = result["stage"]
+    result["stage"] = validate("StageRecord", {k: full.get(k) for k in _STAGE_FIELDS})
+    result["stage_details"] = {k: v for k, v in full.items() if k not in _STAGE_FIELDS}
+    return result
+
+
+def _scan_workflows(scan_id: str, repo_dir: str, run_dir: str | None = None) -> dict[str, Any]:
     repo = Path(repo_dir)
     run = Path(run_dir) if run_dir else None
     files = _workflow_files(repo)

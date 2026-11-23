@@ -1,0 +1,22 @@
+# sample application clone (analysed, never installed or run)
+sandbox/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# secrets and local config
+.env
+.env.*
+!.env.example
+
+# local editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# zipped copies of output/
+*.zip

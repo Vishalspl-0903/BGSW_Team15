@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+  :root {
+    --bg: #F3F6F9; --panel: #FFFFFF; --ink: #1D2733; --muted: #5B6B7B; --line: #D5DCE3;
+    --navy: #17324D; --blue: #2F6FB3; --purple: #7B5EA7; --teal: #0E7C7B;
+    --crit: #8E1B1B; --high: #D64545; --mod: #E8912D; --low: #E9C46A; --mal: #3B0A45;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 14px/1.45 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
+  header { background: var(--navy); color: #fff; padding: 14px 20px 12px; }
+  header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: .2px; }
+  header .meta { margin-top: 4px; font-size: 12px; color: #C3D2E1; word-break: break-word; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 20px 4px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; min-width: 112px; }
+  .stat b { display: block; font-size: 19px; line-height: 1.2; }
+  .stat span { font-size: 11.5px; color: var(--muted); }
+  .stat.warn b { color: var(--high); }
+  main { display: flex; gap: 12px; padding: 10px 20px 20px; height: calc(100vh - 168px); min-height: 560px; }
+  #graphWrap { flex: 1; min-width: 0; position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+  #graph { position: absolute; inset: 0; }
+  #loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 13px; pointer-events: none; }
+  aside { width: 380px; flex: none; overflow: auto; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 8px; padding: 12px 14px; }
+  aside h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 14px 0 6px; }
+  aside h2:first-child { margin-top: 0; }
+  .controls label { display: flex; gap: 8px; align-items: center; margin: 4px 0; cursor: pointer; }
+  .row { display: flex; gap: 6px; margin-top: 6px; }
+  input[type=search] { flex: 1; min-width: 0; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
+  button { padding: 6px 10px; border: 1px solid var(--line); background: #fff; border-radius: 6px; font: inherit; cursor: pointer; }
+  button:hover { background: #EEF3F8; }
+  .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; font-size: 12.5px; }
+  .dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; border: 2px solid transparent; }
+  #details { font-size: 13px; }
+  #details .title { font-size: 15px; font-weight: 700; word-break: break-all; }
+  .badges { margin: 6px 0; display: flex; flex-wrap: wrap; gap: 4px; }
+  .badge { font-size: 11px; padding: 2px 7px; border-radius: 10px; background: #EEF1F4; color: var(--ink); }
+  .badge.sev { color: #fff; }
+  .kv { display: grid; grid-template-columns: 92px 1fr; gap: 2px 8px; font-size: 12.5px; }
+  .kv div:nth-child(odd) { color: var(--muted); }
+  .kv div { word-break: break-all; }
+  .vuln { border-left: 3px solid var(--line); padding: 4px 8px; margin: 6px 0; background: #FAFBFC; }
+  .vuln a { color: var(--blue); font-weight: 600; text-decoration: none; }
+  .vuln small { color: var(--muted); display: block; }
+  .path { font-family: Consolas, "Cascadia Mono", monospace; font-size: 11.5px; background: #F4F6F9; padding: 4px 6px;
+    border-radius: 4px; margin: 3px 0; word-break: break-word; }
+  #vlist div { padding: 4px 6px; border-radius: 5px; cursor: pointer; display: flex; justify-content: space-between; gap: 8px; }
+  #vlist div:hover { background: #EEF3F8; }
+  #vlist span.n { word-break: break-all; }
+  .muted { color: var(--muted); }
+  footer { padding: 0 20px 16px; font-size: 11.5px; color: var(--muted); }
+  @media (max-width: 960px) {
+    main { flex-direction: column; height: auto; padding: 10px 16px 16px; }
+    #graphWrap { height: 70vh; flex: none; }
+    aside { width: 100%; }
+    .stats, header, footer { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title"></h1>
+  <div class="meta" id="meta"></div>
+</header>
+<section class="stats" id="stats"></section>
+<main>
+  <div id="graphWrap"><div id="graph"></div><div id="loading">Laying out the graph…</div></div>
+  <aside>
+    <h2>View</h2>
+    <div class="controls">
+      <label><input type="checkbox" id="optDev"> Include dev-only dependencies</label>
+      <label><input type="checkbox" id="optVuln"> Only paths to vulnerable packages</label>
+      <label><input type="checkbox" id="optLabels"> Label every package</label>
+      <div class="row"><input type="search" id="search" list="names" placeholder="Find a package (e.g. marked)"><button id="fit">Fit</button></div>
+      <datalist id="names"></datalist>
+    </div>
+    <h2>Legend</h2>
+    <div class="legend">
+      <div><span class="dot" style="background:var(--navy)"></span>application</div>
+      <div><span class="dot" style="background:var(--blue)"></span>direct runtime</div>
+      <div><span class="dot" style="background:var(--purple)"></span>direct dev</div>
+      <div><span class="dot" style="background:#9AA7B4"></span>transitive</div>
+      <div><span class="dot" style="background:var(--crit)"></span>critical advisory</div>
+      <div><span class="dot" style="background:var(--high)"></span>high advisory</div>
+      <div><span class="dot" style="background:var(--mod)"></span>moderate advisory</div>
+      <div><span class="dot" style="background:var(--low)"></span>low advisory</div>
+      <div><span class="dot" style="background:#fff;border:2px dashed #111"></span>not from npm registry</div>
+      <div><span class="dot" style="background:#fff;border:2px solid var(--blue)"></span>ring = direct dep</div>
+    </div>
+    <h2>Selected package</h2>
+    <div id="details" class="muted">Click a node to see its version, advisories and how it reaches the app.</div>
+    <h2>Vulnerable packages <span id="vcount"></span></h2>
+    <div id="vlist"></div>
+  </aside>
+</main>
+<footer id="foot"></footer>
+
+<script>/*__VIS__*/</script>
+<script>
+const DATA = /*__DATA__*/null;
+const ROOT = DATA.root.id;
+const SEV = { MALICIOUS: 5, CRITICAL: 4, HIGH: 3, MODERATE: 2, LOW: 1, UNKNOWN: 0.5 };
+const SEVCOL = { MALICIOUS: '#3B0A45', CRITICAL: '#8E1B1B', HIGH: '#D64545', MODERATE: '#E8912D', LOW: '#E9C46A', UNKNOWN: '#B9A27A' };
+const byId = new Map(DATA.nodes.map(n => [n.id, n]));
+const outE = new Map(), inE = new Map();
+for (const e of DATA.edges) {
+  if (!outE.has(e.from)) outE.set(e.from, []);
+  if (!inE.has(e.to)) inE.set(e.to, []);
+  outE.get(e.from).push(e.to); inE.get(e.to).push(e.from);
+}
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const x = document.createElement(tag); if (cls) x.className = cls; if (text != null) x.textContent = text; return x; };
+const label = id => id === ROOT ? DATA.root.name : id;
+
+// ---- header + stats
+const M = DATA.meta, S = M.stats;
+$('title').textContent = `${DATA.root.name} ${DATA.root.version || ''} — dependency graph`;
+$('meta').textContent = `${M.repo_url || ''} @ ${(M.commit || '').slice(0, 10)} (${(M.commit_date || '').slice(0, 10)}) · package-lock.json v${M.lockfile_version} · generated ${M.generated_at} · advisories: OSV.dev ${M.osv_queried_at || 'not queried'}`;
+const stats = [
+  [S.packages, 'packages'], [S.direct_runtime, 'direct runtime'], [S.direct_dev, 'direct dev'], [S.transitive, 'transitive'],
+  [S.runtime_packages, 'ship at runtime'], [S.max_depth, 'max depth'],
+  [S.vulnerable_packages, 'with advisories', true], [S.vulnerable_runtime, 'vulnerable at runtime', true],
+  [S.advisories, 'distinct advisories', true], [S.install_scripts, 'install scripts'], [S.non_registry, 'not from registry', S.non_registry > 0]
+];
+for (const [v, t, warn] of stats) { const d = el('div', 'stat' + (warn && v ? ' warn' : '')); d.append(el('b', null, String(v)), el('span', null, t)); $('stats').append(d); }
+$('foot').textContent = `Built from package-lock.json without installing anything (${M.generator}). Each node is one name@version. Paths show up to 5 shortest routes from the application. Severity = worst known advisory for that exact version; it says nothing yet about reachability.`;
+for (const n of DATA.nodes) { const o = el('option'); o.value = n.id; $('names').append(o); }
+
+// ---- styling
+function colorOf(n) {
+  if (n.risk) return SEVCOL[n.risk];
+  if (n.direct === 'runtime') return '#2F6FB3';
+  if (n.direct === 'dev') return '#7B5EA7';
+  return n.runtime ? '#9AA7B4' : '#CFC6DD';
+}
+function visNode(n, showAll) {
+  const important = n.direct || n.risk;
+  const border = n.direct === 'runtime' ? '#2F6FB3' : n.direct === 'dev' ? '#7B5EA7' : (n.risk ? '#5A1414' : '#7A8794');
+  const tip = [`${n.id}`, n.direct ? `direct ${n.direct} dependency` : `transitive (depth ${n.depth})`,
+    n.runtime ? 'ships at runtime' : 'dev-only', n.risk ? `${n.vulns.length} advisories, worst: ${n.risk}` : 'no known advisory'].join('\n');
+  return {
+    id: n.id, label: (showAll || important) ? n.id : undefined, title: tip,
+    shape: 'dot', size: n.direct ? 15 : n.risk ? 12 : 7,
+    color: { background: colorOf(n), border, highlight: { background: colorOf(n), border: '#111' } },
+    borderWidth: n.direct ? 3 : 1.5, shapeProperties: { borderDashes: n.non_registry ? [4, 3] : false },
+    font: { size: n.direct ? 14 : 11, color: '#1D2733', strokeWidth: 3, strokeColor: '#ffffff' }
+  };
+}
+
+let network = null, nodesDS = null, edgesDS = null, selected = null;
+function visibleIds() {
+  const dev = $('optDev').checked, vulnOnly = $('optVuln').checked;
+  let ids = DATA.nodes.filter(n => dev || n.runtime).map(n => n.id);
+  if (vulnOnly) {
+    const keep = new Set();
+    for (const n of DATA.nodes) if (n.risk && (dev || n.runtime)) for (const p of n.paths) p.forEach(x => keep.add(x));
+    ids = ids.filter(id => keep.has(id));
+  }
+  return new Set([ROOT, ...ids]);
+}
+function build() {
+  const vis_ = visibleIds(), showAll = $('optLabels').checked;
+  const nodes = [{ id: ROOT, label: DATA.root.name, shape: 'dot', size: 24, title: 'the application',
+    color: { background: '#17324D', border: '#17324D' }, font: { size: 16, color: '#17324D', strokeWidth: 3, strokeColor: '#fff' } }];
+  for (const id of vis_) if (id !== ROOT) nodes.push(visNode(byId.get(id), showAll));
+  const edges = DATA.edges.filter(e => vis_.has(e.from) && vis_.has(e.to))
+    .map(e => ({ id: e.from + '|' + e.to, from: e.from, to: e.to, arrows: { to: { enabled: true, scaleFactor: 0.45 } },
+      color: { color: e.from === ROOT ? 'rgba(23,50,77,0.45)' : 'rgba(122,135,148,0.35)' }, width: e.from === ROOT ? 1.4 : 0.8 }));
+  nodesDS = new vis.DataSet(nodes); edgesDS = new vis.DataSet(edges);
+  const big = nodes.length > 350;
+  $('loading').style.display = 'flex';
+  if (network) network.destroy();
+  network = new vis.Network($('graph'), { nodes: nodesDS, edges: edgesDS }, {
+    layout: { improvedLayout: !big, randomSeed: 7 },
+    physics: { solver: 'forceAtlas2Based', forceAtlas2Based: { gravitationalConstant: -38, springLength: 70, avoidOverlap: 0.4 },
+      stabilization: { iterations: big ? 220 : 400, fit: true } },
+    interaction: { hover: true, tooltipDelay: 120, navigationButtons: false, keyboard: false },
+    edges: { smooth: false }
+  });
+  network.once('stabilizationIterationsDone', () => { network.setOptions({ physics: false }); $('loading').style.display = 'none'; });
+  network.on('click', p => { if (p.nodes.length) select(p.nodes[0]); });
+  if (selected && vis_.has(selected)) setTimeout(() => select(selected, false), 50);
+}
+
+// ---- details
+function select(id, focus = true) {
+  selected = id;
+  const d = $('details'); d.className = ''; d.innerHTML = '';
+  if (id === ROOT) { d.append(el('div', 'title', DATA.root.name), el('div', 'muted', 'The application (package.json).')); return; }
+  const n = byId.get(id);
+  d.append(el('div', 'title', n.id));
+  const b = el('div', 'badges');
+  b.append(el('span', 'badge', n.direct ? `direct ${n.direct}` : `transitive · depth ${n.depth}`), el('span', 'badge', n.runtime ? 'runtime' : 'dev-only'));
+  if (n.risk) { const s = el('span', 'badge sev', `${n.vulns.length} advisories · ${n.risk.toLowerCase()}`); s.style.background = SEVCOL[n.risk]; b.append(s); }
+  if (n.optional) b.append(el('span', 'badge', 'optional (installed only where supported)'));
+  if (n.non_registry) b.append(el('span', 'badge', 'not from npm registry'));
+  if (n.install_script) b.append(el('span', 'badge', 'has install script'));
+  if (n.deprecated) b.append(el('span', 'badge', 'deprecated'));
+  d.append(b);
+  const kv = el('div', 'kv');
+  const add = (k, v) => { kv.append(el('div', null, k), el('div', null, v)); };
+  if (n.spec) add('declared as', String(n.spec));
+  add('license', n.license || 'unknown');
+  add('required by', `${(inE.get(id) || []).length} package(s)`);
+  add('depends on', `${(outE.get(id) || []).length} package(s)`);
+  add('copies', `${n.install_paths.length} install location(s)`);
+  add('source', (n.resolved || []).join(' ') || '—');
+  d.append(kv);
+  if (n.vulns && n.vulns.length) {
+    d.append(el('h2', null, 'Advisories'));
+    for (const v of n.vulns) {
+      const box = el('div', 'vuln'); box.style.borderLeftColor = SEVCOL[v.severity] || '#ccc';
+      const a = el('a', null, v.id); a.href = 'https://osv.dev/vulnerability/' + encodeURIComponent(v.id); a.target = '_blank'; a.rel = 'noopener';
+      box.append(a, document.createTextNode(` ${v.cves.join(', ')} · ${v.severity.toLowerCase()}${v.cvss != null ? ' · CVSS ' + v.cvss : ''}`));
+      box.append(el('small', null, v.summary || ''), el('small', null, v.fixed_in ? `fixed in ${v.fixed_in}` : 'no fixed version listed'));
+      d.append(box);
+    }
+  }
+  d.append(el('h2', null, 'How it reaches the app'));
+  if (!n.paths.length) d.append(el('div', 'muted', 'not reachable from the root'));
+  for (const p of n.paths) d.append(el('div', 'path', p.map(label).join('  →  ')));
+  // highlight paths in the graph
+  if (edgesDS) {
+    const hot = new Set(); for (const p of n.paths) for (let i = 0; i + 1 < p.length; i++) hot.add(p[i] + '|' + p[i + 1]);
+    edgesDS.update(edgesDS.get().map(e => hot.has(e.id)
+      ? { id: e.id, color: { color: '#D64545', highlight: '#D64545', hover: '#D64545' }, width: 3 }
+      : { id: e.id, color: { color: e.from === ROOT ? 'rgba(23,50,77,0.45)' : 'rgba(122,135,148,0.30)', highlight: '#5B6B7B', hover: '#5B6B7B' }, width: e.from === ROOT ? 1.4 : 0.8 }));
+  }
+  if (network && nodesDS.get(id)) { network.selectNodes([id]); if (focus) network.focus(id, { scale: 1.1, animation: { duration: 400 } }); }
+}
+
+// ---- vulnerable list
+const vul = DATA.nodes.filter(n => n.risk).sort((a, b) => (b.runtime - a.runtime) || (SEV[b.risk] - SEV[a.risk]) || (b.vulns.length - a.vulns.length));
+$('vcount').textContent = `(${vul.length})`;
+for (const n of vul) {
+  const row = el('div'); const left = el('span', 'n', n.id); const right = el('span');
+  const dot = el('span', 'dot'); dot.style.background = SEVCOL[n.risk];
+  right.append(dot, document.createTextNode(`${n.vulns.length}${n.runtime ? '' : ' · dev'}`));
+  row.append(left, right);
+  row.onclick = () => { if (!n.runtime && !$('optDev').checked) { $('optDev').checked = true; build(); } select(n.id); };
+  $('vlist').append(row);
+}
+
+// ---- controls
+for (const id of ['optDev', 'optVuln', 'optLabels']) $(id).addEventListener('change', build);
+$('fit').onclick = () => network && network.fit({ animation: { duration: 400 } });
+$('search').addEventListener('change', e => {
+  const q = e.target.value.trim(); if (!q) return;
+  const hit = byId.get(q) || DATA.nodes.find(n => n.name === q) || DATA.nodes.find(n => n.id.includes(q));
+  if (!hit) return;
+  if (!hit.runtime && !$('optDev').checked) { $('optDev').checked = true; build(); }
+  select(hit.id);
+});
+build();
+</script>
+</body>
+</html>

@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import importlib
+import inspect
 import json
 import platform
 import shutil
@@ -293,6 +294,20 @@ def _copy_local_snapshot(src: Path, dst: Path, policy: dict) -> str:
     return digest.hexdigest()
 
 
+def _restore_evidence(path: Path, earlier: list[str]) -> None:
+    """Re-append evidence lines that a producer's rewrite of evidence.jsonl dropped."""
+    if not earlier:
+        return
+    current = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
+    ids = {json.loads(line).get("evidence_id") for line in current if line.strip()}
+    missing = [line for line in earlier if line.strip() and json.loads(line).get("evidence_id") not in ids]
+    if missing:
+        with path.open("a", encoding="utf-8", newline="
+") as fh:
+            fh.write("".join(line + "
+" for line in missing))
+
+
 def _prepare_out(out: Path) -> str | None:
     if out.exists() and any(out.iterdir()):
         return f"output folder {out.as_posix()} is not empty; refusing to overwrite a previous run"
@@ -303,9 +318,10 @@ def run_scan_pipeline(run: ScanRun, repo_dir: Path, *, baseline_ref: str | None 
                       llm_config=None, llm_transport=None) -> str:
     """INDEXING..ANALYZED.  Returns final RunStatus string.  Never fabricates artifacts."""
     from guardian.schemas import (
-        SCHEMA_VERSION, Finding, FindingClass, FindingsFile, GraphBundle, ModuleIndex, RiskFile,
+        SCHEMA_VERSION, Evidence, Finding, FindingClass, FindingsFile, GraphBundle, ModuleIndex, RiskFile,
+        StageRecord,
     )
-    from guardian.state import load_evidence_index, write_json_atomic
+    from guardian.state import append_jsonl, load_evidence_index, write_json_atomic
 
     out = run.run_dir
     # ---- INDEXING (A) ----
@@ -343,7 +359,12 @@ def run_scan_pipeline(run: ScanRun, repo_dir: Path, *, baseline_ref: str | None 
         run.capabilities["source"] = "module index only; dependency graph UNAVAILABLE"
     else:
         try:
-            graph = GraphBundle.model_validate(build_graph(run.scan_id, str(repo_dir), modules))
+            kwargs = {"run_dir": str(out)} if "run_dir" in inspect.signature(build_graph).parameters else {}
+            ev_path = out / "evidence.jsonl"
+            earlier = ev_path.read_text(encoding="utf-8").splitlines() if ev_path.exists() else []
+            raw_graph = build_graph(run.scan_id, str(repo_dir), modules, **kwargs)
+            _restore_evidence(ev_path, earlier)  # B rewrites evidence.jsonl; keep earlier lines
+            graph = GraphBundle.model_validate(raw_graph)
             if graph.scan_id != run.scan_id:
                 raise ValueError(f"graph scan_id {graph.scan_id!r} conflicts with {run.scan_id!r}")
             problems = graph.integrity_errors()
@@ -402,19 +423,59 @@ def run_scan_pipeline(run: ScanRun, repo_dir: Path, *, baseline_ref: str | None 
         run.stage(stage, status, tool=tool, known_matches=matches if stage == "advisory" else kept,
                   reason=None if status == "COMPLETE" else "some findings rejected; see errors")
 
+    def collect_rich(stage: str, fn: Callable[[], dict], tool: str, main_name: str) -> None:
+        """E's stage-reporting entry points: E's StageRecord decides the status, so a
+        missing scanner can never be recorded as a completed zero-match lookup."""
+        try:
+            result = fn()
+            raw_records = [result["stage"]] if "stage" in result else list(result.get("stages", []))
+            records = [StageRecord.model_validate(r) for r in raw_records]
+            known = load_evidence_index(out)
+            for item in result.get("evidence", []):
+                ev = Evidence.model_validate(item)
+                if ev.evidence_id not in known:
+                    append_jsonl(out / "evidence.jsonl", ev.to_json_dict())
+                    known[ev.evidence_id] = ev
+        except Exception as exc:  # noqa: BLE001
+            msg = _err(exc)
+            run.stage(stage, "FAILED", tool=tool, reason=msg, evidence_ids=run.fail_log(stage, msg))
+            run.errors.append(f"{stage}: {msg}")
+            return
+        for rec in records:  # keep E's own records under their own names
+            run.records[rec.stage] = rec.to_json_dict()
+        main = next((r for r in records if r.stage == main_name), None)
+        if main is None:
+            run.stage(stage, "FAILED", tool=tool, reason=f"adapter returned no {main_name} stage record")
+            return
+        if result.get("findings"):
+            collect(stage, lambda: result["findings"], tool)
+        rejected = run.records.get(stage, {}).get("status") == "PARTIAL"
+        mirrored = {**main.to_json_dict(), "stage": stage}
+        if rejected and main.status.value == "COMPLETE":
+            mirrored.update(status="PARTIAL", reason="some findings rejected; see errors")
+        run.records[stage] = mirrored
+
+    rich_vulns = _optional("guardian.adapters.vulns", "run_vulnerability_intelligence")
     vulns = _optional("guardian.adapters.vulns", "scan_known_vulnerabilities")
-    if vulns is None:
+    if vulns is None and rich_vulns is None:
         run.stage("advisory", "UNAVAILABLE", tool="guardian.adapters.vulns",
                   reason="E's advisory adapter not merged: vulnerability status UNKNOWN (not zero)")
     elif graph is None:
         run.stage("advisory", "BLOCKED", tool="guardian.adapters.vulns",
                   reason="no dependency graph: exact-version advisory matching cannot run")
+    elif rich_vulns is not None:
+        collect_rich("advisory", lambda: rich_vulns(run.scan_id, graph, str(out)), "guardian.adapters.vulns",
+                     "vulnerability_intelligence")
     else:
         collect("advisory", lambda: vulns(run.scan_id, graph, str(out)), "guardian.adapters.vulns")
+    rich_detect = _optional("guardian.detectors", "run_detectors")
     detect = _optional("guardian.detectors", "detect_suspicious_changes")
-    if detect is None:
+    if detect is None and rich_detect is None:
         run.stage("detectors", "UNAVAILABLE", tool="guardian.detectors",
                   reason="E's non-CVE detectors not merged: indicators UNKNOWN (not none)")
+    elif rich_detect is not None:
+        collect_rich("detectors", lambda: rich_detect(run.scan_id, str(repo_dir), baseline_ref, str(out)),
+                     "guardian.detectors", "ci_workflow_policy")
     else:
         collect("detectors", lambda: detect(run.scan_id, str(repo_dir), baseline_ref, str(out)),
                 "guardian.detectors")
@@ -538,6 +599,7 @@ def cmd_scan(args: argparse.Namespace) -> int:
     run.snapshot_sha = meta.source_snapshot_sha256
     run.tool_versions.update(meta.tool_versions)
     run.go("CREATED", "scan requested (--repo)")
+    run.write_metadata("RUNNING", finished=False)
     run.go("ACQUIRING", f"A.acquire_repo {meta.repo_url} -> {meta.commit_sha}")
     if meta.status.value != "COMPLETE":
         run.stage("intake", "FAILED", tool="guardian.intake", reason="; ".join(meta.errors) or "intake failed",

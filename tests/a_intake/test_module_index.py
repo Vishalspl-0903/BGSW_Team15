@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+import hashlib
 import tempfile
 import types
 import unittest
@@ -42,6 +43,21 @@ class ModuleIndexTests(unittest.TestCase):
         pypi = next(module for module in modules if module["ecosystem"] == "pypi")
         self.assertEqual(npm["coverage"], "DECLARED_ONLY")
         self.assertEqual(pypi["coverage"], "UNSUPPORTED")
+
+    def test_indexing_does_not_modify_source_and_ignores_node_modules(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            manifest = root / "package.json"
+            manifest.write_text('{"name":"root"}', encoding="utf-8")
+            ignored = root / "node_modules" / "nested"
+            ignored.mkdir(parents=True)
+            (ignored / "package.json").write_text('{"name":"ignored"}', encoding="utf-8")
+            before = hashlib.sha256(manifest.read_bytes()).hexdigest()
+            modules = index_modules("scan-test", str(root))
+            after = hashlib.sha256(manifest.read_bytes()).hexdigest()
+        self.assertEqual(before, after)
+        self.assertEqual(len(modules), 1)
+        self.assertEqual(modules[0]["relative_path"], ".")
 
     @unittest.skipIf(not hasattr(Path, "symlink_to"), "symlinks unavailable")
     def test_symlink_escape_is_rejected_when_supported(self) -> None:

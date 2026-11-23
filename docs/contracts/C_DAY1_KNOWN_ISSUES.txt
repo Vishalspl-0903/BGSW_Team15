@@ -1,0 +1,49 @@
+ROLE C - DAY 1 KNOWN ISSUES / ERRORS (branch C, written 2026-11-23)
+====================================================================
+
+STATUS
+- C Day 1 work is pushed to origin/C (includes merges of A, B, E).
+- Real scan works: scan --local tests/fixtures/e_advisory/real-npm -> 5 CONFIRMED_ADVISORY
+  findings (lodash 4.17.20, minimist 1.2.5) via Syft v1.57.2 + Grype v0.122.1, DB built
+  2026-11-23T06:28:32Z. validate-run PASS.
+- Overall scan status is PARTIAL there (no CI workflow in that fixture -> D5 NOT_RUN;
+  no baseline -> D1 NOT_RUN). This is honest, not a bug.
+
+NOT DONE / NEEDS SOMEONE ELSE
+1. C -> main merge not done (captain D, or a GitHub PR C -> main).
+2. Branch C also contains files merged from the old origin/C upload (dependency-graph/,
+   root README.md, .gitignore). They belong to other roles; D should decide what reaches main.
+3. guardian/reporter.py (D) is not merged, so `report` prints UNAVAILABLE.
+
+ERRORS IN OTHER ROLES' CODE (owner must fix; C did not edit their files)
+B (graph):
+- B tests index results like dicts (graph["components"]) but the real schema returns
+  GraphBundle objects -> TypeError 'GraphBundle' object is not subscriptable.
+- test_path_escape_lockfile_rejected: B copies a rejected lockfile path
+  ("../outside/package-lock.json") into the output module, so GraphBundle validation fails.
+  B should drop/quarantine the bad path instead.
+- test_failed_module_keeps_raw_evidence_and_others: graph.json written without evidence.jsonl.
+- B's EvidenceStore.flush() REWRITES evidence.jsonl ("w" mode) instead of appending.
+  C works around it (_restore_evidence) but B should append.
+- B saves the SBOM to raw/syft.json; E reads sbom/. C now copies it to sbom/source.syft.json.
+  B and E should agree on one location.
+E (advisory/detectors):
+- E tests index StageRecord like a dict (result["stage"]["status"]) -> TypeError with real schema.
+- Unmapped Grype matches are emitted as finding_type VULNERABILITY with empty occurrence_ids;
+  the contract forbids that. Emit them as COVERAGE_GAP / COVERAGE_LIMITATION instead.
+- scan_known_vulnerabilities() (the plain 9.4 function) returns [] when Grype is missing,
+  which looks like "0 vulnerabilities". C uses run_vulnerability_intelligence() instead;
+  anyone calling the plain function gets a fake zero.
+- Combined suite (A+B+C+E) last run: ~22 failures, all in B/E tests, from the two causes above.
+
+C LIMITATIONS
+- tests/c_cli was not rerun after the last two cli.py commits (time). c_contracts, c_guard,
+  c_agents: 115 passed, 5 skipped.
+- LLM adapter never tested against a real provider (no API key); LLM_MODE=disabled used.
+- `scan --repo` puts the run in <out>/<scan_id>/ (A's acquire_repo layout).
+- Human approval is a local CLI action with digest confirmation; it cannot prove a human ran it.
+- Day 2 code (remediation/guard/agents) exists but Day 2 was not exercised end to end
+  (needs B's fix audit + A's real validator).
+
+TOOLS INSTALLED ON THIS MACHINE (not in repo)
+- Syft v1.57.2, Grype v0.122.1 in %USERPROFILE%\tools\anchore (on user PATH), sha256 verified.

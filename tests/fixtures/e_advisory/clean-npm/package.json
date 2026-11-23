@@ -1,0 +1,9 @@
+{
+  "name": "e-fixture-clean",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Role E control fixture: one real package version with no known advisory at recording time. Never installed.",
+  "dependencies": {
+    "ms": "2.1.3"
+  }
+}

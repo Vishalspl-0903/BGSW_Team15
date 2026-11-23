@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# secrets and local config
+.env
+.env.*
+!.env.example
+
+# local editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# zipped copies of output/
+*.zip
+
+# pinned source checkout retained locally; committed run artifacts contain the graph evidence
+runs/nodegoat-*/*/repo/
+runs/m1-demo-security/
+runs/m1-demo-syft*/

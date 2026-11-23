@@ -1,0 +1,8 @@
+{
+  "name": "e-fixture-partial",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "fx-alpha": "1.0.0"
+  }
+}

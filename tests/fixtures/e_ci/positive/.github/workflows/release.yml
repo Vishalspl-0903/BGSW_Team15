@@ -1,0 +1,22 @@
+# Role E D5 positive fixture (inert: GitHub only runs workflows in the repository-root .github/workflows).
+# Organisation and action names are fictional.
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions: write-all
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: example-org/setup-tool@v1.2.3
+      - uses: example-org/deploy-action@main
+      - uses: example-org/lint-action@a1b2c3d
+      - uses: docker://alpine:3.19
+      - name: inline step without uses
+        run: echo "build"
+  shared:
+    uses: example-org/shared-workflows/.github/workflows/build.yml@main

@@ -1,0 +1,302 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+  "assessments": [
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:2dff6d1a5fcf6f946c86",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:fbed67d3618334083045"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:6e64d07382c311314961"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:dd9cae11ca23e081fe40",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:911851adab7846eef69d"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:daf26ce3db4e4d8cceef"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:d450718a0fb68eef15c6",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:d7f474ddc8080803eb92"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:a5fe765340e5177b4246"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:eb9813b3be4c218f1181",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:39c78ea2abe8e87fc8c1"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:62af40a9cfe644d9c9ed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:41ef578fec3dc77982bd",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:745a164fd3788408da6a"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:cfaea6e7baec1db309a3"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:064951225128201da7b0",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:0c339f7968be515a5078"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:29bea9f39e4d05da0acc"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "clm:6e64d07382c311314961",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:fbed67d3618334083045"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:daf26ce3db4e4d8cceef",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:911851adab7846eef69d"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:a5fe765340e5177b4246",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:d7f474ddc8080803eb92"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:62af40a9cfe644d9c9ed",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:39c78ea2abe8e87fc8c1"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:cfaea6e7baec1db309a3",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:745a164fd3788408da6a"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:29bea9f39e4d05da0acc",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:0c339f7968be515a5078"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "contract-m1-fixture",
+  "version": "0.0.0",
+  "private": true,
+  "description": "SYNTHETIC contract fixture for Guardian; fixture package names only",
+  "dependencies": {
+    "example-web": "1.0.0"
+  }
+}

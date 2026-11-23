@@ -1,0 +1,4 @@
+[project]
+name = "e-fixture-scripts"
+version = "0.1.0"
+dependencies = ["fx-pyhelper==1.0.0"]

@@ -1,0 +1,2 @@
+# Workflow fixtures are pinned by sha256 in ground_truth.yaml: never convert line endings.
+* -text

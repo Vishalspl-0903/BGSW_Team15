@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "fixture-m1",
+  "repo_url": "local://fixture/contract-m1",
+  "commit_sha": null,
+  "source_kind": "LOCAL_FIXTURE",
+  "started_at": null,
+  "finished_at": null,
+  "status": "COMPLETE",
+  "tool_versions": {},
+  "errors": [],
+  "stage_statuses": {
+    "intake": "COMPLETE",
+    "inventory": "COMPLETE",
+    "graph": "COMPLETE",
+    "advisory": "NOT_RUN",
+    "ci": "NOT_RUN",
+    "container": "NOT_RUN"
+  },
+  "database_snapshots": {},
+  "source_snapshot_sha256": "2f6104ced06f87a66cea8c783a873cc97b16226e8153bb80759781f617e95f86",
+  "scope_capabilities": {
+    "source": "SYNTHETIC hand-authored lockfile fixture; no scanner or tool executed",
+    "artifact": "NOT_RUN",
+    "ci": "NOT_RUN"
+  },
+  "stage_records": {}
+}

@@ -1,0 +1,11 @@
+{
+  "name": "e-fixture-real-advisories",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Role E advisory fixture: real published npm versions that have public advisories. Static data only; never installed.",
+  "dependencies": {
+    "lodash": "4.17.20",
+    "mkdirp": "0.5.5",
+    "ms": "2.1.3"
+  }
+}

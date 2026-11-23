@@ -1,0 +1,47 @@
+{
+  "$id": "guardian/1.0/CoverageSummary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "declared_only_modules": {
+      "minimum": 0,
+      "title": "Declared Only Modules",
+      "type": "integer"
+    },
+    "failed_modules": {
+      "minimum": 0,
+      "title": "Failed Modules",
+      "type": "integer"
+    },
+    "partial_modules": {
+      "minimum": 0,
+      "title": "Partial Modules",
+      "type": "integer"
+    },
+    "resolved_modules": {
+      "minimum": 0,
+      "title": "Resolved Modules",
+      "type": "integer"
+    },
+    "total_modules": {
+      "minimum": 0,
+      "title": "Total Modules",
+      "type": "integer"
+    },
+    "unsupported_modules": {
+      "minimum": 0,
+      "title": "Unsupported Modules",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "total_modules",
+    "resolved_modules",
+    "partial_modules",
+    "declared_only_modules",
+    "unsupported_modules",
+    "failed_modules"
+  ],
+  "title": "CoverageSummary",
+  "type": "object"
+}

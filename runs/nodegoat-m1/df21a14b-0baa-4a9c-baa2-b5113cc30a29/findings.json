@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+  "findings": [
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:2dff6d1a5fcf6f946c86",
+      "finding_type": "CI_POLICY",
+      "title": "Mutable action reference actions/cache@v2 (version-tag) in .github/workflows/e2e-test.yml",
+      "description": ".github/workflows/e2e-test.yml references the action actions/cache at 'v2', a version-tag reference that its publisher can move after review.",
+      "module_ids": [
+        "mod:f1c331a0e39b570379582d9e"
+      ],
+      "occurrence_ids": [],
+      "advisory_ids": [],
+      "advisory_urls": [],
+      "rule_id": "D5-UNPINNED-ACTION",
+      "severity_label": null,
+      "cvss_score": null,
+      "priority": "NEEDS_REVIEW",
+      "evidence_ids": [
+        "ev:fbed67d3618334083045"
+      ],
+      "dependency_path_node_ids": [],
+      "path_status": "NOT_APPLICABLE",
+      "execution_stage": "CI",
+      "execution_evidence": "POTENTIAL",
+      "evidence_basis": "RULE_MATCH",
+      "uncertainties": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable."
+      ],
+      "recommendations": [
+        "Pin to the full 40-character commit SHA of a reviewed release (keep the tag as a comment) and update pins deliberately."
+      ],
+      "classification": "CONFIGURATION_WEAKNESS",
+      "advisory_aliases": [],
+      "first_seen_in": "REAL_UPSTREAM",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "guardian-d5-ci"
+      ],
+      "disposition": "OPEN"
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:dd9cae11ca23e081fe40",
+      "finding_type": "CI_POLICY",
+      "title": "Mutable action reference actions/checkout@v2 (version-tag) in .github/workflows/e2e-test.yml",
+      "description": ".github/workflows/e2e-test.yml references the action actions/checkout at 'v2', a version-tag reference that its publisher can move after review.",
+      "module_ids": [
+        "mod:f1c331a0e39b570379582d9e"
+      ],
+      "occurrence_ids": [],
+      "advisory_ids": [],
+      "advisory_urls": [],
+      "rule_id": "D5-UNPINNED-ACTION",
+      "severity_label": null,
+      "cvss_score": null,
+      "priority": "NEEDS_REVIEW",
+      "evidence_ids": [
+        "ev:911851adab7846eef69d"
+      ],
+      "dependency_path_node_ids": [],
+      "path_status": "NOT_APPLICABLE",
+      "execution_stage": "CI",
+      "execution_evidence": "POTENTIAL",
+      "evidence_basis": "RULE_MATCH",
+      "uncertainties": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable."
+      ],
+      "recommendations": [
+        "Pin to the full 40-character commit SHA of a reviewed release (keep the tag as a comment) and update pins deliberately."
+      ],
+      "classification": "CONFIGURATION_WEAKNESS",
+      "advisory_aliases": [],
+      "first_seen_in": "REAL_UPSTREAM",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "guardian-d5-ci"
+      ],
+      "disposition": "OPEN"
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:d450718a0fb68eef15c6",
+      "finding_type": "CI_POLICY",
+      "title": "Mutable action reference actions/checkout@v2 (version-tag) in .github/workflows/lint.yml",
+      "description": ".github/workflows/lint.yml references the action actions/checkout at 'v2', a version-tag reference that its publisher can move after review.",
+      "module_ids": [
+        "mod:f1c331a0e39b570379582d9e"
+      ],
+      "occurrence_ids": [],
+      "advisory_ids": [],
+      "advisory_urls": [],
+      "rule_id": "D5-UNPINNED-ACTION",
+      "severity_label": null,
+      "cvss_score": null,
+      "priority": "NEEDS_REVIEW",
+      "evidence_ids": [
+        "ev:d7f474ddc8080803eb92"
+      ],
+      "dependency_path_node_ids": [],
+      "path_status": "NOT_APPLICABLE",
+      "execution_stage": "CI",
+      "execution_evidence": "POTENTIAL",
+      "evidence_basis": "RULE_MATCH",
+      "uncertainties": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable."
+      ],
+      "recommendations": [
+        "Pin to the full 40-character commit SHA of a reviewed release (keep the tag as a comment) and update pins deliberately."
+      ],
+      "classification": "CONFIGURATION_WEAKNESS",
+      "advisory_aliases": [],
+      "first_seen_in": "REAL_UPSTREAM",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "guardian-d5-ci"
+      ],
+      "disposition": "OPEN"
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:eb9813b3be4c218f1181",
+      "finding_type": "CI_POLICY",
+      "title": "Mutable action reference actions/setup-node@v1 (version-tag) in .github/workflows/e2e-test.yml",
+      "description": ".github/workflows/e2e-test.yml references the action actions/setup-node at 'v1', a version-tag reference that its publisher can move after review.",
+      "module_ids": [
+        "mod:f1c331a0e39b570379582d9e"
+      ],
+      "occurrence_ids": [],
+      "advisory_ids": [],
+      "advisory_urls": [],
+      "rule_id": "D5-UNPINNED-ACTION",
+      "severity_label": null,
+      "cvss_score": null,
+      "priority": "NEEDS_REVIEW",
+      "evidence_ids": [
+        "ev:39c78ea2abe8e87fc8c1"
+      ],
+      "dependency_path_node_ids": [],
+      "path_status": "NOT_APPLICABLE",
+      "execution_stage": "CI",
+      "execution_evidence": "POTENTIAL",
+      "evidence_basis": "RULE_MATCH",
+      "uncertainties": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable."
+      ],
+      "recommendations": [
+        "Pin to the full 40-character commit SHA of a reviewed release (keep the tag as a comment) and update pins deliberately."
+      ],
+      "classification": "CONFIGURATION_WEAKNESS",
+      "advisory_aliases": [],
+      "first_seen_in": "REAL_UPSTREAM",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "guardian-d5-ci"
+      ],
+      "disposition": "OPEN"
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:41ef578fec3dc77982bd",
+      "finding_type": "CI_POLICY",
+      "title": "Mutable action reference actions/setup-node@v1 (version-tag) in .github/workflows/lint.yml",
+      "description": ".github/workflows/lint.yml references the action actions/setup-node at 'v1', a version-tag reference that its publisher can move after review.",
+      "module_ids": [
+        "mod:f1c331a0e39b570379582d9e"
+      ],
+      "occurrence_ids": [],
+      "advisory_ids": [],
+      "advisory_urls": [],
+      "rule_id": "D5-UNPINNED-ACTION",
+      "severity_label": null,
+      "cvss_score": null,
+      "priority": "NEEDS_REVIEW",
+      "evidence_ids": [
+        "ev:745a164fd3788408da6a"
+      ],
+      "dependency_path_node_ids": [],
+      "path_status": "NOT_APPLICABLE",
+      "execution_stage": "CI",
+      "execution_evidence": "POTENTIAL",
+      "evidence_basis": "RULE_MATCH",
+      "uncertainties": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable."
+      ],
+      "recommendations": [
+        "Pin to the full 40-character commit SHA of a reviewed release (keep the tag as a comment) and update pins deliberately."
+      ],
+      "classification": "CONFIGURATION_WEAKNESS",
+      "advisory_aliases": [],
+      "first_seen_in": "REAL_UPSTREAM",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "guardian-d5-ci"
+      ],
+      "disposition": "OPEN"
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+      "finding_id": "fnd:064951225128201da7b0",
+      "finding_type": "CI_POLICY",
+      "title": "Mutable action reference actions/upload-artifact@v2 (version-tag) in .github/workflows/e2e-test.yml",
+      "description": ".github/workflows/e2e-test.yml references the action actions/upload-artifact at 'v2', a version-tag reference that its publisher can move after review.",
+      "module_ids": [
+        "mod:f1c331a0e39b570379582d9e"
+      ],
+      "occurrence_ids": [],
+      "advisory_ids": [],
+      "advisory_urls": [],
+      "rule_id": "D5-UNPINNED-ACTION",
+      "severity_label": null,
+      "cvss_score": null,
+      "priority": "NEEDS_REVIEW",
+      "evidence_ids": [
+        "ev:0c339f7968be515a5078"
+      ],
+      "dependency_path_node_ids": [],
+      "path_status": "NOT_APPLICABLE",
+      "execution_stage": "CI",
+      "execution_evidence": "POTENTIAL",
+      "evidence_basis": "RULE_MATCH",
+      "uncertainties": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable."
+      ],
+      "recommendations": [
+        "Pin to the full 40-character commit SHA of a reviewed release (keep the tag as a comment) and update pins deliberately."
+      ],
+      "classification": "CONFIGURATION_WEAKNESS",
+      "advisory_aliases": [],
+      "first_seen_in": "REAL_UPSTREAM",
+      "advisory_as_of": null,
+      "scanner_names": [
+        "guardian-d5-ci"
+      ],
+      "disposition": "OPEN"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "e-fixture-worker",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "fx-beta": "2.1.0"
+  }
+}

@@ -1,0 +1,2252 @@
+{
+  "schema_version": "1.0",
+  "repository": "https://github.com/OWASP/NodeGoat.git",
+  "baseline": {
+    "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+    "commit_sha": "91d8adb963f5de15ccadc2b15a1b6aa67c624c4e",
+    "package_identities": 1081,
+    "occurrences": 1466,
+    "confirmed_advisories": 91
+  },
+  "current": {
+    "scan_id": "b35eb9cb-ac9e-4e1a-bc1b-faa5bfe2d190",
+    "commit_sha": "c5cb68a7084e4ae7dcc60e6a98768720a81841e8",
+    "package_identities": 1091,
+    "occurrences": 1479,
+    "confirmed_advisories": 91
+  },
+  "advisory_snapshot": {
+    "baseline": [
+      "2026-11-23T06:28:32Z"
+    ],
+    "current": [
+      "2026-11-23T06:28:32Z"
+    ],
+    "status": "SAME",
+    "code_change_attribution_allowed": true
+  },
+  "changes": {
+    "added_packages": [
+      {
+        "package_key": "npm:color-convert@2.0.1",
+        "ecosystem": "npm",
+        "name": "color-convert",
+        "version": "2.0.1",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1color-convert"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:color-name@1.1.4",
+        "ecosystem": "npm",
+        "name": "color-name",
+        "version": "1.1.4",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1color-name"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:has-flag@4.0.0",
+        "ecosystem": "npm",
+        "name": "has-flag",
+        "version": "4.0.0",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1has-flag"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:jshint@2.13.6",
+        "ecosystem": "npm",
+        "name": "jshint",
+        "version": "2.13.6",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/jshint/-/jshint-2.13.6.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:lodash@4.17.21",
+        "ecosystem": "npm",
+        "name": "lodash",
+        "version": "4.17.21",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1lodash"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:strip-json-comments@1.0.4",
+        "ecosystem": "npm",
+        "name": "strip-json-comments",
+        "version": "1.0.4",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1strip-json-comments"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-1.0.4.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:ansi-styles@2.2.1",
+        "ecosystem": "npm",
+        "name": "ansi-styles",
+        "version": "2.2.1",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1ansi-styles"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.1.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:chalk@1.1.3",
+        "ecosystem": "npm",
+        "name": "chalk",
+        "version": "1.1.3",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1chalk"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:grunt-contrib-jshint@1.1.0",
+        "ecosystem": "npm",
+        "name": "grunt-contrib-jshint",
+        "version": "1.1.0",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1grunt-contrib-jshint"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/grunt-contrib-jshint/-/grunt-contrib-jshint-1.1.0.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:jshint@2.9.7",
+        "ecosystem": "npm",
+        "name": "jshint",
+        "version": "2.9.7",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/jshint/-/jshint-2.9.7.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:strip-json-comments@1.0.4",
+        "ecosystem": "npm",
+        "name": "strip-json-comments",
+        "version": "1.0.4",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1strip-json-comments"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-1.0.4.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:supports-color@2.0.0",
+        "ecosystem": "npm",
+        "name": "supports-color",
+        "version": "2.0.0",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1supports-color"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz",
+        "registry_host": "registry.npmjs.org"
+      },
+      {
+        "package_key": "npm:lodash@4.17.21",
+        "ecosystem": "npm",
+        "name": "lodash",
+        "version": "4.17.21",
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1jshint~1node_modules~1lodash"
+        ],
+        "directness": "TRANSITIVE",
+        "source_type": "REGISTRY",
+        "source_url": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+        "registry_host": "registry.npmjs.org"
+      }
+    ],
+    "removed_packages": [],
+    "upgraded_packages": [
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1dom-serializer"
+        ],
+        "name": "dom-serializer",
+        "before_version": "0.1.0",
+        "after_version": "0.2.2"
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1domelementtype"
+        ],
+        "name": "domelementtype",
+        "before_version": "1.1.3",
+        "after_version": "2.3.0"
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1entities"
+        ],
+        "name": "entities",
+        "before_version": "1.1.2",
+        "after_version": "2.2.0"
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+        ],
+        "name": "grunt-contrib-jshint",
+        "before_version": "1.1.0",
+        "after_version": "3.2.0"
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1ansi-styles"
+        ],
+        "name": "ansi-styles",
+        "before_version": "2.2.1",
+        "after_version": "4.3.0"
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+        ],
+        "name": "chalk",
+        "before_version": "1.1.3",
+        "after_version": "4.1.2"
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1supports-color"
+        ],
+        "name": "supports-color",
+        "before_version": "2.0.0",
+        "after_version": "7.2.0"
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1jshint"
+        ],
+        "name": "jshint",
+        "before_version": "2.9.7",
+        "after_version": "2.12.0"
+      }
+    ],
+    "changed_sources": [
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1cli"
+        ],
+        "package": "npm:cli@1.0.1",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/cli/-/cli-1.0.1.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-IoF1NPJL+klQw01TLUjsvGIbjBQ="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/cli/-/cli-1.0.1.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-41U72MB56TfUMGndAKK8vJ78eooOD4Z5NOL4xEfjc0c23s+6EYKXlXsmACBVclLP1yOfWCgEganVzddVrSNoTg=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1console-browserify"
+        ],
+        "package": "npm:console-browserify@1.1.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/console-browserify/-/console-browserify-1.1.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-8CQcRXMKn8YyOyBtvzjtx0HQuxA="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/console-browserify/-/console-browserify-1.1.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-duS7VP5pvfsNLDvL1O4VOEbw37AI3A4ZUQYemvDlnpGrNu9tprR7BYWpDYwC0Xia0Zxz5ZupdiIrUp0GH1aXfg=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1date-now"
+        ],
+        "package": "npm:date-now@0.1.4",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/date-now/-/date-now-0.1.4.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-6vQ5/U1ISK105cx9vvIAZyueNFs="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/date-now/-/date-now-0.1.4.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-AsElvov3LoNB7tf5k37H2jYSB+ZZPMT5sG2QjJCcdlV5chIv6htBUBUui2IKRjgtKAKtCBN7Zbwa+MtwLjSeNw=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1dom-serializer"
+        ],
+        "package": "npm:dom-serializer@0.2.2",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/dom-serializer/-/dom-serializer-0.1.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-BzxpdUbOB4DOI75KKOKT5AvDDII="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/dom-serializer/-/dom-serializer-0.2.2.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-2/xPb3ORsQ42nHYiSunXkDjPLBaEj/xTwUO4B7XCZQTRk7EBtTOPaygh10YAAh2OI1Qrp6NWfpAhzswj0ydt9g=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1domelementtype"
+        ],
+        "package": "npm:domelementtype@2.3.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/domelementtype/-/domelementtype-1.1.3.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-vSh3PiZCiBrsUVRJJCmcXNgiGFs="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/domelementtype/-/domelementtype-2.3.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1entities"
+        ],
+        "package": "npm:entities@2.2.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/entities/-/entities-1.1.2.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w=="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1domhandler"
+        ],
+        "package": "npm:domhandler@2.3.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/domhandler/-/domhandler-2.3.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-LeWaCCLVAn+r/28DLCsloqir5zg="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/domhandler/-/domhandler-2.3.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-q9bUwjfp7Eif8jWxxxPSykdRZAb6GkguBGSgvvCrhI9wB71W2K/Kvv4E61CF/mcCfnVJDeDWx/Vb/uAqbDj6UQ=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1domutils"
+        ],
+        "package": "npm:domutils@1.5.1",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/domutils/-/domutils-1.5.1.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/domutils/-/domutils-1.5.1.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-gSu5Oi/I+3wDENBsOWBiRK1eoGxcywYSqg3rR960/+EfY0CF4EX1VPkgHOZ3WiS/Jg2DtliF6BhWcHlfpYUcGw=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1entities"
+        ],
+        "package": "npm:entities@1.0.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/entities/-/entities-1.0.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/entities/-/entities-1.0.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-LbLqfXgJMmy81t+7c14mnulFHJ170cM6E+0vMXR9k/ZiZwgX8i5pNgjTCX3SO4VeUsFLV+8InixoretwU+MjBQ=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+        ],
+        "package": "npm:grunt-contrib-jshint@3.2.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/grunt-contrib-jshint/-/grunt-contrib-jshint-1.1.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-Np2QmyWTxA6L55lAshNAhQx5Oaw="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/grunt-contrib-jshint/-/grunt-contrib-jshint-3.2.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-pcXWCSZWfoMSvcV4BwH21TUtLtcX0Ms8IGuOPIcLeXK3fud9KclY7iqMKY94jFx8TxZzh028YYtpR+io8DiEaQ=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1ansi-styles"
+        ],
+        "package": "npm:ansi-styles@4.3.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.1.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-tDLdM1i2NM914eRmQ2gkBTPB3b4="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+        ],
+        "package": "npm:chalk@4.1.2",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1supports-color"
+        ],
+        "package": "npm:supports-color@7.2.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-U10EXOa2Nj+kARcIRimZXp3zJMc="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1htmlparser2"
+        ],
+        "package": "npm:htmlparser2@3.8.3",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/htmlparser2/-/htmlparser2-3.8.3.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-mWwosZFRaovoZQGn15dX5ccMEGg="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/htmlparser2/-/htmlparser2-3.8.3.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-hBxEg3CYXe+rPIua8ETe7tmG3XDn9B0edOE/e9wH2nLczxzgdu0m0aNHY+5wFZiviLWLdANPJTssa92dMcXQ5Q=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1htmlparser2~1node_modules~1isarray"
+        ],
+        "package": "npm:isarray@0.0.1",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1htmlparser2~1node_modules~1readable-stream"
+        ],
+        "package": "npm:readable-stream@1.1.14",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-fPTFTvZI44EwhMY23SB54WbAgdk="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-+MeVjFf4L44XUkhM1eYbD8fyEsxcV81pqMSR5gblfcLCHfZvbrqy4/qYHE+/R5HoBUT11WV5O08Cr1n3YXkWVQ=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1htmlparser2~1node_modules~1string_decoder"
+        ],
+        "package": "npm:string_decoder@0.10.31",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-ev2QzSzWPYmy9GuqfIVildA4OdcGLeFZQrq5ys6RtiuF+RQQiZWr8TZNyAcuVXyQRYfEO+MsoB/1BuQVhOJuoQ=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1jshint"
+        ],
+        "package": "npm:jshint@2.12.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/jshint/-/jshint-2.9.7.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-Q8XN38hGsVQhdlM+4gd1Xl7OB1VieSuCJf+fEJjpo59JH99bVJhXRXAh26qQ15wfdd1VPMuDWNeSWoNl53T4YA=="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/jshint/-/jshint-2.12.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-TwuuaUDmra0JMkuqvqy+WGo2xGHSNjv1BA1nTIgtH2K5z1jHuAEeAgp7laaR+hLRmajRjcrM71+vByBDanCyYA=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1jshint~1node_modules~1strip-json-comments"
+        ],
+        "package": "npm:strip-json-comments@1.0.4",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-1.0.4.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-HhX7ysl9Pumb8tc7TGVrCCu6+5E="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-1.0.4.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-AOPG8EBc5wAikaG1/7uFCNFJwnKOuQwFTpYBdTW6OvWHeZBQBrAA/amefHGrEiOnCPcLFZK6FUPtWVKpQVIRgg=="
+          ]
+        }
+      },
+      {
+        "module": ".",
+        "source_refs": [
+          "package-lock.json#/packages/node_modules~1shelljs"
+        ],
+        "package": "npm:shelljs@0.3.0",
+        "before": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/shelljs/-/shelljs-0.3.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha1-NZbmMHp4FUT1kfN9phg2DzHbV7E="
+          ]
+        },
+        "after": {
+          "type": "REGISTRY",
+          "url": "https://registry.npmjs.org/shelljs/-/shelljs-0.3.0.tgz",
+          "registry": "registry.npmjs.org",
+          "hashes": [
+            "sha512-Ny0KN4dyT8ZSCE0frtcbAJGoM/HTArpyPkeli1/00aYfm0sbD/Gk/4x7N2DP9QKGpBsiQH7n6rpm1L79RtviEQ=="
+          ]
+        }
+      }
+    ],
+    "added_edges": [
+      {
+        "from": [
+          "module",
+          "."
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@3.2.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "development"
+      },
+      {
+        "from": [
+          "module",
+          "."
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "development"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer"
+          ],
+          "npm:dom-serializer@0.2.2"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1domelementtype"
+          ],
+          "npm:domelementtype@2.3.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer"
+          ],
+          "npm:dom-serializer@0.2.2"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1entities"
+          ],
+          "npm:entities@2.2.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1domutils"
+          ],
+          "npm:domutils@1.5.1"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer"
+          ],
+          "npm:dom-serializer@0.2.2"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@3.2.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@4.1.2"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@3.2.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@3.2.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1hooker"
+          ],
+          "npm:hooker@0.2.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1ansi-styles"
+          ],
+          "npm:ansi-styles@4.3.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1color-convert"
+          ],
+          "npm:color-convert@2.0.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@4.1.2"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1ansi-styles"
+          ],
+          "npm:ansi-styles@4.3.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@4.1.2"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1supports-color"
+          ],
+          "npm:supports-color@7.2.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1color-convert"
+          ],
+          "npm:color-convert@2.0.1"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1color-name"
+          ],
+          "npm:color-name@1.1.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1cli"
+          ],
+          "npm:cli@1.0.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1console-browserify"
+          ],
+          "npm:console-browserify@1.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1exit"
+          ],
+          "npm:exit@0.1.2"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1lodash"
+          ],
+          "npm:lodash@4.17.21"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1strip-json-comments"
+          ],
+          "npm:strip-json-comments@1.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1htmlparser2"
+          ],
+          "npm:htmlparser2@3.8.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1minimatch"
+          ],
+          "npm:minimatch@3.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1supports-color"
+          ],
+          "npm:supports-color@7.2.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1has-flag"
+          ],
+          "npm:has-flag@4.0.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if"
+          ],
+          "npm:grunt-if@0.2.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1escape-string-regexp"
+          ],
+          "npm:escape-string-regexp@1.0.5"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1ansi-styles"
+          ],
+          "npm:ansi-styles@2.2.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1supports-color"
+          ],
+          "npm:supports-color@2.0.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1has-ansi"
+          ],
+          "npm:has-ansi@2.0.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1strip-ansi"
+          ],
+          "npm:strip-ansi@3.0.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt"
+          ],
+          "npm:grunt@1.0.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "peer"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1hooker"
+          ],
+          "npm:hooker@0.2.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1cli"
+          ],
+          "npm:cli@1.0.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1console-browserify"
+          ],
+          "npm:console-browserify@1.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1exit"
+          ],
+          "npm:exit@0.1.2"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1strip-json-comments"
+          ],
+          "npm:strip-json-comments@1.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1htmlparser2"
+          ],
+          "npm:htmlparser2@3.8.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1lodash"
+          ],
+          "npm:lodash@4.17.11"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1minimatch"
+          ],
+          "npm:minimatch@3.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1shelljs"
+          ],
+          "npm:shelljs@0.3.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1cli"
+          ],
+          "npm:cli@1.0.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1console-browserify"
+          ],
+          "npm:console-browserify@1.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1exit"
+          ],
+          "npm:exit@0.1.2"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1htmlparser2"
+          ],
+          "npm:htmlparser2@3.8.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint~1node_modules~1lodash"
+          ],
+          "npm:lodash@4.17.21"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint~1node_modules~1strip-json-comments"
+          ],
+          "npm:strip-json-comments@1.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1minimatch"
+          ],
+          "npm:minimatch@3.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1shelljs"
+          ],
+          "npm:shelljs@0.3.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      }
+    ],
+    "removed_edges": [
+      {
+        "from": [
+          "module",
+          "."
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "development"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer"
+          ],
+          "npm:dom-serializer@0.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1domelementtype"
+          ],
+          "npm:domelementtype@1.1.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer"
+          ],
+          "npm:dom-serializer@0.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer~1node_modules~1entities"
+          ],
+          "npm:entities@1.1.2"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1domutils"
+          ],
+          "npm:domutils@1.5.1"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1dom-serializer"
+          ],
+          "npm:dom-serializer@0.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt"
+          ],
+          "npm:grunt@1.0.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "peer"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1hooker"
+          ],
+          "npm:hooker@0.2.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1escape-string-regexp"
+          ],
+          "npm:escape-string-regexp@1.0.5"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1ansi-styles"
+          ],
+          "npm:ansi-styles@2.2.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1supports-color"
+          ],
+          "npm:supports-color@2.0.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1has-ansi"
+          ],
+          "npm:has-ansi@2.0.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@1.1.3"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1strip-ansi"
+          ],
+          "npm:strip-ansi@3.0.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if"
+          ],
+          "npm:grunt-if@0.2.0"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1cli"
+          ],
+          "npm:cli@1.0.1"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1console-browserify"
+          ],
+          "npm:console-browserify@1.1.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1exit"
+          ],
+          "npm:exit@0.1.2"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1htmlparser2"
+          ],
+          "npm:htmlparser2@3.8.3"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint~1node_modules~1strip-json-comments"
+          ],
+          "npm:strip-json-comments@1.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1lodash"
+          ],
+          "npm:lodash@4.17.11"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1minimatch"
+          ],
+          "npm:minimatch@3.0.4"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      },
+      {
+        "from": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.9.7"
+        ],
+        "to": [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1shelljs"
+          ],
+          "npm:shelljs@0.3.0"
+        ],
+        "relationship": "DEPENDS_ON",
+        "scope": "production"
+      }
+    ],
+    "new_advisories": [],
+    "removed_advisories": [],
+    "changed_paths": [
+      [
+        [
+          "module",
+          "."
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@3.2.0"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1jshint"
+          ],
+          "npm:jshint@2.13.6"
+        ]
+      ],
+      [
+        [
+          "module",
+          "."
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if"
+          ],
+          "npm:grunt-if@0.2.0"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-if~1node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@1.1.0"
+        ]
+      ],
+      [
+        [
+          "module",
+          "."
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint"
+          ],
+          "npm:jshint@2.12.0"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1jshint~1node_modules~1lodash"
+          ],
+          "npm:lodash@4.17.21"
+        ]
+      ],
+      [
+        [
+          "module",
+          "."
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@3.2.0"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@4.1.2"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1ansi-styles"
+          ],
+          "npm:ansi-styles@4.3.0"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1color-convert"
+          ],
+          "npm:color-convert@2.0.1"
+        ]
+      ],
+      [
+        [
+          "module",
+          "."
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint"
+          ],
+          "npm:grunt-contrib-jshint@3.2.0"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1chalk"
+          ],
+          "npm:chalk@4.1.2"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1supports-color"
+          ],
+          "npm:supports-color@7.2.0"
+        ],
+        [
+          "occurrence",
+          ".",
+          [
+            "package-lock.json#/packages/node_modules~1grunt-contrib-jshint~1node_modules~1has-flag"
+          ],
+          "npm:has-flag@4.0.0"
+        ]
+      ]
+    ]
+  },
+  "total_structural_changes": 109,
+  "truncated": false,
+  "vulnerability_attribution": "Comparable: both runs used the same advisory snapshot."
+}

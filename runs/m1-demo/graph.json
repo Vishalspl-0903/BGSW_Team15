@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "scan-ffff0b47d5cb447cb4f45bf7b1dedd60",
+  "modules": [
+    {
+      "module_id": "mod:c3633b75a7648db82995c0ce",
+      "relative_path": ".",
+      "ecosystem": "npm",
+      "manifests": [
+        "package.json"
+      ],
+      "lockfiles": [
+        "package-lock.json"
+      ],
+      "ci_files": [
+        ".github/workflows/static-check.yml"
+      ],
+      "dockerfiles": [],
+      "coverage": "RESOLVED",
+      "coverage_reason": "",
+      "scanner_names": [
+        "guardian-npm-lock-parser",
+        "guardian-static-module-index"
+      ],
+      "file_counts": {
+        "manifests_found": 1,
+        "manifests_scanned": 1,
+        "lockfiles_found": 1,
+        "lockfiles_scanned": 1,
+        "failed": 0,
+        "unsupported": 0,
+        "lock_packages": 2
+      },
+      "scan_stage": {
+        "inventory": "COMPLETE",
+        "graph": "COMPLETE",
+        "advisory": "NOT_RUN",
+        "ci": "NOT_RUN",
+        "container": "NOT_RUN"
+      },
+      "artifact_sbom_status": "NOT_RUN"
+    }
+  ],
+  "components": [
+    {
+      "package_key": "npm:fixture-direct@1.0.0",
+      "ecosystem": "npm",
+      "name": "fixture-direct",
+      "resolved_version": "1.0.0",
+      "declared_constraint": "1.0.0",
+      "purl": "pkg:npm/fixture-direct@1.0.0",
+      "occurrence_id": "occ:b17519514a58bc863afe65b4",
+      "module_id": "mod:c3633b75a7648db82995c0ce",
+      "source_refs": [
+        "package-lock.json#/packages/node_modules~1fixture-direct"
+      ],
+      "resolution": "RESOLVED",
+      "evidence_ids": [
+        "ev:18ce733e476b13cb31ee715e"
+      ],
+      "install_stage_indicator": null,
+      "dependency_scopes": [
+        "production"
+      ],
+      "directness": "DIRECT",
+      "license": null,
+      "artifact_hashes": [],
+      "package_source_type": "UNKNOWN",
+      "resolved_source_url": null,
+      "registry_host": null,
+      "source_scope": "SOURCE",
+      "image_presence": "NOT_CHECKED",
+      "manifest_refs": [
+        "package.json"
+      ]
+    },
+    {
+      "package_key": "npm:fixture-transitive@2.0.0",
+      "ecosystem": "npm",
+      "name": "fixture-transitive",
+      "resolved_version": "2.0.0",
+      "declared_constraint": "2.0.0",
+      "purl": "pkg:npm/fixture-transitive@2.0.0",
+      "occurrence_id": "occ:7c4a69d369238e657a5cced8",
+      "module_id": "mod:c3633b75a7648db82995c0ce",
+      "source_refs": [
+        "package-lock.json#/packages/node_modules~1fixture-transitive"
+      ],
+      "resolution": "RESOLVED",
+      "evidence_ids": [
+        "ev:2cbf7305511da95d0cbee562"
+      ],
+      "install_stage_indicator": null,
+      "dependency_scopes": [
+        "production"
+      ],
+      "directness": "TRANSITIVE",
+      "license": null,
+      "artifact_hashes": [],
+      "package_source_type": "UNKNOWN",
+      "resolved_source_url": null,
+      "registry_host": null,
+      "source_scope": "SOURCE",
+      "image_presence": "NOT_CHECKED",
+      "manifest_refs": []
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge:15bcce8f4fb43278168d21db",
+      "source_id": "mod:c3633b75a7648db82995c0ce",
+      "target_id": "occ:b17519514a58bc863afe65b4",
+      "relationship": "DEPENDS_ON",
+      "evidence_ids": [
+        "ev:18ce733e476b13cb31ee715e",
+        "ev:ad69867ea657f65d3ae6228a"
+      ],
+      "module_id": "mod:c3633b75a7648db82995c0ce",
+      "resolution": "OBSERVED",
+      "dependency_scope": "production",
+      "declared_constraint": "1.0.0",
+      "source_scope": "SOURCE"
+    },
+    {
+      "edge_id": "edge:ce8ddd77d0e57e2b8a8b450a",
+      "source_id": "occ:b17519514a58bc863afe65b4",
+      "target_id": "occ:7c4a69d369238e657a5cced8",
+      "relationship": "DEPENDS_ON",
+      "evidence_ids": [
+        "ev:18ce733e476b13cb31ee715e",
+        "ev:2cbf7305511da95d0cbee562"
+      ],
+      "module_id": "mod:c3633b75a7648db82995c0ce",
+      "resolution": "OBSERVED",
+      "dependency_scope": "production",
+      "declared_constraint": "2.0.0",
+      "source_scope": "SOURCE"
+    }
+  ],
+  "coverage_summary": {
+    "total_modules": 1,
+    "resolved_modules": 1,
+    "partial_modules": 0,
+    "declared_only_modules": 0,
+    "unsupported_modules": 0,
+    "failed_modules": 0
+  },
+  "warnings": [
+    "SYFT_NOT_RUN: syft not installed"
+  ]
+}

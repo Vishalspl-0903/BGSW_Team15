@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "fixture-m1",
+  "event_id": "evt:approval-1",
+  "timestamp": "2026-11-23T10:30:00Z",
+  "actor_type": "HUMAN",
+  "actor_label": "reviewer-a",
+  "event_type": "HUMAN_APPROVAL",
+  "previous_state": "REVIEW_PENDING",
+  "next_state": "APPROVED",
+  "related_ids": [
+    "prop:1",
+    "aud:1"
+  ],
+  "evidence_ids": [],
+  "message": "Approved for sandbox validation only",
+  "workflow_id": "remediation:prop:1",
+  "approval": {
+    "decision": "APPROVE",
+    "reviewer_label": "reviewer-a",
+    "reviewer_role": "security-reviewer",
+    "scan_id": "fixture-m1",
+    "proposal_id": "prop:1",
+    "proposal_sha256": "86484b9f925c6c0adb2172479877b51a46e03e88c34d2b003405019a1603883c",
+    "audit_result_id": "aud:1",
+    "commit_sha": null,
+    "lockfile_sha256": "815d2afea2e90d2ceee2d537fbafa5467f67d99febe6262a7ba83a0a40ea62c2",
+    "policy_version": 1,
+    "decided_at": "2026-11-23T10:30:00Z",
+    "expires_at": "2026-11-23T12:30:00Z",
+    "revokes_event_id": null
+  }
+}

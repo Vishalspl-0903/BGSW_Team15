@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "fixture-m1",
+  "metadata": {
+    "schema_version": "1.0",
+    "scan_id": "fixture-m1",
+    "repo_url": "local://fixture/contract-m1",
+    "commit_sha": null,
+    "source_kind": "LOCAL_FIXTURE",
+    "started_at": null,
+    "finished_at": null,
+    "status": "COMPLETE",
+    "tool_versions": {},
+    "errors": [],
+    "stage_statuses": {
+      "intake": "COMPLETE",
+      "inventory": "COMPLETE",
+      "graph": "COMPLETE",
+      "advisory": "NOT_RUN",
+      "ci": "NOT_RUN",
+      "container": "NOT_RUN"
+    },
+    "database_snapshots": {},
+    "source_snapshot_sha256": "2f6104ced06f87a66cea8c783a873cc97b16226e8153bb80759781f617e95f86",
+    "scope_capabilities": {
+      "source": "SYNTHETIC hand-authored lockfile fixture; no scanner or tool executed",
+      "artifact": "NOT_RUN",
+      "ci": "NOT_RUN"
+    },
+    "stage_records": {}
+  },
+  "coverage_summary": {
+    "total_modules": 1,
+    "resolved_modules": 1,
+    "partial_modules": 0,
+    "declared_only_modules": 0,
+    "unsupported_modules": 0,
+    "failed_modules": 0
+  },
+  "component_count": 2,
+  "occurrence_count": 2,
+  "edge_count": 2,
+  "findings_summary": {
+    "advisory_groups": null,
+    "note": "advisory stage NOT_RUN: unknown, not zero"
+  },
+  "finding_ids": [],
+  "claim_ids": [],
+  "proposal_ids": [],
+  "validation_status": "NOT_RUN",
+  "residual_risks": [],
+  "limitations": [
+    "SYNTHETIC fixture",
+    "advisory scan NOT_RUN"
+  ],
+  "artifact_paths": {
+    "graph": "graph.json",
+    "evidence": "evidence.jsonl"
+  }
+}

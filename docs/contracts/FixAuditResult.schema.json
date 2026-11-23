@@ -1,0 +1,109 @@
+{
+  "$defs": {
+    "AuditVerdict": {
+      "enum": [
+        "ALLOW_REVIEW",
+        "REJECT",
+        "INCONCLUSIVE"
+      ],
+      "title": "AuditVerdict",
+      "type": "string"
+    }
+  },
+  "$id": "guardian/1.0/FixAuditResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_result_id": {
+      "title": "Audit Result Id",
+      "type": "string"
+    },
+    "behavior_checks": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Behavior Checks",
+      "type": "array"
+    },
+    "blocking_issues": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Blocking Issues",
+      "type": "array"
+    },
+    "candidate_package_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Candidate Package Key"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "install_script_indicators": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Install Script Indicators",
+      "type": "array"
+    },
+    "integrity_indicators": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Integrity Indicators",
+      "type": "array"
+    },
+    "known_advisories": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Known Advisories",
+      "type": "array"
+    },
+    "new_dependency_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "New Dependency Count"
+    },
+    "proposal_id": {
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "verdict": {
+      "$ref": "#/$defs/AuditVerdict"
+    }
+  },
+  "required": [
+    "audit_result_id",
+    "proposal_id",
+    "candidate_package_key",
+    "known_advisories",
+    "new_dependency_count",
+    "install_script_indicators",
+    "integrity_indicators",
+    "behavior_checks",
+    "blocking_issues",
+    "evidence_ids",
+    "verdict"
+  ],
+  "title": "FixAuditResult",
+  "type": "object"
+}

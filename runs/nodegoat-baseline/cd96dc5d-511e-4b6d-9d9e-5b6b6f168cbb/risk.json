@@ -1,0 +1,5157 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+  "assessments": [
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:e67e07350a8d5261aa40",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:cd8f4b2f05d3466663b5",
+        "ev:83e601ff2c5c20e6d94ba1eb"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:9d07d30c06d99ebe9bfa"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:f91cf2e4170c27d588d7",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:57186ad64cbef45f6288",
+        "ev:83e601ff2c5c20e6d94ba1eb"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:baddf7a0ba273aa98b3a"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:9554586703d1f01bb891",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 3.7,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:abe23e71c06db4e3bb99",
+        "ev:83e601ff2c5c20e6d94ba1eb"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-12590=Medium, GHSA-v422-hmwv-36x6=Low); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:598dc9ec18224d6fb2bb"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:ca6cbcfab1f26391f240",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 3.1,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:1c36bfc3b2f2b0d7c309",
+        "ev:bb212e54fb6d8701572e",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:20ad8128add5ef61b8e0"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:b1badb7cefca44c5b48c",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:b73fe88321e69b0374e1",
+        "ev:6ddaa8048e1319a95811",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:4c64474b4ed1f091c18b"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:91100b9e0e4de2d8089b",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:4d8df2112f617e57801e",
+        "ev:1c46e18ebe8d067420d7",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:41d0097894cc326d900a"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:8eadef6e9aa74dd90e42",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:519ecd5820bc65e3b488",
+        "ev:8ade27473664843f149f",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:94fbb1b2483b7b50d395"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:ce5f694f6607b2108601",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 5.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:bc404f542ceb04bd9220",
+        "ev:b18927464df594b2d671",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:002b029b4549084af487"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:50388c62f384c975693d",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:ca3cd0e72b85849f4e70",
+        "ev:e4ec2d78a88dbd2cee1c",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:e85c9c636f9e9cfb2824"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:f4be5341a85b3fb42097",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 6.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:81d0f890b0516e0fa2b7",
+        "ev:6e76e09eb7dc60d2fc8a",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-33750=High, GHSA-f886-m6hf-6m8v=Medium); the matched record's value is shown.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:4d6d807178f090f55782"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:1f138ea9365c06c8beb4",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:bb041228c9e81616a20f",
+        "ev:6b46054fe0fb459f8e7c",
+        "ev:1a2c819c05e38dd5816c7ffd",
+        "ev:3c364c7e0e38873c39c9ac36"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:0886057cac1519c2346d"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:42e9f88a4cd28a514d29",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:39edd0869a87b5c07b96",
+        "ev:598c62a17ec30c7c43d29ec2",
+        "ev:b62693f00dd9ff24f01873b5"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:d386101ea8c5c7e3b1f8"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:f7f03c97eeb734f01aaf",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.4,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:9673988976f21623c50e",
+        "ev:a22bacf0597bc8df21d2badf"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:b829ce88ed1081e48739"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:3f761f180c558f0b4c7e",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:9f9afeb3feb81e8f304e",
+        "ev:a22bacf0597bc8df21d2badf"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:8405b680a641b9a39f10"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c1a7b25a1c92d0d97f82",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:ce3641b95735b77579b5",
+        "ev:16aeee01db6b487a6f69a3a4"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2024-47764=Medium, GHSA-pxg6-pf52-xh8x=Low); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:f8a1825820a1d1f4a06a"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:ba63d33ea22e2bbf6cd0",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 3.7,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:42acc703fd764259fd04",
+        "ev:8dd3280f0bf150aacc2e6266",
+        "ev:bc259c9e68b4b36652b3bbb6",
+        "ev:dbbca5d1a4bfaa475188f139",
+        "ev:e355b17e702fe4711e49655a"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2017-16137=Medium, GHSA-gxpj-cx7g-858c=Low); the matched record's value is shown.",
+        "Affects 4 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:cac33b69c0ada0377331"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:08afe21a4775e8794f42",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:e63e728649f460094018",
+        "ev:8dd3280f0bf150aacc2e6266",
+        "ev:bc259c9e68b4b36652b3bbb6",
+        "ev:dbbca5d1a4bfaa475188f139",
+        "ev:e355b17e702fe4711e49655a"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 4 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:9024541ca5ec7733f278"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:4a5d47f03c07eb48b207",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 3.7,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:0533d6d28b8bb159a4ba",
+        "ev:2e516e6b39584523ba440703"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2017-16137=Medium, GHSA-gxpj-cx7g-858c=Low); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:2916af42f4c2cb086cbf"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:5f9dc115b5c2756188a4",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:78fa8246de8f3dcc45e0",
+        "ev:c3d153f8342c1ab15c6a1c5e"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:a1cd5d7d497b68e60f71"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:f41236696235c36058d6",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:fc32683c81bc4e008d5b",
+        "ev:c3d153f8342c1ab15c6a1c5e"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:ff826566b9fb7757338a"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:ece0c95a22b032b04b76",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:f9daeedcf867c76f3e39",
+        "ev:c3d153f8342c1ab15c6a1c5e"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:e63cd9f61588efe0e05f"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c04c935b09113dd28041",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 6.1,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:b42948463c26f3c9542d",
+        "ev:53fc34149b08b372192e9169"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:c4b347a94378d7b11e92"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:072163b048e3de29d65b",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 5.0,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:84b8b54b42ed31121b47",
+        "ev:53fc34149b08b372192e9169"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2024-43796=Medium, GHSA-qw6h-vgh9-j6wx=Low); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:4642f3420f7ae305b151"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:a62e0db81952d1556c51",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:03345cd50baefd637c5e",
+        "ev:bb57af811d75e678bc5de9a8"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:8b94645610ea1829a677"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:283e42dea24db7256da4",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:d120ef38647465900dad",
+        "ev:bb57af811d75e678bc5de9a8"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:5b4ec6b3c6d38e1ee432"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:a0543a6ec9d7323ef1bb",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 6.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:f436d2440adb2f55ce68",
+        "ev:3bad5c02f12eb678afbb9f6f"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:8d202f84e06f2be2a717"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:fc8420e4bbb486dae9b9",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:6aff373428f233486843",
+        "ev:96deb84476c42c8b9221618b"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:e25d0e74dc9dcb3cfd5a"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:dc708ca3b5f4e77010f0",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:b169a1bf5797a8f8dce1",
+        "ev:5be83072c329565720d4",
+        "ev:429efceecd17138536ace914",
+        "ev:f5c185f36807121fb0a75c16"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2020-7788=Critical, GHSA-qqgx-2p2h-9c37=High); the matched record's value is shown.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:39a71e44c0c187b4d828"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:1b62e97478285d5742a3",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:4dbc183cfe1f2bfd3dee",
+        "ev:150d0be6898915457dc52925",
+        "ev:1f6379808d7c5a690dee8da6",
+        "ev:227ac56e56372312ec595f6a",
+        "ev:6dd074656e794cb5bb71d10f",
+        "ev:7c3153a440fdae8fac977015",
+        "ev:84585529b119b22091de3c08",
+        "ev:ae7684337165043d1d0afe17",
+        "ev:b72bce890980e705ed12027d"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 8 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:f857b03e7ce9989926a8"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:3418702a6687e115324d",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 6.1,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:9389217b5e60a7802c87",
+        "ev:9f9cf4f58f1be507a94cd4bc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:f95287997b3b69a213d1"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:5cec2de0cd8ae2ea86e5",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 6.1,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:d8fc568bfdb419f6d889",
+        "ev:9f9cf4f58f1be507a94cd4bc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:abe1a0f325dc601516ad"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:8297e69d44af964cde3a",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:ab53c6e70ca6f47a91c0",
+        "ev:9f9cf4f58f1be507a94cd4bc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:88f1e22a257f1129c670"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:ed91473e6ad56c5d8248",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:24022c6d33d922eba2c8",
+        "ev:9f9cf4f58f1be507a94cd4bc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2018-25110=High, GHSA-p9wx-2529-fp83=Medium); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:c279ad9e0fd4979cb4c4"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:8860e1256a1c64662785",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:14d329d959756bc4594d",
+        "ev:9f9cf4f58f1be507a94cd4bc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:176cf977dc275607e935"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:26388e0adc1314dfdf57",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:1cfcc97b1aa06174f7a0",
+        "ev:9f9cf4f58f1be507a94cd4bc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:2e53d73b6e882efbfe49"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:47fe9658c55cbce509a4",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:e477b1de5314ed2cfcad",
+        "ev:636ebc6fdcbcb63a9349a3db",
+        "ev:c233017394386902b32b63b4"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:f40d1b36a7f1ea65acd1"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:afb76342a255d40929d3",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:1ce2e09c28dc78ee32a8",
+        "ev:6d685e66d223461bd87e",
+        "ev:3de5f242e592edcfbe506267",
+        "ev:f103ef4d9dc5edbffa699a78"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:8b02f58e4b2b0a33dcf2"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:aa391cfe0ee96d49a14f",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:c28d940fe4d84565aff8",
+        "ev:c308d4b967d69864ded6",
+        "ev:3de5f242e592edcfbe506267",
+        "ev:f103ef4d9dc5edbffa699a78"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:65ddb60a8e276e1503f7"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:78428756487e6fe00af5",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:19efd66e2c9273a10839",
+        "ev:7e41677c0e35c8cb69ea",
+        "ev:3de5f242e592edcfbe506267",
+        "ev:f103ef4d9dc5edbffa699a78"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:1575824b48caa502f643"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:ad95f8bc25114d79cf60",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:89f1d71ffe76f19775da",
+        "ev:4cef51365ee6b8d41f7d",
+        "ev:3de5f242e592edcfbe506267",
+        "ev:f103ef4d9dc5edbffa699a78"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:2dd661b868c05f5a3d68"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:ec8cbc1014e4f9cdb139",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.6,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:a1f58375b1cebccf36c7",
+        "ev:3ac0b4ba3b31ee6e8f155998"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:f74277003bf3f2721f13"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:6660f46c087d2a986400",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:76e11ec347c8b95f9105",
+        "ev:3ac0b4ba3b31ee6e8f155998"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:3a8421d560f427f18f5f"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:e2af51c248c277208a07",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.6,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:5835066b33e9f6e2578f",
+        "ev:412675bfa901df00dbe1",
+        "ev:1e3f14bd64063e0327bea9f7",
+        "ev:2f4d243115c18d6f1629ea91",
+        "ev:4133ed93e802980c0acb9b2d",
+        "ev:69a1abc144f771d1fe47a03c"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 4 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:add78bba569f4b83e0e3"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:734600d501103dc53339",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:d9b02335306ee9179bb8",
+        "ev:5e97e9a229e8255e0319",
+        "ev:1e3f14bd64063e0327bea9f7",
+        "ev:2f4d243115c18d6f1629ea91",
+        "ev:4133ed93e802980c0acb9b2d",
+        "ev:69a1abc144f771d1fe47a03c"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 4 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:1ad1fca2d8d5c155fbf5"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:eeec03f12674d8b83fae",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.6,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:e71af01e94f66813483c",
+        "ev:26b0c4c65925f85e18002cf9",
+        "ev:2bb1a95b5ceac6bc3380a3e3",
+        "ev:ac9626021b628715fb9e7309",
+        "ev:ba932cfcf110f3e8798eebfc",
+        "ev:c7e5b63c087fef9fd3333ebc",
+        "ev:e6535b518a5043a6ceec8bdb"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 6 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:c7c99283d11b1d497b98"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:6a7b3a8980e3a53a406b",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:b64950af166c93006ede",
+        "ev:26b0c4c65925f85e18002cf9",
+        "ev:2bb1a95b5ceac6bc3380a3e3",
+        "ev:ac9626021b628715fb9e7309",
+        "ev:ba932cfcf110f3e8798eebfc",
+        "ev:c7e5b63c087fef9fd3333ebc",
+        "ev:e6535b518a5043a6ceec8bdb"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 6 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:6291097af51651d551f3"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:bac2d4d4ea3184693d25",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:c74be6ee60826596326d",
+        "ev:83a356e2a2c20814d294d8ec"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:9af72fd5067f462d65ec"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:fe445016516ca2baaabe",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:3159531b2e1b8d58adaf",
+        "ev:db246ccf6d57bfbe3f206fc5"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:d9ece8dc1f2bdc1efca7"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:9204c88afc35eebb8339",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:5bf941240ebab071487b",
+        "ev:d433fe0ac70fe0a1851b70dd"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:9b94509cca6a196a38ce"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:0742dec98d4897751101",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:09390d886a0a61a33d2e",
+        "ev:0f86f68f9355b720eb67e99e",
+        "ev:33e8463926c6467af08f4c12",
+        "ev:b90ca04ac0c17b1d65e82ea2",
+        "ev:ca825f3c43a15a3ae3092d49"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Affects 4 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:0840fbdfd90d929f5465"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:9e76985feb484e1cb055",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:9d3e7ed66ef2c7d53c27",
+        "ev:5de20b6bdf2c3562879f3bf3"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:5e4404a4cb435a9f4877"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c10c13a6f030070f1e8c",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:bdac9d3f9bf752e2b5d3",
+        "ev:e06d6400ea1f54048a8b93b9"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:3343d43d3d98574e3f90"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:aa620b36c34364178dc1",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 3.4,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:8387f3f3ced39a877252",
+        "ev:6ef99f57c0c16e1cfab72237"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:0be76600f2e38a011501"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:3d3669585d79ad194393",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:bd9bf708192ac9d295bb",
+        "ev:b8011c036499bccc4d3e3db4"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:5c9c86cc8c5085b35ae2"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:4e6f86bf518d929e0c7f",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:702908974edd431d30e2",
+        "ev:b8011c036499bccc4d3e3db4"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:1c6bab9f02f05ad8bf5f"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:2a7bd68b11292c77ffe3",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:65b140b8afad5ec4a9c1",
+        "ev:b8011c036499bccc4d3e3db4"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:50f57e8e371cd7fb5b5c"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:804b5e4066713bc3617f",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.1,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:38397681a4a1527d4b08",
+        "ev:b0d781a5e5d3c890f4a7ece7"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:c378822f6e1d3849f6dd"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:20eb4cbc4b7fa23554a5",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:60668aa6dc36744852dc",
+        "ev:46213c3153f31c8e9ce6dad7"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:d9923bef93372a70974f"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:4ac618939009bbb31af1",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 3.7,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:770e6978e22e9d32f26b",
+        "ev:46213c3153f31c8e9ce6dad7"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:aced08ce4651eca3eae4"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c39ce32f14dbde74d1aa",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:ed769d4f052df0c7d788",
+        "ev:46213c3153f31c8e9ce6dad7"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:2cf81743315d28dfa4da"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:e7c7daed6733321b3af8",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:1233ec03eb7c890e95a3",
+        "ev:6a794b57a1d25919990937c4"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:a44467124a946c5d8dac"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:498d9f485c0e0d6f3c3e",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:5008ed3cc193b5d9622b",
+        "ev:4af203db1f4e40a7da90775b"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:10abea2d594cda69694d"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:73eedde857fd7f2389b9",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 5.0,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:d430074c73eddb8c114a",
+        "ev:3038e3d326f4a9fff1099c0c"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2024-43799=Medium, GHSA-m6fv-jmcg-4jfg=Low); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:b45e338efe4e630aa31e"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:bc801a6ff36c12aba015",
+      "priority": "P3",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Low",
+        "cvss_score": 5.0,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P3",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "LOW",
+        "rule": "R4",
+        "rule_priority": "P3",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity LOW on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:7958779991674a8c26d8",
+        "ev:cc8c73dd295d3922b2037317"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2024-43800=Medium, GHSA-cm22-4g7w-348p=Low); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:0f81fba4030a1f1c4a08"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:55f1d4816a510a5395be",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:67164a91f4e30853110b",
+        "ev:afd6d1515ba2e179ebdf8e9f"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:6d68306da1aa97577a1f"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:e5680989d00c4c723002",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:77f5190595cd908e7781",
+        "ev:afd6d1515ba2e179ebdf8e9f"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2021-23440=Critical, GHSA-4jqc-8m5r-9rpr=High); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:45d30ac5b2fe066e6189"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c329565fd81ac1fde8b0",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:d0e97f547e8eeb743570",
+        "ev:3cfe9db956539ad654659e14"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:e7a7bbf5fc8561e5fd98"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:b3790b26d7820b70d968",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:e8f90ac953742017664c",
+        "ev:3cfe9db956539ad654659e14"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2021-23440=Critical, GHSA-4jqc-8m5r-9rpr=High); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:7d71f1253808c7d40c08"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:3623bcb892f1c7ca5bbe",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:c44568b76ca2dbf299fb",
+        "ev:174b848fc03c430a47fae953"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:dab28ae2994009d5ff8d"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:1bbb065dc0d1d690fe2a",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 8.2,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:030be100699fae23f7b8",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:49f954bb67cbe1ef8274"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:34edfd135f9b65688b71",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 8.2,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:4bc4dd6c175457ee6ad6",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:6da7cc98fab1d245c874"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:94c4609868608475577b",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 8.2,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:b1e04e0f85502154569e",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:f5b804ebc5fe9df8484d"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:a881b846fc9e5b4ff5b9",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 8.2,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:ff771925a3a1b41d35e4",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:91de05e32805791f8b07"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:590434f284f5f0e3d590",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 8.2,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:602a25f2cfc9835ea3c7",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:02bbdaa30946131ab241"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:b7496eca4d9daa97fdac",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 6.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:a2d61038f9adc7959e07",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:8b8f1f2ce17307f51ff0"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c8a3e4d284ee7289eadc",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:b71df714f7248430a8c5",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-23745=Medium, GHSA-8qq5-rm4j-mr97=High); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:f5528f1d7872a1dfb71f"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:22d5e6f02e54111b4eaf",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 8.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:971e679ef243d59ded60",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-23950=Medium, GHSA-r6q2-hw4h-h46w=High); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:bfaa1117ec68f4dec534"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:a9f50f7e814a5d680db6",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 8.2,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:ebb610276fe794766e98",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:c5943a6b1eac572847d5"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:806b50a7baff8d0b7c28",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.1,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:78094d7ad629c6e53ce8",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:bc30573576d091800f89"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c31bdcedafe65c28b468",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:70d1371e6dab6e2c5d60",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-29786=Medium, GHSA-qffp-2rhf-9h96=High); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:b602252561267edb80e5"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:609b1d230283b28577a7",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:61e36c1507429247b2c8",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-31802=Medium, GHSA-9ppj-qmqm-q256=High); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:825167b8d9daa531b6ec"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:2fce400c0c9470283715",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": null,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:f1f6010744ccc6e1c711",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:b64e0dba18d162951abb"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:b3021ae81a21dd035e76",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:bdf16251fff05792a6a5",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-59871=High, GHSA-w8wr-v893-vjvp=Medium); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:b1c6e915141b26223aa3"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:c9480cb9287751f09d91",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:60c9b4ffd2af924b6960",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-59873=High, GHSA-23hp-3jrh-7fpw=Critical); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:e611e7c48ec201766ad2"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:2d593e0b4b59a9fe3e06",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:91d0c71e389a65ae9d34",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:d4cd992e44280981d41c"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:a999c8e69019aedbf215",
+      "priority": "P2",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Medium",
+        "cvss_score": 5.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P2",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "MEDIUM",
+        "rule": "R4",
+        "rule_priority": "P2",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity MEDIUM on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:e838de49205d7f1067e9",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:440ad079c81d40e0850a"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:4ceed8e9bb3c7adebbb2",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:b4ac665f14d88e193d50",
+        "ev:e753b20e31922d27a055d7cc"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:6de0737f87b8c33a0ab7"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:d2807180e4c1b7a2f26b",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.5,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:9dc84c55df3db11341ab",
+        "ev:e5ed67718219bfee41794c66"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:a2199c9ca4eb79e0bd6d"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:a17ed4ee42a9e600bf19",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "Critical",
+        "cvss_score": 9.8,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "CRITICAL",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity CRITICAL on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:3301b3cb59bdcef79887",
+        "ev:bb34f17dea17eb5383d0342e"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2021-23358=High, GHSA-cf4h-3jhx-xvhq=Critical); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:317d8aac09aaf6cc4b57"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:37d763de9b926e9ffd18",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 5.9,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:249262fa9d19223ef1c1",
+        "ev:bb34f17dea17eb5383d0342e"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2026-27601=Medium, GHSA-qpx9-hpmf-5gmw=High); the matched record's value is shown.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:c99df673c81cbc060c43"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:71e662f1e4cfc5a527d2",
+      "priority": "P1",
+      "factors": {
+        "classification": "CONFIRMED_ADVISORY",
+        "finding_type": "VULNERABILITY",
+        "severity_label": "High",
+        "cvss_score": 7.3,
+        "execution_stage": "UNKNOWN",
+        "execution_evidence": "NOT_ANALYZED",
+        "path_status": "FOUND",
+        "evidence_basis": "TOOL_OBSERVED",
+        "producer_priority": "P1",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "unresolved_occurrences": [],
+        "severity_basis": "HIGH",
+        "rule": "R4",
+        "rule_priority": "P1",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "published severity HIGH on resolved package; reachability unknown",
+      "evidence_ids": [
+        "ev:8deef9c57017e1be8f0a",
+        "ev:30e7c54b49a360710c8e24e1",
+        "ev:9f80d6c8762056edd18c235f"
+      ],
+      "unknowns": [
+        "Reachability of the vulnerable code in this application is not analyzed.",
+        "Exploitability in this application is not established.",
+        "Sources disagree on severity (CVE-2020-7774=Critical, GHSA-c4w7-xm78-47vh=High); the matched record's value is shown.",
+        "Affects 2 occurrences in 1 module(s); the dependency path shown is for one representative occurrence.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:abef1aa4897d337aa9ed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:909bc8c6af4176e96278",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:ac86d4a4b77426f2de84"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:effeda8e5aaebbc35f7b"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:b6d37c32f97446de1311",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:f24b481b50bfec59a803"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:19cc4b37a5ee6cb781ed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:4e0140f0558315a7f829",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:689265e09eaf8135f8f0"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:af69d198a589ec7738be"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:bc3f1ce25aa7e37802b0",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:9e585eee667b2e60dcc9"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:aae1dd1b54660348f912"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:480441423c6316e809b8",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:204dee2265b14be494d9"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:6c1cc2de7954d7e41970"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "finding_id": "fnd:d6a9c8d7e3d71221ac1a",
+      "priority": "NEEDS_REVIEW",
+      "factors": {
+        "classification": "CONFIGURATION_WEAKNESS",
+        "finding_type": "CI_POLICY",
+        "severity_label": null,
+        "cvss_score": null,
+        "execution_stage": "CI",
+        "execution_evidence": "POTENTIAL",
+        "path_status": "NOT_APPLICABLE",
+        "evidence_basis": "RULE_MATCH",
+        "producer_priority": "NEEDS_REVIEW",
+        "kev_status": null,
+        "reachability": null,
+        "evidence_missing": [],
+        "rule": "R5",
+        "rule_priority": "NEEDS_REVIEW",
+        "analyst_mode": "DETERMINISTIC_TEMPLATE",
+        "llm_status": "DISABLED"
+      },
+      "rationale": "CONFIGURATION_WEAKNESS indicator requires review",
+      "evidence_ids": [
+        "ev:79444ed1767b15b589f5"
+      ],
+      "unknowns": [
+        "A mutable reference is a configuration weakness, not evidence that the action is malicious.",
+        "Publisher 'actions' is GitHub-owned; the reference is still mutable.",
+        "kev_status not evaluated",
+        "reachability not demonstrated (not scored as zero)"
+      ],
+      "claim_ids": [
+        "clm:62cab187fa7593a6d5b8"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "clm:9d07d30c06d99ebe9bfa",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qwcr-r2fm-qrc7 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:cd8f4b2f05d3466663b5"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:baddf7a0ba273aa98b3a",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-27r3-jxmh-p828 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:57186ad64cbef45f6288"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:598dc9ec18224d6fb2bb",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-v422-hmwv-36x6 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:abe23e71c06db4e3bb99"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:20ad8128add5ef61b8e0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-v6h2-p8h4-qcjw (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:1c36bfc3b2f2b0d7c309",
+        "ev:bb212e54fb6d8701572e"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:4c64474b4ed1f091c18b",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-6j4f-fj2g-mc7p (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:b73fe88321e69b0374e1",
+        "ev:6ddaa8048e1319a95811"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:41d0097894cc326d900a",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-q2hr-2g5m-vwhr (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:4d8df2112f617e57801e",
+        "ev:1c46e18ebe8d067420d7"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:94fbb1b2483b7b50d395",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qhr7-859c-m2p7 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:519ecd5820bc65e3b488",
+        "ev:8ade27473664843f149f"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:002b029b4549084af487",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-3jxr-9vmj-r5cp (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:bc404f542ceb04bd9220",
+        "ev:b18927464df594b2d671"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:e85c9c636f9e9cfb2824",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-mh99-v99m-4gvg (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:ca3cd0e72b85849f4e70",
+        "ev:e4ec2d78a88dbd2cee1c"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:4d6d807178f090f55782",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-f886-m6hf-6m8v (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:81d0f890b0516e0fa2b7",
+        "ev:6e76e09eb7dc60d2fc8a"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:0886057cac1519c2346d",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-rgw5-rvv9-x895 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:bb041228c9e81616a20f",
+        "ev:6b46054fe0fb459f8e7c"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:d386101ea8c5c7e3b1f8",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-grv7-fg5c-xmjg (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:39edd0869a87b5c07b96"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:b829ce88ed1081e48739",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-4jwp-vfvf-657p (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:9673988976f21623c50e"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:8405b680a641b9a39f10",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-v8w9-2789-6hhr (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:9f9afeb3feb81e8f304e"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:f8a1825820a1d1f4a06a",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-pxg6-pf52-xh8x (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:ce3641b95735b77579b5"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:cac33b69c0ada0377331",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-gxpj-cx7g-858c (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:42acc703fd764259fd04"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:9024541ca5ec7733f278",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-9vvw-cc9w-f27h (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:e63e728649f460094018"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:2916af42f4c2cb086cbf",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-gxpj-cx7g-858c (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:0533d6d28b8bb159a4ba"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:a1cd5d7d497b68e60f71",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-w573-4hg7-7wgq (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:78fa8246de8f3dcc45e0"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:ff826566b9fb7757338a",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qr28-fpjm-wq7f (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:fc32683c81bc4e008d5b"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:e63cd9f61588efe0e05f",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-vcc3-ghjq-m6fr (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:f9daeedcf867c76f3e39"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:c4b347a94378d7b11e92",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-rv95-896h-c2vc (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:b42948463c26f3c9542d"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:4642f3420f7ae305b151",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qw6h-vgh9-j6wx (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:84b8b54b42ed31121b47"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:8b94645610ea1829a677",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-8r6j-v8pm-fqw3 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:03345cd50baefd637c5e"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:5b4ec6b3c6d38e1ee432",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-xv2f-5jw4-v95m (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:d120ef38647465900dad"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:8d202f84e06f2be2a717",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-c3m8-x3cg-qm2c (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:f436d2440adb2f55ce68"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:e25d0e74dc9dcb3cfd5a",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-x55w-vjjp-222r (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:6aff373428f233486843"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:39a71e44c0c187b4d828",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qqgx-2p2h-9c37 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:b169a1bf5797a8f8dce1",
+        "ev:5be83072c329565720d4"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:f857b03e7ce9989926a8",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-6c8f-qphg-qjgp (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:4dbc183cfe1f2bfd3dee"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:f95287997b3b69a213d1",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-vfvf-mqq8-rwqc (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:9389217b5e60a7802c87"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:abe1a0f325dc601516ad",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-7px7-7xjx-hxm8 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:d8fc568bfdb419f6d889"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:88f1e22a257f1129c670",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-x5pg-88wf-qq4p (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:ab53c6e70ca6f47a91c0"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:c279ad9e0fd4979cb4c4",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-p9wx-2529-fp83 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:24022c6d33d922eba2c8"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:176cf977dc275607e935",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-rrrm-qjm4-v8hf (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:14d329d959756bc4594d"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:2e53d73b6e882efbfe49",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-5v2h-r2cx-5xgj (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:1cfcc97b1aa06174f7a0"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:f40d1b36a7f1ea65acd1",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-952p-6rrq-rcjv (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:e477b1de5314ed2cfcad"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:8b02f58e4b2b0a33dcf2",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-f8q6-p94x-37v3 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:1ce2e09c28dc78ee32a8",
+        "ev:6d685e66d223461bd87e"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:65ddb60a8e276e1503f7",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-3ppc-4f35-3m26 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:c28d940fe4d84565aff8",
+        "ev:c308d4b967d69864ded6"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:1575824b48caa502f643",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-7r86-cg39-jmmj (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:19efd66e2c9273a10839",
+        "ev:7e41677c0e35c8cb69ea"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:2dd661b868c05f5a3d68",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-23c5-xmqv-rm74 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:89f1d71ffe76f19775da",
+        "ev:4cef51365ee6b8d41f7d"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:f74277003bf3f2721f13",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-vh95-rmgr-6w4m (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:a1f58375b1cebccf36c7"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:3a8421d560f427f18f5f",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-xvch-5gv4-984h (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:76e11ec347c8b95f9105"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:add78bba569f4b83e0e3",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-vh95-rmgr-6w4m (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:5835066b33e9f6e2578f",
+        "ev:412675bfa901df00dbe1"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:1ad1fca2d8d5c155fbf5",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-xvch-5gv4-984h (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:d9b02335306ee9179bb8",
+        "ev:5e97e9a229e8255e0319"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:c7c99283d11b1d497b98",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-vh95-rmgr-6w4m (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:e71af01e94f66813483c"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:6291097af51651d551f3",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-xvch-5gv4-984h (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:b64950af166c93006ede"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:9af72fd5067f462d65ec",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-xvch-5gv4-984h (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:c74be6ee60826596326d"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:d9ece8dc1f2bdc1efca7",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-fhjf-83wg-r2j9 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:3159531b2e1b8d58adaf"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:9b94509cca6a196a38ce",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-mh5c-679w-hh4r (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:5bf941240ebab071487b"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:0840fbdfd90d929f5465",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-w9mr-4mfr-499f (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:09390d886a0a61a33d2e"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:5e4404a4cb435a9f4877",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-6xwr-q98w-rvg7 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:9d3e7ed66ef2c7d53c27"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:3343d43d3d98574e3f90",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-6xwr-q98w-rvg7 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:bdac9d3f9bf752e2b5d3"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:0be76600f2e38a011501",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-76c9-3jph-rj3q (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:8387f3f3ced39a877252"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:5c9c86cc8c5085b35ae2",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-9wv6-86v2-598j (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:bd9bf708192ac9d295bb"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:1c6bab9f02f05ad8bf5f",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-rhx6-c78j-4q9w (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:702908974edd431d30e2"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:50f57e8e371cd7fb5b5c",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-37ch-88jc-xwx2 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:65b140b8afad5ec4a9c1"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:c378822f6e1d3849f6dd",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-jqcg-44mw-7w3h (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:38397681a4a1527d4b08"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:d9923bef93372a70974f",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-hrpp-h998-j3pp (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:60668aa6dc36744852dc"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:aced08ce4651eca3eae4",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-6rw7-vpxm-498p (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:770e6978e22e9d32f26b"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:2cf81743315d28dfa4da",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-4mjr-xmp4-gh2g (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:ed769d4f052df0c7d788"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:a44467124a946c5d8dac",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-c2qf-rxjj-qqgw (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:1233ec03eb7c890e95a3"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:10abea2d594cda69694d",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-c2qf-rxjj-qqgw (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:5008ed3cc193b5d9622b"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:b45e338efe4e630aa31e",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-m6fv-jmcg-4jfg (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:d430074c73eddb8c114a"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:0f81fba4030a1f1c4a08",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-cm22-4g7w-348p (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:7958779991674a8c26d8"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:6d68306da1aa97577a1f",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-4g88-fppr-53pp (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:67164a91f4e30853110b"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:45d30ac5b2fe066e6189",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-4jqc-8m5r-9rpr (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:77f5190595cd908e7781"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:e7a7bbf5fc8561e5fd98",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-4g88-fppr-53pp (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:d0e97f547e8eeb743570"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:7d71f1253808c7d40c08",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-4jqc-8m5r-9rpr (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:e8f90ac953742017664c"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:dab28ae2994009d5ff8d",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-2rq5-699j-x7p6 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:c44568b76ca2dbf299fb"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:49f954bb67cbe1ef8274",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-r628-mhmh-qjhw (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:030be100699fae23f7b8"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:6da7cc98fab1d245c874",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-3jfq-g458-7qm9 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:4bc4dd6c175457ee6ad6"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:f5b804ebc5fe9df8484d",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-9r2w-394v-53qc (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:b1e04e0f85502154569e"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:91de05e32805791f8b07",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qq89-hq3f-393p (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:ff771925a3a1b41d35e4"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:02bbdaa30946131ab241",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-5955-9wpr-37jh (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:602a25f2cfc9835ea3c7"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:8b8f1f2ce17307f51ff0",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-f5x3-32g6-xq36 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:a2d61038f9adc7959e07"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:f5528f1d7872a1dfb71f",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-8qq5-rm4j-mr97 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:b71df714f7248430a8c5"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:bfaa1117ec68f4dec534",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-r6q2-hw4h-h46w (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:971e679ef243d59ded60"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:c5943a6b1eac572847d5",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-34x7-hfp2-rc4v (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:ebb610276fe794766e98"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:bc30573576d091800f89",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-83g3-92jg-28cx (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:78094d7ad629c6e53ce8"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:b602252561267edb80e5",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qffp-2rhf-9h96 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:70d1371e6dab6e2c5d60"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:825167b8d9daa531b6ec",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-9ppj-qmqm-q256 (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:61e36c1507429247b2c8"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:b64e0dba18d162951abb",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-vmf3-w455-68vh (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:f1f6010744ccc6e1c711"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:b1c6e915141b26223aa3",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-w8wr-v893-vjvp (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:bdf16251fff05792a6a5"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:e611e7c48ec201766ad2",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-23hp-3jrh-7fpw (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:60c9b4ffd2af924b6960"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:d4cd992e44280981d41c",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-8x88-c5mf-7j5w (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:91d0c71e389a65ae9d34"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:440ad079c81d40e0850a",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-gvwx-54wh-qm9j (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:e838de49205d7f1067e9"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:6de0737f87b8c33a0ab7",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-r292-9mhp-454m (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:b4ac665f14d88e193d50"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:a2199c9ca4eb79e0bd6d",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-c9f4-xj24-8jqx (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:9dc84c55df3db11341ab"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:317d8aac09aaf6cc4b57",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-cf4h-3jhx-xvhq (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:3301b3cb59bdcef79887"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:c99df673c81cbc060c43",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-qpx9-hpmf-5gmw (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:249262fa9d19223ef1c1"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:abef1aa4897d337aa9ed",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Resolved component matched published advisory GHSA-c4w7-xm78-47vh (as of 2026-11-23T06:28:32Z).",
+      "claim_type": "ADVISORY_MATCH",
+      "evidence_ids": [
+        "ev:8deef9c57017e1be8f0a"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:effeda8e5aaebbc35f7b",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:ac86d4a4b77426f2de84"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:19cc4b37a5ee6cb781ed",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:f24b481b50bfec59a803"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:af69d198a589ec7738be",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:689265e09eaf8135f8f0"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:aae1dd1b54660348f912",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:9e585eee667b2e60dcc9"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:6c1cc2de7954d7e41970",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:204dee2265b14be494d9"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    },
+    {
+      "claim_id": "clm:62cab187fa7593a6d5b8",
+      "scan_id": "cd96dc5d-511e-4b6d-9d9e-5b6b6f168cbb",
+      "text": "Configuration rule D5-UNPINNED-ACTION matched at the cited location.",
+      "claim_type": "CONFIG_RULE_MATCH",
+      "evidence_ids": [
+        "ev:79444ed1767b15b589f5"
+      ],
+      "basis": "VERIFIED",
+      "validated": true,
+      "validation_errors": []
+    }
+  ]
+}

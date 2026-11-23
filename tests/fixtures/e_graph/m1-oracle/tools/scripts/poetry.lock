@@ -1,0 +1,4 @@
+# Role E fixture: present only so module discovery reports an unsupported ecosystem.
+[[package]]
+name = "fx-pyhelper"
+version = "1.0.0"

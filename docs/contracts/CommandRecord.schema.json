@@ -1,0 +1,57 @@
+{
+  "$id": "guardian/1.0/CommandRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "argv": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Argv",
+      "type": "array"
+    },
+    "duration_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Duration Ms"
+    },
+    "exit_code": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Exit Code"
+    },
+    "log_evidence_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Log Evidence Id"
+    }
+  },
+  "required": [
+    "argv",
+    "exit_code",
+    "log_evidence_id",
+    "duration_ms"
+  ],
+  "title": "CommandRecord",
+  "type": "object"
+}

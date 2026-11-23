@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "scan_id": "df21a14b-0baa-4a9c-baa2-b5113cc30a29",
+  "repo_url": "https://github.com/OWASP/NodeGoat.git",
+  "commit_sha": "c5cb68a7084e4ae7dcc60e6a98768720a81841e8",
+  "source_kind": "GIT_PUBLIC",
+  "started_at": "2026-11-23T12:05:51.451882Z",
+  "finished_at": "2026-11-23T12:06:04.401645Z",
+  "status": "PARTIAL",
+  "tool_versions": {
+    "python": "3.11.9",
+    "git": "git version 2.48.1.windows.1"
+  },
+  "errors": [],
+  "stage_statuses": {
+    "intake": "COMPLETE",
+    "inventory": "COMPLETE",
+    "graph": "COMPLETE",
+    "advisory": "UNAVAILABLE",
+    "detectors": "COMPLETE",
+    "analysis": "COMPLETE",
+    "vulnerability_intelligence": "UNAVAILABLE",
+    "ci_workflow_policy": "COMPLETE",
+    "lockfile_change_detection": "NOT_RUN"
+  },
+  "database_snapshots": {},
+  "source_snapshot_sha256": "4e049b4f3ac7dc819242dc39f275fccca5f9ab1a1b29a2cdcdc841c9352abde8",
+  "scope_capabilities": {
+    "artifact": "NOT_RUN",
+    "source": "1479 occurrences, 2296 edges from B's graph builder; coverage {'total_modules': 1, 'resolved_modules': 1, 'partial_modules': 0, 'declared_only_modules': 0, 'unsupported_modules': 0, 'failed_modules': 0}",
+    "ci": "2 workflow file(s) discovered; analysis depends on E's detectors"
+  },
+  "stage_records": {
+    "intake": {
+      "stage": "intake",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.intake",
+      "tool_version": "git version 2.48.1.windows.1",
+      "reason": null,
+      "completed_at": "2026-11-23T12:06:01.595340Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "inventory": {
+      "stage": "inventory",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.module_index",
+      "tool_version": null,
+      "reason": null,
+      "completed_at": "2026-11-23T12:06:01.619882Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "graph": {
+      "stage": "graph",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.analysis.graph_build",
+      "tool_version": null,
+      "reason": null,
+      "completed_at": "2026-11-23T12:06:04.082092Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "advisory": {
+      "stage": "advisory",
+      "status": "UNAVAILABLE",
+      "attempted": false,
+      "tool": "grype",
+      "tool_version": null,
+      "reason": "grype executable not found (PATH or GUARDIAN_GRYPE)",
+      "completed_at": null,
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "detectors": {
+      "stage": "detectors",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian-d5-ci",
+      "tool_version": "1.0.0",
+      "reason": null,
+      "completed_at": "2026-11-23T12:06:04Z",
+      "known_matches": 6,
+      "evidence_ids": []
+    },
+    "analysis": {
+      "stage": "analysis",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian.analysis.scoring + analyst (LLM_MODE=disabled templates)",
+      "tool_version": null,
+      "reason": null,
+      "completed_at": "2026-11-23T12:06:04.396338Z",
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "vulnerability_intelligence": {
+      "stage": "vulnerability_intelligence",
+      "status": "UNAVAILABLE",
+      "attempted": false,
+      "tool": "grype",
+      "tool_version": null,
+      "reason": "grype executable not found (PATH or GUARDIAN_GRYPE)",
+      "completed_at": null,
+      "known_matches": null,
+      "evidence_ids": []
+    },
+    "ci_workflow_policy": {
+      "stage": "ci_workflow_policy",
+      "status": "COMPLETE",
+      "attempted": true,
+      "tool": "guardian-d5-ci",
+      "tool_version": "1.0.0",
+      "reason": null,
+      "completed_at": "2026-11-23T12:06:04Z",
+      "known_matches": 6,
+      "evidence_ids": []
+    },
+    "lockfile_change_detection": {
+      "stage": "lockfile_change_detection",
+      "status": "NOT_RUN",
+      "attempted": false,
+      "tool": "guardian-d1-lockfile",
+      "tool_version": null,
+      "reason": "no baseline ref supplied; change detection needs a baseline",
+      "completed_at": null,
+      "known_matches": null,
+      "evidence_ids": []
+    }
+  }
+}

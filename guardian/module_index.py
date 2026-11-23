@@ -88,7 +88,9 @@ def index_modules(scan_id: str, repo_dir: str) -> list["ProjectModule"]:
     ]
     dockerfiles = [
         _relative(root, p) for p in files
-        if p.name.startswith("Dockerfile") or p.name.lower().startswith("compose.")
+        if p.name.startswith("Dockerfile")
+        or p.name.lower().startswith("compose.")
+        or p.name.lower() in {"docker-compose.yml", "docker-compose.yaml"}
     ]
     for path in files:
         ecosystem = _MANIFESTS.get(path.name)

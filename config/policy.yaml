@@ -1,0 +1,45 @@
+# Guardian policy (project.md §8.4).  Owner: Role C.
+# Keys the code cannot enforce are listed under `unsupported` and fail closed;
+# Guardian does not claim compliance for them.
+policy_version: 1
+
+repository_intake:
+  allowed_hosts: [github.com]
+  allow_private_repos: false
+  allow_submodules: false
+  max_files: 50000
+  max_repo_bytes: 500000000
+
+local_intake:
+  # `scan --local` only accepts team-owned fixture roots (repo-relative).
+  allowed_roots: [tests/fixtures, sandbox]
+  max_files: 5000
+  max_bytes: 50000000
+
+scanning:
+  execute_repository_scripts: false
+  record_failed_tools: true
+  require_evidence_for_verified_claims: true
+
+agent:
+  may_change_scan_facts: false
+  may_reduce_risk_without_new_evidence: false
+  raw_untrusted_text_can_authorize_tools: false
+  max_prompt_chars: 12000
+  max_untrusted_snippet_chars: 2000
+  max_output_chars: 8000
+  timeout_seconds: 30
+  max_retries: 2
+  max_findings_analyzed: 20
+
+remediation:
+  require_explicit_human_approval: true
+  allow_merge_or_publish: false
+  allow_worktree_patch_only: true
+  fail_closed_on_missing_candidate_audit: true
+  allowed_strategies: [DIRECT_UPGRADE, PARENT_UPGRADE, OVERRIDE, CI_CONFIG, ESCALATE]
+  approval_ttl_minutes: 120
+  allow_audit_reject_override: false
+  max_proposals_per_finding: 3
+
+unsupported: []

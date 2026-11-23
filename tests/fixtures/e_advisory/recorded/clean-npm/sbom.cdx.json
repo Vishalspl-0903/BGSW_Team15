@@ -1,0 +1,146 @@
+{
+ "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.7",
+ "serialNumber": "urn:uuid:6d225f59-9810-4f21-9d56-e0c19a83a122",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-23T15:59:28+05:30",
+  "tools": {
+   "components": [
+    {
+     "type": "application",
+     "author": "anchore",
+     "name": "syft",
+     "version": "1.57.2"
+    }
+   ]
+  },
+  "component": {
+   "bom-ref": "853777b31464864e",
+   "type": "file",
+   "name": "<fixture-dir>"
+  }
+ },
+ "components": [
+  {
+   "bom-ref": "pkg:npm/e-fixture-clean@1.0.0?package-id=9cdb37eacdf1956b",
+   "type": "library",
+   "name": "e-fixture-clean",
+   "version": "1.0.0",
+   "cpe": "cpe:2.3:a:e-fixture-clean:e-fixture-clean:1.0.0:*:*:*:*:*:*:*",
+   "purl": "pkg:npm/e-fixture-clean@1.0.0",
+   "properties": [
+    {
+     "name": "syft:package:foundBy",
+     "value": "javascript-lock-cataloger"
+    },
+    {
+     "name": "syft:package:language",
+     "value": "javascript"
+    },
+    {
+     "name": "syft:package:type",
+     "value": "npm"
+    },
+    {
+     "name": "syft:package:metadataType",
+     "value": "javascript-npm-package-lock-entry"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture-clean:e_fixture_clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture_clean:e-fixture-clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture_clean:e_fixture_clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture:e-fixture-clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e-fixture:e_fixture_clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture:e-fixture-clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e_fixture:e_fixture_clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e:e-fixture-clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:cpe23",
+     "value": "cpe:2.3:a:e:e_fixture_clean:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+     "name": "syft:location:0:path",
+     "value": "/package-lock.json"
+    }
+   ]
+  },
+  {
+   "bom-ref": "pkg:npm/ms@2.1.3?package-id=2adce5c86de4bbb7",
+   "type": "library",
+   "name": "ms",
+   "version": "2.1.3",
+   "cpe": "cpe:2.3:a:vercel:ms:2.1.3:*:*:*:*:node.js:*:*",
+   "purl": "pkg:npm/ms@2.1.3",
+   "properties": [
+    {
+     "name": "syft:package:foundBy",
+     "value": "javascript-lock-cataloger"
+    },
+    {
+     "name": "syft:package:language",
+     "value": "javascript"
+    },
+    {
+     "name": "syft:package:type",
+     "value": "npm"
+    },
+    {
+     "name": "syft:package:metadataType",
+     "value": "javascript-npm-package-lock-entry"
+    },
+    {
+     "name": "syft:location:0:path",
+     "value": "/package-lock.json"
+    }
+   ]
+  },
+  {
+   "bom-ref": "fd71c2238fc07657",
+   "type": "file",
+   "name": "/package-lock.json",
+   "hashes": [
+    {
+     "alg": "SHA-1",
+     "content": "4558e6fc1802f8b1de28f1741fc302e98bf697ea"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "cc896c36e52d8dc5ba8e7c0758275372d9496228f32ffcd3591bcc0b65752ea4"
+    }
+   ]
+  }
+ ],
+ "dependencies": [
+  {
+   "ref": "pkg:npm/e-fixture-clean@1.0.0?package-id=9cdb37eacdf1956b",
+   "dependsOn": [
+    "pkg:npm/ms@2.1.3?package-id=2adce5c86de4bbb7"
+   ]
+  }
+ ]
+}

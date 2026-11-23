@@ -2,6 +2,10 @@
 
 If Syft is absent the result is ``status="NOT_RUN"``; a crash or malformed
 output is ``FAILED`` with the raw bytes still preserved and hashed.
+
+One Syft run writes two formats: syft-json (kept under ``raw/syft.json``, used
+for the cross-check) and CycloneDX JSON (``sbom/syft.cdx.json``, the SBOM that
+E's Grype adapter consumes). Both are hashed.
 """
 
 from __future__ import annotations
@@ -9,6 +13,7 @@ from __future__ import annotations
 import json
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -68,31 +73,73 @@ def parse_syft_json(raw: bytes) -> dict[str, Any]:
     }
 
 
+def parse_cyclonedx(raw: bytes) -> dict[str, Any]:
+    """Validate a CycloneDX JSON BOM and extract components + dependency edges."""
+    try:
+        doc = json.loads(raw)
+    except ValueError as exc:
+        raise ValueError(f"CycloneDX output is not valid JSON: {exc}") from exc
+    if not isinstance(doc, dict) or doc.get("bomFormat") != "CycloneDX" or not isinstance(doc.get("components", []), list):
+        raise ValueError("document is not a CycloneDX BOM with a 'components' list")
+    pkgs = []
+    for c in doc.get("components", []):
+        if not isinstance(c, dict) or not c.get("name"):
+            continue
+        purl = c.get("purl")
+        pkgs.append({"syft_id": c.get("bom-ref"), "name": c["name"], "version": c.get("version"),
+                     "type": "npm" if isinstance(purl, str) and purl.startswith("pkg:npm/") else c.get("type"),
+                     "purl": purl, "locations": []})
+    rels = [{"parent": d.get("ref"), "child": child, "type": "depends-on"}
+            for d in doc.get("dependencies", []) if isinstance(d, dict)
+            for child in d.get("dependsOn", []) or []]
+    return {"packages": pkgs, "relationships": rels, "relationship_kind": "edges" if rels else "flat",
+            "descriptor_version": (doc.get("metadata") or {}).get("tools")}
+
+
 def run_syft(repo_dir: str | Path, store: EvidenceStore, timeout: int = 300) -> dict[str, Any]:
-    """Generate a source SBOM for ``repo_dir``; preserve raw output + log."""
+    """Generate a source SBOM for ``repo_dir``; preserve raw output, CycloneDX and log."""
     exe = shutil.which("syft")
     if exe is None:
         return {"status": "NOT_RUN", "reason": "syft not installed", "tool_version": None}
     version = syft_version()
-    argv = ["syft", f"dir:{Path(repo_dir).as_posix()}", "-o", "syft-json", "-q"]
-    try:
-        res = subprocess.run([exe, *argv[1:]], capture_output=True, timeout=timeout)
-    except (subprocess.TimeoutExpired, OSError) as exc:
-        return {"status": "FAILED", "reason": f"syft did not complete: {exc.__class__.__name__}",
-                "tool_version": version}
-    safe_argv = ["syft", "dir:<repo>", "-o", "syft-json", "-q"]
+    with tempfile.TemporaryDirectory() as tmp:
+        cdx_path = Path(tmp) / "syft.cdx.json"
+        argv = [exe, f"dir:{Path(repo_dir).as_posix()}", "-o", "syft-json", "-o",
+                f"cyclonedx-json={cdx_path.as_posix()}", "-q"]
+        try:
+            res = subprocess.run(argv, capture_output=True, timeout=timeout)
+        except (subprocess.TimeoutExpired, OSError) as exc:
+            return {"status": "FAILED", "reason": f"syft did not complete: {exc.__class__.__name__}",
+                    "tool_version": version}
+        cdx_raw = cdx_path.read_bytes() if cdx_path.is_file() else None
+    safe_argv = "syft dir:<repo> -o syft-json -o cyclonedx-json=<file> -q"
     log_rel, log_sha = store.save_raw("syft.stderr.log", scrub_host_paths(res.stderr.decode("utf-8", "replace")).encode())
     raw_rel, raw_sha = store.save_raw("syft.json", res.stdout)
     ev = store.add(
-        "SBOM", f"syft exit={res.returncode} argv={' '.join(safe_argv)}",
+        "SBOM", f"syft exit={res.returncode} argv={safe_argv}",
         tool_name="syft", tool_version=version, raw_artifact=raw_rel, raw_sha256=raw_sha,
         observed_value={"exit_code": res.returncode, "stderr_artifact": log_rel, "stderr_sha256": log_sha},
     )
     out: dict[str, Any] = {"tool_version": version, "evidence_id": ev, "raw_artifact": raw_rel,
-                           "raw_sha256": raw_sha, "exit_code": res.returncode}
+                           "raw_sha256": raw_sha, "exit_code": res.returncode,
+                           "sbom_artifact": None, "sbom_sha256": None}
     if res.returncode != 0:
         return {**out, "status": "FAILED", "reason": f"syft exited {res.returncode}"}
+    if cdx_raw is not None:
+        sbom_rel, sbom_sha = store.save_raw("syft.cdx.json", cdx_raw, subdir="sbom")
+        out.update(sbom_artifact=sbom_rel, sbom_sha256=sbom_sha)
+        store.add("SBOM", "CycloneDX SBOM written by syft (consumed by the advisory scanner)",
+                  tool_name="syft", tool_version=version, raw_artifact=sbom_rel, raw_sha256=sbom_sha)
     try:
-        return {**out, "status": "COMPLETE", **parse_syft_json(res.stdout)}
+        parsed = parse_syft_json(res.stdout)
     except ValueError as exc:
         return {**out, "status": "FAILED", "reason": str(exc)}
+    out.update(status="COMPLETE", **parsed)
+    if cdx_raw is None:
+        out["cdx_warning"] = "syft produced no CycloneDX file"
+    else:
+        try:
+            out["cdx_components"] = len(parse_cyclonedx(cdx_raw)["packages"])
+        except ValueError as exc:
+            out["cdx_warning"] = str(exc)
+    return out

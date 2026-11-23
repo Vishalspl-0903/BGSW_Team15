@@ -95,16 +95,18 @@ class EvidenceStore:
             }
         return evidence_id
 
-    def save_raw(self, name: str, data: bytes) -> tuple[str | None, str]:
-        """Persist raw bytes under ``<run>/raw/<name>``; return (relpath, sha256)."""
+    def save_raw(self, name: str, data: bytes, subdir: str = "raw") -> tuple[str | None, str]:
+        """Persist bytes under ``<run>/<subdir>/<name>`` (subdir: raw|sbom); return (relpath, sha256)."""
+        if subdir not in ("raw", "sbom"):
+            raise ValueError("subdir must be 'raw' or 'sbom'")
         digest = sha256_bytes(data)
         if self.run_dir is None:
             return None, digest
-        safe = Path(name).name  # no traversal out of raw/
-        target = self.run_dir / "raw" / safe
+        safe = Path(name).name  # no traversal out of the subdir
+        target = self.run_dir / subdir / safe
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-        return f"raw/{safe}", digest
+        return f"{subdir}/{safe}", digest
 
     def flush(self) -> Path | None:
         if self.run_dir is None:

@@ -284,6 +284,8 @@ def _syft_crosscheck(syft: dict[str, Any], comps: list[dict], warnings: list[str
     if syft.get("status") != "COMPLETE":
         warnings.append(f"SYFT_{syft.get('status')}: {syft.get('reason', '')}".rstrip(": "))
         return
+    if syft.get("cdx_warning"):
+        warnings.append(f"SYFT_CDX_INVALID: {syft['cdx_warning']}")
     syft_set = {(p["name"], p["version"]) for p in syft["packages"] if p.get("type") in ("npm", None)}
     lock_set = {(c["name"], c["resolved_version"]) for c in comps if c["resolved_version"]}
     only_syft, only_lock = syft_set - lock_set, lock_set - syft_set
